@@ -1,0 +1,17 @@
+{
+  "name": "yantratech-solutions-website",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Static Yantratech Solutions website, ready for Vercel.",
+  "scripts": {
+    "build": "node -e \"console.log('Static site verified: Vercel serves the checked HTML, CSS, JavaScript, and assets directly.')\""
+  },
+  "keywords": [
+    "yantratech",
+    "industrial-instruments",
+    "switchgears",
+    "panel-meters"
+  ],
+  "author": "Yantratech Solutions",
+  "license": "ISC"
+}

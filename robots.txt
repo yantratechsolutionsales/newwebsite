@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Keep the public sitemap discoverable for all compliant crawlers.
+Sitemap: https://www.yantratechsolutions.co.in/sitemap.xml
