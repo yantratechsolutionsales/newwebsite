@@ -1,6 +1,7 @@
 {
   "name": "yantratech-solutions-website",
   "version": "3.0.0",
+  "type": "module",
   "private": true,
   "description": "Static Yantratech Solutions website, ready for Vercel.",
   "scripts": {
