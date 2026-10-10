@@ -1,0 +1,228 @@
+[
+  {
+    "id": "fluke-115",
+    "name": "True-RMS Digital Multimeter",
+    "brand": "Fluke",
+    "model": "Fluke 115",
+    "category": "electrical-testing",
+    "categoryName": "Electrical Testing & Measurement",
+    "subcategory": "Digital Multimeters",
+    "image": "assets/testing-measuring.webp",
+    "shortDescription": "Compact True-RMS digital multimeter for field service technicians, electrical troubleshooting, and electronic testing.",
+    "features": [
+      "True-RMS for accurate measurements on non-linear loads",
+      "Large white LED backlight for working in poorly lit areas",
+      "Resistance, continuity, frequency, and capacitance measurements",
+      "Min/Max/Average with elapsed time to record signal fluctuations",
+      "CAT III 600 V safety rating"
+    ],
+    "specs": {
+      "DC Voltage": "600.0 mV to 600.0 V (Accuracy ±0.5% + 2)",
+      "AC Voltage": "600.0 mV to 600.0 V (True-RMS, 45 Hz to 1 kHz)",
+      "AC/DC Current": "Up to 10.00 A continuous (20 A overload for 30s)",
+      "Resistance": "Up to 40.00 MΩ",
+      "Capacitance": "1000 nF to 9999 μF",
+      "Frequency": "99.99 Hz to 50.00 kHz",
+      "Safety Rating": "CAT III 600 V",
+      "Battery": "9 V alkaline, typically 400 hours without backlight"
+    },
+    "applications": ["Field Service Technicians", "Industrial Electrical Maintenance", "Bench Testing"],
+    "verified": true
+  },
+  {
+    "id": "meco-27-auto",
+    "name": "Digital Clamp Meter 400A AC",
+    "brand": "Meco",
+    "model": "27-Auto",
+    "category": "electrical-testing",
+    "categoryName": "Electrical Testing & Measurement",
+    "subcategory": "Clamp Meters",
+    "image": "assets/testing-measuring.webp",
+    "shortDescription": "3¾ digit 4000 counts autoranging digital clamp meter with non-contact voltage detector and frequency measurement.",
+    "features": [
+      "4000 counts high-contrast LCD display",
+      "Auto and manual ranging",
+      "Data hold and max hold functions",
+      "Audible continuity tester and diode test",
+      "Jaw opening 26 mm max cable diameter"
+    ],
+    "specs": {
+      "AC Current": "40A, 400A AC (±2.5% + 5)",
+      "AC Voltage": "4V to 600V AC (±1.2% + 5)",
+      "DC Voltage": "400mV to 600V DC (±0.8% + 3)",
+      "Resistance": "400Ω to 40MΩ",
+      "Frequency": "10Hz to 10MHz",
+      "Safety": "CAT II 600V",
+      "Jaw Opening": "26mm conductor size"
+    },
+    "applications": ["Facility Electrical Inspection", "HVAC Current Auditing", "Motor Starting Load Checks"],
+    "verified": true
+  },
+  {
+    "id": "rish-insul-5000",
+    "name": "Digital High Voltage Insulation Tester 5kV",
+    "brand": "Rishabh",
+    "model": "Rish Insu 5000",
+    "category": "electrical-testing",
+    "categoryName": "Electrical Testing & Measurement",
+    "subcategory": "Insulation Testers",
+    "image": "assets/testing-measuring.webp",
+    "shortDescription": "Microprocessor-controlled 5000V digital insulation resistance tester with Polarization Index (PI) and Dielectric Absorption Ratio (DAR).",
+    "features": [
+      "Selectable test voltages: 500V, 1000V, 2500V, 5000V",
+      "Insulation resistance measurement up to 5 TΩ",
+      "Automatic calculation of PI and DAR",
+      "Guard terminal to eliminate surface leakage errors",
+      "Rugged heavy-duty industrial field case"
+    ],
+    "specs": {
+      "Test Voltages": "500V, 1000V, 2500V, 5000V",
+      "Resistance Range": "Up to 5 TΩ (Tera-Ohm)",
+      "Short Circuit Current": "1.4 mA nominal",
+      "Timer Function": "Selectable 1 to 30 minutes",
+      "Display": "Backlit dual display with bar graph",
+      "Power": "Rechargeable internal battery + AC mains adapter"
+    },
+    "applications": ["Transformer Testing", "HT Motors & Generator Stators", "Power Cable Maintenance"],
+    "verified": true
+  },
+  {
+    "id": "selec-mfm384",
+    "name": "Multifunction Power & Energy Meter",
+    "brand": "Selec",
+    "model": "MFM384",
+    "category": "panel-process",
+    "categoryName": "Industrial Panel & Process Instruments",
+    "subcategory": "Digital Panel Meters",
+    "image": "assets/panel-meters.webp",
+    "shortDescription": "3-phase 4-wire multifunction power meter with LCD display, THD measurement, and RS485 Modbus RTU communication.",
+    "features": [
+      "True-RMS measurement of voltage, current, active/reactive/apparent power",
+      "Measures Total Harmonic Distortion (THD) up to 31st harmonic",
+      "Import / Export active and reactive energy registers",
+      "RS485 Modbus RTU for SCADA, EMS, and PLC connectivity",
+      "Standard 96x96 mm panel mounting enclosure"
+    ],
+    "specs": {
+      "Input Voltage": "11 to 300 V AC (L-N), 19 to 519 V AC (L-L)",
+      "Input Current": "Nominal 5A AC (Field programmable 1A/5A CT secondary)",
+      "Accuracy": "Class 1.0 (Class 0.5s optional)",
+      "Display": "Liquid Crystal Display with backlight",
+      "Interface": "RS485 Modbus RTU (Half Duplex)",
+      "Aux Supply": "85 to 270 V AC/DC"
+    },
+    "applications": ["MCC & PCC Electrical Panels", "Energy Management Systems (EMS)", "Factory Power Quality Auditing"],
+    "verified": true
+  },
+  {
+    "id": "flir-e8-pro",
+    "name": "Infrared Thermal Imaging Camera with Ignite Cloud",
+    "brand": "FLIR",
+    "model": "FLIR E8 Pro",
+    "category": "thermal-imaging",
+    "categoryName": "Temperature & Environmental Instruments",
+    "subcategory": "Thermal Imaging Cameras",
+    "image": "assets/thermal-imaging.webp",
+    "shortDescription": "Professional handheld thermal camera with 320x240 thermal resolution, MSX image enhancement, and touchscreen.",
+    "features": [
+      "320 x 240 true infrared resolution (76,800 pixels)",
+      "FLIR MSX technology adds visible details over thermal images",
+      "3.5-inch 640x480 color touchscreen display",
+      "Built-in Wi-Fi and automatic upload to FLIR Ignite cloud",
+      "Rugged pistol-grip housing drop-tested up to 2 meters"
+    ],
+    "specs": {
+      "IR Resolution": "320 × 240 pixels (76,800 detector pixels)",
+      "Thermal Sensitivity / NETD": "<0.04°C (<40 mK)",
+      "Object Temperature Range": "-20°C to 550°C (-4°F to 1022°F)",
+      "Field of View (FOV)": "33° × 25°",
+      "Focus": "Focus-free",
+      "Battery": "Rechargeable Li-ion, up to 4 hours runtime"
+    },
+    "applications": ["Substation Thermal Scanning", "Building Energy Loss Surveys", "Mechanical Bearing Heat Inspection"],
+    "verified": true
+  },
+  {
+    "id": "htc-ir-88",
+    "name": "Infrared Thermometer -50°C to 1050°C",
+    "brand": "HTC",
+    "model": "IR-88",
+    "category": "thermal-imaging",
+    "categoryName": "Temperature & Environmental Instruments",
+    "subcategory": "Infrared Thermometers",
+    "image": "assets/thermal-imaging.webp",
+    "shortDescription": "Wide-range dual laser non-contact infrared thermometer with adjustable emissivity and fast 150ms response.",
+    "features": [
+      "Dual laser targeting for pinpoint spot accuracy",
+      "High optical distance-to-spot ratio (D:S = 30:1)",
+      "Adjustable emissivity from 0.10 to 1.0",
+      "High and Low audio-visual alarm thresholds",
+      "Max/Min/Diff/Avg temperature recording"
+    ],
+    "specs": {
+      "Temperature Range": "-50°C to 1050°C (-58°F to 1922°F)",
+      "Optical Resolution": "30:1 distance to spot size",
+      "Response Time": "Less than 150 ms",
+      "Emissivity": "Digitally adjustable 0.10 to 1.00",
+      "Spectral Response": "8 to 14 μm",
+      "Battery": "Standard 9V battery with auto shut-off"
+    },
+    "applications": ["Furnace and Boiler Monitoring", "High-voltage Busbar Audits", "Plastic Extrusion & Foundry Checks"],
+    "verified": true
+  },
+  {
+    "id": "htc-cal-800",
+    "name": "Multi-Function Process Loop Calibrator",
+    "brand": "HTC",
+    "model": "CAL-800",
+    "category": "calibration",
+    "categoryName": "Calibration Instruments",
+    "subcategory": "Process Calibrators",
+    "image": "assets/calibration.webp",
+    "shortDescription": "Precision source and measure multi-function process calibrator for mA loops, DC voltage, thermocouple, and RTD signals.",
+    "features": [
+      "Simultaneous source and measure functionality",
+      "Measure and simulate 4-20 mA current loops with 24V loop power",
+      "Calibrate RTD (Pt100, Pt1000) and Thermocouple (J, K, T, E, R, S, B, N) sensors",
+      "Fast 25% step and auto-ramp calibration sequences",
+      "High 0.02% measurement and sourcing accuracy"
+    ],
+    "specs": {
+      "DC Voltage Source / Measure": "0 to 10 V (Accuracy 0.02%)",
+      "DC Current Source / Measure": "0 to 24 mA (Resolution 0.001 mA)",
+      "Loop Power Supply": "24 V DC ±10%",
+      "Temperature Sensors Supported": "Pt100, Cu50, K, J, T, E, R, S, B",
+      "Display": "Backlit dual parameter LCD display",
+      "Power Supply": "Internal rechargeable NiMH battery pack"
+    },
+    "applications": ["Process Plant Transmitter Calibration", "PLC/DCS Analog Loop Validation", "Control Valve Positioner Tuning"],
+    "verified": true
+  },
+  {
+    "id": "insize-1108-150",
+    "name": "Digital Vernier Caliper 150mm / 6-inch",
+    "brand": "INSIZE",
+    "model": "1108-150",
+    "category": "metrology",
+    "categoryName": "Dimensional Metrology & Gauges",
+    "subcategory": "Digital Calipers",
+    "image": "assets/solutions-tools.webp",
+    "shortDescription": "Precision stainless steel digital caliper with 0.01mm resolution, thumb roller, and hardened ground measuring faces.",
+    "features": [
+      "Hardened stainless steel frame and measuring jaws",
+      "Four-way measurement: Outside, Inside, Depth, and Step",
+      "Zero setting at any position with mm/inch conversion button",
+      "Data output port for SPC quality documentation",
+      "Conforms to DIN 862 international dimensional standard"
+    ],
+    "specs": {
+      "Measuring Range": "0 - 150 mm / 0 - 6 inch",
+      "Resolution": "0.01 mm / 0.0005 inch",
+      "Accuracy": "±0.02 mm",
+      "Material": "Hardened Stainless Steel",
+      "Battery": "CR2032 lithium cell with auto-off function"
+    },
+    "applications": ["Toolroom Machining", "Incoming Quality Inspection", "Fabrication & Aerospace Metrology"],
+    "verified": true
+  }
+]
