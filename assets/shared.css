@@ -4,8 +4,7 @@
    across all pages of the multi-page website.
    ============================================================ */
 
-/* ---------- Google Fonts ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap');
+/* ---------- Google Fonts (loaded via HTML preconnect) ---------- */
 
 /* ---------- CSS Variables ---------- */
 :root {
