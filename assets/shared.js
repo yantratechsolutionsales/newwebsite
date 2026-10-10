@@ -54,6 +54,13 @@ async function submitEnquiry(form, extra = {}) {
     const result = await response.json();
     if (!response.ok || !result.ok) throw new Error('Unable to send enquiry');
     form.reset();
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        event_category: 'Engagement',
+        event_label: extra.type || 'Enquiry form',
+        value: 1
+      });
+    }
     let status = form.querySelector('[data-form-status]');
     if (!status) { status = document.createElement('p'); status.dataset.formStatus = ''; status.className = 'text-sm font-semibold text-green-700'; form.append(status); }
     status.textContent = 'Thank you. Your enquiry has been submitted successfully. Our sales team will contact you shortly.'; status.hidden = false;
@@ -137,6 +144,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const page = link.getAttribute('data-page');
     if (page === currentPath || (page === '/' && (currentPath === '' || currentPath === '/index.html'))) {
       link.classList.add('nav-active');
+    }
+  });
+
+  /* ---- GA4 Business Enquiry Events (Click to Call & Click to Email) ---- */
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+    if (!link || typeof gtag !== 'function') return;
+    const href = link.getAttribute('href');
+    if (href.startsWith('tel:')) {
+      gtag('event', 'click_to_call', {
+        event_category: 'Contact',
+        event_label: 'Phone Link Click'
+      });
+    } else if (href.startsWith('mailto:')) {
+      gtag('event', 'click_to_email', {
+        event_category: 'Contact',
+        event_label: 'Email Link Click'
+      });
     }
   });
 });
