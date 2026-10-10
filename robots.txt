@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin.html
+Disallow: /api/
 
 # Keep the public sitemap discoverable for all compliant crawlers.
 Sitemap: https://www.yantratechsolutions.co.in/sitemap.xml

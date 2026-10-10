@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('footer').forEach((footer) => {
     if (!footer.querySelector('[data-legal-links]')) {
       const legal = document.createElement('p'); legal.dataset.legalLinks = ''; legal.className = 'mt-3 text-xs text-slate-500';
-      legal.innerHTML = '<a class="hover:text-secondaryGold" href="privacy-policy.html">Privacy Policy</a> <span aria-hidden="true">|</span> <a class="hover:text-secondaryGold" href="terms.html">Terms and Conditions</a>';
+      legal.innerHTML = '<a class="hover:text-secondaryGold" href="/privacy-policy">Privacy Policy</a> <span aria-hidden="true">|</span> <a class="hover:text-secondaryGold" href="/terms">Terms and Conditions</a>';
       footer.append(legal);
     }
   });
@@ -132,9 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach(el => counterObserver.observe(el));
 
   /* ---- Active Nav Link ---- */
-  const path = window.location.pathname.replace(/\/$/, '') || '/index.html';
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
   document.querySelectorAll('nav a[data-page]').forEach(link => {
     const page = link.getAttribute('data-page');
-    if (path.endsWith(page)) link.classList.add('nav-active');
+    if (page === currentPath || (page === '/' && (currentPath === '' || currentPath === '/index.html'))) {
+      link.classList.add('nav-active');
+    }
   });
 });
