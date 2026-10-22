@@ -6,6 +6,9 @@
   "scripts": {
     "build": "node -e \"console.log('Static site verified: Vercel serves the checked HTML, CSS, JavaScript, and assets directly.')\""
   },
+  "dependencies": {
+    "@vercel/blob": "^2.0.0"
+  },
   "keywords": [
     "yantratech",
     "industrial-instruments",
