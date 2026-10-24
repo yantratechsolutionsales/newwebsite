@@ -674,3 +674,41 @@ a:hover .btn-arrow-icon {
   box-shadow: 0 0 0 3px rgba(243, 185, 62, 0.2) !important;
   transform: translateY(-1px);
 }
+
+
+/* ============================================================
+   MODAL POPUP STYLING (Instant Top-Aligned Display, No Blank Space)
+   ============================================================ */
+body.modal-open {
+  overflow: hidden !important;
+}
+
+#rfq-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  display: flex !important;
+  align-items: flex-start !important; /* Top-aligned so form is immediately at top of screen */
+  justify-content: center !important;
+  padding: 2.5rem 1rem !important;
+}
+
+#rfq-modal.hidden {
+  display: none !important;
+}
+
+#rfq-modal .modal-dialog-box {
+  background: #ffffff !important;
+  border-radius: 1.5rem !important;
+  width: 100% !important;
+  max-width: 44rem !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  box-shadow: 0 25px 65px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+  transform-origin: center top !important;
+}
