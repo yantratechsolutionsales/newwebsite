@@ -8,13 +8,14 @@
   --primary:   #191A18;
   --secondary: #F3B93E;
   --secondary-hover: #e0a426;
-  --grey:      #535556;
-  --ink:       #191A18;
-  --light:     #F8F9FA;
-  --line:      #E5EAF2;
-  --shadow-sm: 0 4px 12px rgba(25,26,24,0.06);
-  --shadow:    0 18px 50px rgba(25,26,24,.12);
-  --shadow-3d: 0 25px 50px -12px rgba(25,26,24,0.25), 0 0 20px rgba(243,185,62,0.15);
+  --grey:      #4b5563;
+  --ink:       #111827;
+  --light:     #F8FAFC;
+  --line:      #E2E8F0;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 12px 28px -4px rgba(0, 0, 0, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+  --shadow-box: 0 18px 45px -8px rgba(15, 23, 42, 0.18), 0 6px 18px -4px rgba(15, 23, 42, 0.1);
+  --shadow-3d: 0 25px 60px -12px rgba(15, 23, 42, 0.28), 0 0 25px rgba(243, 185, 62, 0.22);
 }
 
 /* ---------- Reset & Base ---------- */
@@ -36,9 +37,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated industrial blueprint grid background */
+/* Engineering blueprint grid background */
 body::before {
-  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .12;
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .10;
   background-image:
     linear-gradient(90deg, transparent 49.5%, rgba(243,185,62,.18) 50%, transparent 50.5%),
     linear-gradient(0deg, transparent 49.5%, rgba(243,185,62,.14) 50%, transparent 50.5%);
@@ -47,44 +48,126 @@ body::before {
 }
 
 /* ============================================================
-   1. VISIBLE SCROLL & SECTION REVEAL ANIMATIONS
+   1. BOLD & LARGE SECTION TITLES & LABELS
    ============================================================ */
-.reveal-item {
-  opacity: 0;
-  transform: translateY(40px) scale(0.98);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+.section-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c98c14;
+  display: inline-block;
+  margin-bottom: 0.35rem;
 }
 
-.reveal-item.revealed {
-  opacity: 1 !important;
-  transform: translateY(0) scale(1) !important;
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem) !important;
+  font-weight: 950 !important;
+  color: #111210 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.12 !important;
+  margin-top: 0.3rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Smooth Title Lift Keyframe */
-@keyframes titleEntrance {
-  0% { opacity: 0; transform: translateY(28px); }
-  100% { opacity: 1; transform: translateY(0); }
+.section-sub {
+  color: #4b5563;
+  font-size: 1.15rem;
+  font-weight: 450;
+  margin-top: 0.85rem;
+  line-height: 1.7;
 }
 
-h1, .section-title {
-  animation: titleEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+/* Distinctive Section Alternations */
+section.bg-slate-50, section.bg-neutral-50 {
+  background-color: #f1f4f9 !important;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 /* ============================================================
-   2. LOGO ANIMATIONS (Hover & Ambient Glow)
+   2. SHADOW BEHIND ALL BOXES & CARDS
+   ============================================================ */
+.card-hover,
+.card-3d-wrap,
+.brand-card,
+.industry-card,
+article {
+  box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.15), 0 4px 14px -2px rgba(15, 23, 42, 0.08) !important;
+  border: 1.5px solid #e2e8f0 !important;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
+}
+
+.card-hover:hover,
+.card-3d-wrap:hover,
+.brand-card:hover,
+.industry-card:hover,
+article:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 28px 65px -10px rgba(15, 23, 42, 0.25), 0 0 30px rgba(243, 185, 62, 0.25) !important;
+  border-color: #F3B93E !important;
+}
+
+/* Distinctive Brand Detail Cards (Matching user screenshot 1) */
+.brand-detail-box {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.25rem 2rem;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.14), 0 4px 14px -2px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.brand-detail-box:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #F3B93E;
+  box-shadow: 0 28px 65px -10px rgba(15, 23, 42, 0.25), 0 0 30px rgba(243, 185, 62, 0.25);
+}
+
+/* ============================================================
+   3. HIGH-CONTRAST BANNER OVERLAY FOR IMAGE 2
+   ============================================================ */
+.banner-overlay-dark {
+  background: linear-gradient(90deg,
+    rgba(17, 24, 39, 0.94) 0%,
+    rgba(17, 24, 39, 0.85) 45%,
+    rgba(17, 24, 39, 0.55) 75%,
+    rgba(17, 24, 39, 0.35) 100%) !important;
+}
+
+.banner-heading-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2.3rem, 5vw, 3.8rem) !important;
+  font-weight: 950 !important;
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+}
+
+.banner-sub-text {
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+  color: #f1f5f9 !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85) !important;
+  line-height: 1.65 !important;
+}
+
+/* ============================================================
+   4. LOGO & HEADER ANIMATIONS
    ============================================================ */
 .site-logo {
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 }
 .site-logo:hover {
   transform: scale(1.08) rotate(-1.5deg);
   filter: drop-shadow(0 8px 20px rgba(243,185,62,0.45));
 }
 
-/* Floating pulse animation for the logo icon */
 @keyframes logoGlow {
   0%, 100% { filter: drop-shadow(0 2px 6px rgba(243,185,62,0.2)); }
   50% { filter: drop-shadow(0 4px 16px rgba(243,185,62,0.5)); }
@@ -93,8 +176,38 @@ h1, .section-title {
   animation: logoGlow 4s infinite ease-in-out;
 }
 
+header {
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  position: relative;
+  transition: color 0.25s ease;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: #F3B93E;
+  transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+  border-radius: 2px;
+}
+nav a:hover::after, nav a.nav-active::after {
+  width: 100% !important;
+}
+nav a.nav-active {
+  color: #F3B93E !important;
+}
+
 /* ============================================================
-   3. BUTTON HOVER & 3D CLICK ANIMATIONS
+   5. BUTTON & SHIMMER CTA ANIMATIONS
    ============================================================ */
 @keyframes shimmer {
   0%   { background-position: -200% 0; }
@@ -105,7 +218,7 @@ h1, .section-title {
   background-size: 200% 100%;
   background-image: linear-gradient(90deg, #F3B93E 0%, #FFF3C8 45%, #F3B93E 100%);
   position: relative;
-  box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.45), inset 0 1px 0 rgba(255,255,255,0.7);
+  box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.5), inset 0 1px 0 rgba(255,255,255,0.7);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
   cursor: pointer;
@@ -122,7 +235,6 @@ h1, .section-title {
   box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4);
 }
 
-/* Interactive Arrow Gliding on Hover */
 .btn-arrow-icon {
   display: inline-block;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -131,37 +243,21 @@ h1, .section-title {
   transform: translateX(6px);
 }
 
-/* Secondary Button 3D Outline */
-.btn-outline-gold {
-  border: 1.5px solid rgba(243, 185, 62, 0.6);
-  color: #F3B93E;
-  background: rgba(243, 185, 62, 0.05);
-  backdrop-filter: blur(8px);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.btn-outline-gold:hover {
-  background: #F3B93E;
-  color: #191A18;
-  border-color: #F3B93E;
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 14px 30px -4px rgba(243, 185, 62, 0.45);
-}
-
 /* ============================================================
-   4. ICON ANIMATIONS (Rotations, Scale & Hover)
+   6. ICON & PROCESS STEP ANIMATIONS
    ============================================================ */
 .trust-icon-pill {
-  width: 4.85rem; height: 4.85rem;
-  border-radius: 1.25rem;
+  width: 5rem; height: 5rem;
+  border-radius: 1.35rem;
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 1.1rem;
   color: #F3B93E;
   background: #191A18;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
   transition: transform .35s cubic-bezier(0.2,1,0.3,1), box-shadow .35s ease, background-color .35s ease;
 }
 .trust-icon-pill svg {
-  width: 2rem; height: 2rem;
+  width: 2.15rem; height: 2.15rem;
   stroke: #F3B93E; stroke-width: 2.2; fill: none;
   stroke-linecap: round; stroke-linejoin: round;
   transition: transform .35s cubic-bezier(0.2,1,0.3,1);
@@ -169,36 +265,35 @@ h1, .section-title {
 .trust-icon-pill:hover {
   transform: translateY(-8px) scale(1.1);
   background: #0f100e;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 25px rgba(243, 185, 62, 0.4);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45), 0 0 25px rgba(243, 185, 62, 0.4);
 }
 .trust-icon-pill:hover svg {
   transform: scale(1.18) rotate(8deg);
 }
 
-/* 4-Step Process Circles */
 .step-circle {
-  width: 4.5rem; height: 4.5rem;
+  width: 4.75rem; height: 4.75rem;
   border-radius: 9999px;
   background: #191A18;
   color: #F3B93E;
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
-  font-size: 1.65rem;
+  font-size: 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.25rem auto;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  margin: 0 auto 1.35rem auto;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, background-color 0.3s;
 }
 .step-circle:hover {
   transform: translateY(-8px) scale(1.14);
   background: #111210;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35), 0 0 25px rgba(243,185,62,0.4);
+  box-shadow: 0 20px 42px rgba(0,0,0,0.35), 0 0 25px rgba(243,185,62,0.4);
 }
 
 /* ============================================================
-   5. FORM ANIMATIONS & GLOW STATES
+   7. FORM ANIMATIONS
    ============================================================ */
 .form-input {
   width: 100%;
@@ -210,6 +305,7 @@ h1, .section-title {
   background: #F8FAFC;
   color: var(--primary);
   outline: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
   transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .form-input:focus {
@@ -235,21 +331,8 @@ h1, .section-title {
 }
 
 /* ============================================================
-   6. 3D PRODUCT CARDS & SHOWCASE
+   8. 3D HERO CARD & STAT CARDS
    ============================================================ */
-.card-3d-wrap {
-  position: relative;
-  border-radius: 1.25rem;
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-.card-3d-wrap:hover {
-  transform: translateY(-10px) rotateX(4deg) rotateY(-2deg) scale(1.02);
-  box-shadow: 0 35px 70px -15px rgba(25, 26, 24, 0.25), 0 0 35px rgba(243, 185, 62, 0.25);
-  border-color: #F3B93E !important;
-}
-
 .cad-hero-card {
   background: #181917;
   border: 1.5px solid rgba(243, 185, 62, 0.4);
@@ -293,65 +376,21 @@ h1, .section-title {
 }
 
 /* ============================================================
-   7. NAVBAR ACTIVE LINK & ANIMATIONS
+   9. SCROLL REVEALS
    ============================================================ */
-header {
-  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+.reveal-item {
+  opacity: 0;
+  transform: translateY(35px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
-header.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
-}
-
-nav a {
-  position: relative;
-  transition: color 0.25s ease;
-}
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 0;
-  height: 2.5px;
-  background: #F3B93E;
-  transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
-  border-radius: 2px;
-}
-nav a:hover::after, nav a.nav-active::after {
-  width: 100% !important;
-}
-nav a.nav-active {
-  color: #F3B93E !important;
+.reveal-item.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
 }
 
-/* Floating animation */
-@keyframes floatY {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-10px); }
-}
-.float-anim { animation: floatY 5s ease-in-out infinite; }
-
-/* Pulse animation */
-@keyframes pulseGlow {
-  0%,100% { transform: scale(1); box-shadow: 0 0 15px rgba(243,185,62,.4); }
-  50%     { transform: scale(1.08); box-shadow: 0 0 30px rgba(243,185,62,.8); }
-}
-.pulse-badge { animation: pulseGlow 3s infinite ease-in-out; }
-
-/* Parallax Drift */
-.hero-parallax {
-  animation: heroDrift 16s ease-in-out infinite alternate;
-  transform: scale(1.05);
-  will-change: transform;
-}
-@keyframes heroDrift {
-  0% { transform: scale(1.05) translate3d(0, 0, 0); }
-  50% { transform: scale(1.10) translate3d(-1%, -1.5%, 0); }
-  100% { transform: scale(1.06) translate3d(1%, 0.5%, 0); }
-}
-
-/* Page Hero Banner */
+/* Page Hero */
 .page-hero {
   position: relative;
   min-height: 320px;
@@ -398,12 +437,11 @@ nav a.nav-active {
 }
 .page-hero-content h1 {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(2.25rem, 5vw, 3.85rem);
-  font-weight: 900;
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 950;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: #ffffff;
-  animation: titleEntrance .85s cubic-bezier(.16,1,.3,1) both;
 }
 .page-hero-content p {
   margin-top: 1rem;
@@ -413,24 +451,27 @@ nav a.nav-active {
   line-height: 1.7;
 }
 
-/* Utility */
+@keyframes heroDrift {
+  0% { transform: scale(1.05) translate3d(0, 0, 0); }
+  50% { transform: scale(1.10) translate3d(-1%, -1.5%, 0); }
+  100% { transform: scale(1.06) translate3d(1%, 0.5%, 0); }
+}
+
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-10px); }
+}
+.float-anim { animation: floatY 5s ease-in-out infinite; }
+
+.pulse-badge { animation: pulseGlow 3s infinite ease-in-out; }
+@keyframes pulseGlow {
+  0%,100% { transform: scale(1); box-shadow: 0 0 15px rgba(243,185,62,.4); }
+  50%     { transform: scale(1.08); box-shadow: 0 0 30px rgba(243,185,62,.8); }
+}
+
 .text-gold  { color: #F3B93E; }
 .bg-primary { background: var(--primary); }
 .font-outfit { font-family: 'Outfit', sans-serif; }
-.section-label {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #F3B93E;
-}
-.section-sub {
-  color: var(--grey);
-  font-size: 1.05rem;
-  margin-top: 0.75rem;
-  line-height: 1.65;
-}
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
