@@ -1,6 +1,6 @@
 /* ============================================================
    YANTRATECH SOLUTIONS — shared.js
-   Common interactive behaviour shared across all pages.
+   Premium 3D Micro-interactions & Core Functionality
    ============================================================ */
 
 /* ---- Mobile Menu ---- */
@@ -91,7 +91,67 @@ document.addEventListener('click', (e) => {
   if (modal && e.target === modal) closeRFQModal();
 });
 
-/* ---- Scroll Reveal (IntersectionObserver) ---- */
+/* ---- 3D Interactive Tilt Engine ---- */
+function init3DTilt() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cards = document.querySelectorAll('[data-tilt]');
+  cards.forEach(card => {
+    let bounds;
+    function rotateToMouse(e) {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const leftX = mouseX - bounds.x;
+      const topY = mouseY - bounds.y;
+      const center = {
+        x: leftX - bounds.width / 2,
+        y: topY - bounds.height / 2
+      };
+      const distance = Math.sqrt(center.x**2 + center.y**2);
+      
+      const maxAngle = Number(card.dataset.tiltMax || 8);
+      const rotateX = (center.y / (bounds.height / 2)) * -maxAngle;
+      const rotateY = (center.x / (bounds.width / 2)) * maxAngle;
+      
+      card.style.transform = `
+        perspective(1000px)
+        scale3d(1.02, 1.02, 1.02)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+      `;
+    }
+
+    card.addEventListener('mouseenter', () => {
+      bounds = card.getBoundingClientRect();
+      document.addEventListener('mousemove', rotateToMouse);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      document.removeEventListener('mousemove', rotateToMouse);
+      card.style.transform = '';
+    });
+  });
+}
+
+/* ---- Parallax Mouse Hero Effect ---- */
+function initHeroParallax() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const hero = document.querySelector('section.relative.min-h-\\[660px\\], .page-hero');
+  const floatingCards = document.querySelectorAll('.hero-float-layer');
+  if (!hero || floatingCards.length === 0) return;
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    floatingCards.forEach((layer, i) => {
+      const factor = (i + 1) * 15;
+      layer.style.transform = `translate3d(${x * factor}px, ${y * factor}px, 0)`;
+    });
+  });
+}
+
+/* ---- Scroll Reveal (IntersectionObserver) & DOM Initialisation ---- */
 document.addEventListener('DOMContentLoaded', () => {
   const main = document.querySelector('main');
   if (main && !document.querySelector('.skip-link')) {
@@ -102,19 +162,21 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('form[id="rfq-form"] button[type="submit"]').forEach((button) => {
     if (/WhatsApp/i.test(button.textContent)) button.textContent = 'Submit Enquiry';
   });
-  // The enquiry forms use the secure API endpoint. Remove legacy mail-client
-  // fallbacks so a visitor is never sent to Outlook instead of submitting.
+  
   document.querySelectorAll('[onclick="sendViaEmailDirect()"], [onclick="handleContactEmail()"]').forEach((button) => button.remove());
   document.querySelectorAll('footer').forEach((footer) => {
     if (!footer.querySelector('[data-legal-links]')) {
       const legal = document.createElement('p'); legal.dataset.legalLinks = ''; legal.className = 'mt-3 text-xs text-slate-500';
-      legal.innerHTML = '<a class="hover:text-secondaryGold" href="/privacy-policy">Privacy Policy</a> <span aria-hidden="true">|</span> <a class="hover:text-secondaryGold" href="/terms">Terms and Conditions</a>';
+      legal.innerHTML = '<a class="hover:text-secondaryGold transition" href="/privacy-policy">Privacy Policy</a> <span aria-hidden="true">|</span> <a class="hover:text-secondaryGold transition" href="/terms">Terms and Conditions</a>';
       footer.append(legal);
     }
   });
+
   const observer = new IntersectionObserver(
     (entries) => entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('revealed');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
     }),
     { threshold: 0.08 }
   );
@@ -127,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = Number(el.dataset.counter || 0);
     const suffix = el.dataset.suffix || '';
     const start = performance.now();
-    const duration = 1100;
+    const duration = 1200;
     const tick = now => {
       const progress = Math.min((now - start) / duration, 1);
       el.textContent = `${Math.floor(target * (1 - Math.pow(1 - progress, 3)))}${suffix}`;
@@ -146,6 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
       link.classList.add('nav-active');
     }
   });
+
+  /* ---- Initialise 3D tilt & Parallax ---- */
+  init3DTilt();
+  initHeroParallax();
 
   /* ---- GA4 Business Enquiry Events (Click to Call & Click to Email) ---- */
   document.addEventListener('click', (e) => {

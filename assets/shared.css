@@ -1,10 +1,7 @@
 /* ============================================================
    YANTRATECH SOLUTIONS — shared.css
-   Design tokens, animations, layout utilities shared
-   across all pages of the multi-page website.
+   Premium 3D & Industrial Design System
    ============================================================ */
-
-/* ---------- Google Fonts (loaded via HTML preconnect) ---------- */
 
 /* ---------- CSS Variables ---------- */
 :root {
@@ -15,58 +12,167 @@
   --ink:       #191A18;
   --light:     #F8F9FA;
   --line:      #E5EAF2;
+  --shadow-sm: 0 4px 12px rgba(25,26,24,0.06);
   --shadow:    0 18px 50px rgba(25,26,24,.12);
+  --shadow-3d: 0 25px 50px -12px rgba(25,26,24,0.25), 0 0 20px rgba(243,185,62,0.15);
 }
 
-/* ---------- Reset ---------- */
+/* ---------- Reset & Base ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-.skip-link { position:absolute; left:1rem; top:-5rem; z-index:100; padding:.75rem 1rem; border-radius:.5rem; background:#F3B93E; color:#191A18; font-weight:700; }
-.skip-link:focus { top:1rem; outline:3px solid #191A18; }
+.skip-link {
+  position: absolute; left: 1rem; top: -5rem; z-index: 100;
+  padding: .75rem 1.25rem; border-radius: .5rem;
+  background: #F3B93E; color: #191A18; font-weight: 800; font-family: 'Outfit', sans-serif;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: top 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+.skip-link:focus { top: 1rem; outline: 3px solid #191A18; }
+
 body {
   font-family: 'Roboto', Arial, sans-serif;
   color: var(--ink);
-  background: #fff;
+  background: #0f100e;
   line-height: 1.6;
   overflow-x: hidden;
 }
-body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:-1; opacity:.16; background-image:linear-gradient(90deg, transparent 49.8%, rgba(243,185,62,.16) 50%, transparent 50.2%),linear-gradient(0deg, transparent 49.8%, rgba(243,185,62,.12) 50%, transparent 50.2%); background-size:90px 90px; mask-image:linear-gradient(to bottom, #000, transparent 48%); }
+
+/* Subtly animated industrial engineering blueprint grid */
+body::before {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .14;
+  background-image:
+    linear-gradient(90deg, transparent 49.5%, rgba(243,185,62,.15) 50%, transparent 50.5%),
+    linear-gradient(0deg, transparent 49.5%, rgba(243,185,62,.12) 50%, transparent 50.5%);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(circle at 50% 20%, #000 60%, transparent 95%);
+}
+
+/* ---------- 3D & Perspective Utilities ---------- */
+.perspective-1000 {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* 3D Interactive Card with dynamic highlight */
+.card-3d-wrap {
+  position: relative;
+  border-radius: 1.25rem;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-3d-wrap:hover {
+  transform: translateY(-8px) rotateX(4deg) rotateY(-2deg);
+  box-shadow: 0 30px 60px -15px rgba(25, 26, 24, 0.35), 0 0 30px rgba(243, 185, 62, 0.2);
+}
+
+.card-3d-content {
+  transform: translateZ(30px);
+}
+
+/* Glassmorphism 3D Surface */
+.glass-panel {
+  background: rgba(25, 26, 24, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(243, 185, 62, 0.25);
+  box-shadow: 0 20px 40px rgba(25, 26, 24, 0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+}
 
 /* ---------- Gradient Overlays ---------- */
 .transparent-blackish-gradient {
   background: linear-gradient(135deg,
-    rgba(25,26,24,0.60) 0%,
-    rgba(25,26,24,0.50) 60%,
-    rgba(25,26,24,0.40) 100%);
+    rgba(25,26,24,0.75) 0%,
+    rgba(25,26,24,0.60) 50%,
+    rgba(25,26,24,0.85) 100%);
 }
+
 .hero-overlay-gradient {
   background: linear-gradient(90deg,
-    rgba(25,26,24,0.65) 0%,
-    rgba(25,26,24,0.52) 45%,
-    rgba(25,26,24,0.38) 80%,
-    rgba(25,26,24,0.50) 100%);
+    rgba(25,26,24,0.92) 0%,
+    rgba(25,26,24,0.80) 45%,
+    rgba(25,26,24,0.55) 75%,
+    rgba(25,26,24,0.70) 100%);
 }
-.hero-parallax { animation:heroDrift 13s ease-in-out infinite alternate; transform:scale(1.04); }
-@keyframes heroDrift { to { transform:scale(1.10) translate3d(-.6%, -.5%, 0); } }
+
+.hero-parallax {
+  animation: heroDrift 16s ease-in-out infinite alternate;
+  transform: scale(1.05);
+  will-change: transform;
+}
+@keyframes heroDrift {
+  0% { transform: scale(1.05) translate3d(0, 0, 0); }
+  50% { transform: scale(1.10) translate3d(-1%, -1.5%, 0); }
+  100% { transform: scale(1.06) translate3d(1%, 0.5%, 0); }
+}
+
+/* Floating 3D Geometric Ring / Hologram Elements */
+@keyframes float3D {
+  0%, 100% { transform: translateY(0px) rotateX(12deg) rotateY(0deg) rotateZ(0deg); }
+  50% { transform: translateY(-16px) rotateX(16deg) rotateY(180deg) rotateZ(5deg); }
+}
+.floating-3d-hologram {
+  animation: float3D 10s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: scale(1); opacity: 0.35; filter: blur(50px); }
+  50% { transform: scale(1.25); opacity: 0.55; filter: blur(65px); }
+}
+.light-orb {
+  animation: orbPulse 8s ease-in-out infinite;
+  border-radius: 9999px;
+  pointer-events: none;
+}
 
 /* ---------- Scroll Reveal ---------- */
 .reveal-item {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
-              transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  transform: translateY(35px);
+  transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1),
+              transform 0.85s cubic-bezier(0.16,1,0.3,1);
+  will-change: opacity, transform;
 }
-.reveal-item.revealed { opacity: 1; transform: translateY(0); }
+.reveal-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered child reveals */
+.stagger-parent .reveal-item:nth-child(1) { transition-delay: 0.05s; }
+.stagger-parent .reveal-item:nth-child(2) { transition-delay: 0.15s; }
+.stagger-parent .reveal-item:nth-child(3) { transition-delay: 0.25s; }
+.stagger-parent .reveal-item:nth-child(4) { transition-delay: 0.35s; }
+.stagger-parent .reveal-item:nth-child(5) { transition-delay: 0.45s; }
+.stagger-parent .reveal-item:nth-child(6) { transition-delay: 0.55s; }
 
 /* ---------- Card Hover ---------- */
 .card-hover {
-  transition: transform 0.35s cubic-bezier(0.25,1,0.5,1),
-              box-shadow 0.35s ease,
-              border-color 0.35s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
 }
 .card-hover:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 22px 50px rgba(25,26,24,.18);
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 25px 50px -10px rgba(25,26,24,0.2), 0 0 25px rgba(243, 185, 62, 0.15);
   border-color: #F3B93E;
 }
 
@@ -75,35 +181,50 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index
   .industry-card { min-height: 25rem; }
 }
 
-/* ---------- Brand Card ---------- */
+/* ---------- Brand Card 3D Depth ---------- */
 .brand-card {
-  transition: all 0.35s ease;
-  background: #f8fafc;
-  border: 1.5px solid #d9e1eb;
+  transition: all 0.35s cubic-bezier(0.2, 1, 0.3, 1);
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  position: relative;
+  overflow: hidden;
+}
+.brand-card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(243,185,62,0.15), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+.brand-card:hover::after {
+  left: 150%;
 }
 .brand-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.02);
   background: #ffffff;
   border-color: #F3B93E;
-  box-shadow: 0 16px 35px rgba(25,26,24,0.12);
+  box-shadow: 0 20px 40px -10px rgba(25,26,24,0.18), 0 0 20px rgba(243,185,62,0.2);
 }
-.brand-card img { object-fit:contain; }
+.brand-card img { object-fit: contain; }
 
 /* ---------- Floating Animation ---------- */
 @keyframes floatY {
   0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-8px); }
+  50%     { transform: translateY(-10px); }
 }
-.float-anim { animation: floatY 4s ease-in-out infinite; }
+.float-anim { animation: floatY 5s ease-in-out infinite; }
 
 /* ---------- Pulse Glow ---------- */
 @keyframes pulseGlow {
-  0%,100% { transform: scale(1);    box-shadow: 0 0 15px rgba(37,211,102,.4); }
-  50%     { transform: scale(1.08); box-shadow: 0 0 30px rgba(37,211,102,.7); }
+  0%,100% { transform: scale(1);    box-shadow: 0 0 15px rgba(243,185,62,.4); }
+  50%     { transform: scale(1.08); box-shadow: 0 0 30px rgba(243,185,62,.8); }
 }
 .pulse-badge { animation: pulseGlow 3s infinite ease-in-out; }
 
-/* ---------- Button Shimmer ---------- */
+/* ---------- Button Shimmer with 3D Depth ---------- */
 @keyframes shimmer {
   0%   { background-position: -200% 0; }
   100% { background-position:  200% 0; }
@@ -111,19 +232,44 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index
 .btn-shimmer {
   background-size: 200% 100%;
   background-image: linear-gradient(90deg, #F3B93E 0%, #FFF3C8 50%, #F3B93E 100%);
-  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 10px 25px -5px rgba(243, 185, 62, 0.4), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
 }
-.btn-shimmer:hover { animation: shimmer 2s infinite; }
+.btn-shimmer:hover {
+  animation: shimmer 2s infinite;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 32px -5px rgba(243, 185, 62, 0.6), 0 0 15px rgba(243, 185, 62, 0.3);
+}
+.btn-shimmer:active {
+  transform: translateY(0) scale(0.98);
+}
 
+/* Secondary Button 3D Outline */
+.btn-outline-gold {
+  border: 1.5px solid rgba(243, 185, 62, 0.6);
+  color: #F3B93E;
+  background: rgba(243, 185, 62, 0.05);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-outline-gold:hover {
+  background: #F3B93E;
+  color: #191A18;
+  border-color: #F3B93E;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -5px rgba(243, 185, 62, 0.4);
+}
 
 /* ---------- Page Hero Banner ---------- */
 .page-hero {
   position: relative;
-  min-height: 280px;
+  min-height: 320px;
   display: flex;
   align-items: center;
-  background: var(--primary);
+  background: #191A18;
   overflow: hidden;
+  border-bottom: 1px solid rgba(243, 185, 62, 0.2);
 }
 .page-hero-img {
   position: absolute;
@@ -131,69 +277,82 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.22;
+  opacity: 0.35;
+  filter: saturate(1.1) contrast(1.08);
+  animation: heroDrift 20s ease-in-out infinite alternate;
 }
 .page-hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg,
-    rgba(25,26,24,0.80) 0%,
-    rgba(25,26,24,0.55) 60%,
-    rgba(25,26,24,0.45) 100%);
+    rgba(15,16,14,0.95) 0%,
+    rgba(25,26,24,0.85) 50%,
+    rgba(25,26,24,0.65) 100%);
 }
 .page-hero-content {
   position: relative;
   z-index: 10;
   max-width: 80rem;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 4rem 1.5rem;
   color: #fff;
 }
 .page-hero-content .breadcrumb {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #F3B93E;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .page-hero-content h1 {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.25rem, 5vw, 3.85rem);
   font-weight: 900;
-  line-height: 1.05;
-  animation: titleLift .8s cubic-bezier(.16,1,.3,1) both;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  animation: titleLift .85s cubic-bezier(.16,1,.3,1) both;
 }
 .page-hero-content p {
-  margin-top: 0.85rem;
-  font-size: 1.05rem;
+  margin-top: 1rem;
+  font-size: 1.15rem;
   color: #cbd5e1;
-  max-width: 600px;
+  max-width: 650px;
+  line-height: 1.7;
 }
 
 /* ---------- Section Title ---------- */
 .section-label {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--grey);
+  color: #F3B93E;
 }
 .section-title {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-size: clamp(1.85rem, 4.2vw, 3rem);
   font-weight: 900;
   color: var(--primary);
   margin-top: 0.4rem;
-  animation: titleLift .75s cubic-bezier(.16,1,.3,1) both;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
-@keyframes titleLift { from { opacity:0; transform:translateY(18px); } 70% { transform:translateY(-3px); } to { opacity:1; transform:translateY(0); } }
+@keyframes titleLift {
+  from { opacity:0; transform:translateY(22px); }
+  to { opacity:1; transform:translateY(0); }
+}
 .section-sub {
   color: var(--grey);
-  font-size: 1rem;
-  margin-top: 0.6rem;
+  font-size: 1.05rem;
+  margin-top: 0.75rem;
+  line-height: 1.65;
 }
 
 /* ---------- Nav Active Link ---------- */
@@ -205,19 +364,19 @@ nav a.nav-active::after {
 }
 
 /* Keep the public navigation in the required product-first sequence. */
-nav a[data-page="index.html"] { order:1; }
-nav a[data-page="products.html"] { order:2; }
-nav a[data-page="brands.html"] { order:3; }
-nav a[data-page="industries.html"] { order:4; }
-nav a[data-page="why-us.html"] { order:5; }
-nav a[data-page="contact.html"] { order:6; }
+nav a[data-page="index.html"], nav a[data-page="/"] { order:1; }
+nav a[data-page="products.html"], nav a[data-page="/products"] { order:2; }
+nav a[data-page="brands.html"], nav a[data-page="/brands"] { order:3; }
+nav a[data-page="industries.html"], nav a[data-page="/industries"] { order:4; }
+nav a[data-page="why-us.html"], nav a[data-page="/why-us"] { order:5; }
+nav a[data-page="contact.html"], nav a[data-page="/contact"] { order:6; }
 #mobile-menu:not(.hidden) { display:flex !important; flex-direction:column; }
-#mobile-menu a[href="index.html"] { order:1; }
-#mobile-menu a[href="products.html"] { order:2; }
-#mobile-menu a[href="brands.html"] { order:3; }
-#mobile-menu a[href="industries.html"] { order:4; }
-#mobile-menu a[href="why-us.html"] { order:5; }
-#mobile-menu a[href="contact.html"] { order:6; }
+#mobile-menu a[href="/"], #mobile-menu a[href="index.html"] { order:1; }
+#mobile-menu a[href="/products"], #mobile-menu a[href="products.html"] { order:2; }
+#mobile-menu a[href="/brands"], #mobile-menu a[href="brands.html"] { order:3; }
+#mobile-menu a[href="/industries"], #mobile-menu a[href="industries.html"] { order:4; }
+#mobile-menu a[href="/why-us"], #mobile-menu a[href="why-us.html"] { order:5; }
+#mobile-menu a[href="/contact"], #mobile-menu a[href="contact.html"] { order:6; }
 #mobile-menu button { order:7; }
 
 /* ---------- Scrollbar ---------- */
@@ -229,26 +388,31 @@ nav a[data-page="contact.html"] { order:6; }
 /* ---------- Form Inputs ---------- */
 .form-input {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.15rem;
   border: 1.5px solid #E5EAF2;
-  border-radius: 0.75rem;
-  font-size: 0.875rem;
+  border-radius: 0.85rem;
+  font-size: 0.925rem;
   font-family: 'Outfit', sans-serif;
   background: #f8f9fa;
   color: var(--primary);
   outline: none;
   transition: border-color 0.25s, background-color 0.25s, box-shadow 0.25s, transform 0.25s;
 }
-.form-input:focus { border-color: #F3B93E; background: #fff; box-shadow: 0 0 0 4px rgba(243,185,62,.18); transform: translateY(-1px); }
+.form-input:focus {
+  border-color: #F3B93E;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(243,185,62,.2);
+  transform: translateY(-2px);
+}
 .form-input:invalid:not(:placeholder-shown) { border-color: #d9534f; }
 .form-label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--primary);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
   font-family: 'Outfit', sans-serif;
 }
 
@@ -257,12 +421,39 @@ nav a[data-page="contact.html"] { order:6; }
 .bg-primary { background: var(--primary); }
 .font-outfit { font-family: 'Outfit', sans-serif; }
 
-/* A single high-contrast treatment keeps every trust icon recognisably Yantratech. */
-.trust-icon { width:4.35rem; height:4.35rem; border-radius:999px; display:flex; align-items:center; justify-content:center; margin-bottom:.9rem; color:var(--secondary); background:var(--primary); border:2px solid var(--secondary); box-shadow:0 7px 18px rgba(25,26,24,.14),inset 0 0 0 4px rgba(255,255,255,.06); transition:transform .3s ease,box-shadow .3s ease,background-color .3s ease; }
-.trust-icon svg { width:1.7rem; height:1.7rem; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.trust-icon:hover { transform:translateY(-4px) rotate(-3deg); background:#252723; box-shadow:0 12px 24px rgba(25,26,24,.2),0 0 0 4px rgba(243,185,62,.14); }
+/* 3D Trust Icon Pill */
+.trust-icon {
+  width: 4.5rem; height: 4.5rem;
+  border-radius: 1.25rem;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.2rem;
+  color: var(--secondary);
+  background: linear-gradient(135deg, #242622 0%, #191A18 100%);
+  border: 1.5px solid rgba(243,185,62,0.4);
+  box-shadow: 0 10px 25px rgba(25,26,24,.18), inset 0 1px 0 rgba(255,255,255,.1);
+  transition: transform .35s cubic-bezier(0.2,1,0.3,1), box-shadow .35s ease, border-color .35s ease;
+}
+.trust-icon svg {
+  width: 1.85rem; height: 1.85rem;
+  stroke: currentColor; stroke-width: 2; fill: none;
+  stroke-linecap: round; stroke-linejoin: round;
+  transition: transform .35s ease;
+}
+.trust-icon:hover {
+  transform: translateY(-6px) rotate(3deg) scale(1.05);
+  border-color: #F3B93E;
+  box-shadow: 0 18px 36px rgba(25,26,24,.25), 0 0 20px rgba(243,185,62,.3);
+}
+.trust-icon:hover svg {
+  transform: scale(1.1);
+}
 
-/* Respect visitors who prefer reduced motion. */
+/* Respect visitors who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
 }
