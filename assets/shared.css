@@ -14,7 +14,7 @@
   --line:      #E2E8F0;
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 12px 28px -4px rgba(0, 0, 0, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.08);
-  --shadow-box: 0 18px 45px -8px rgba(15, 23, 42, 0.18), 0 6px 18px -4px rgba(15, 23, 42, 0.1);
+  --shadow-box: 0 16px 40px -8px rgba(15, 23, 42, 0.14), 0 4px 14px -2px rgba(15, 23, 42, 0.08);
   --shadow-3d: 0 25px 60px -12px rgba(15, 23, 42, 0.28), 0 0 25px rgba(243, 185, 62, 0.22);
 }
 
@@ -37,7 +37,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Engineering blueprint grid background */
+/* Subtle blueprint grid */
 body::before {
   content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .10;
   background-image:
@@ -48,7 +48,165 @@ body::before {
 }
 
 /* ============================================================
-   1. BOLD & LARGE SECTION TITLES & LABELS
+   RULE 2: CONSISTENT & STRICT BUTTON SYSTEM
+   ============================================================ */
+
+/* Base Button Properties */
+.btn-primary,
+.btn-shimmer,
+.btn-secondary,
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 9999px;
+  position: relative;
+  will-change: transform, box-shadow;
+  /* Transform only to prevent layout jump (RULE 3) */
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+/* Size Variants */
+.btn-sm {
+  height: 2.5rem; /* 40px */
+  padding: 0 1.25rem;
+  font-size: 0.875rem; /* 14px */
+}
+
+.btn-md {
+  height: 3rem; /* 48px */
+  padding: 0 1.75rem;
+  font-size: 0.95rem; /* 15px */
+}
+
+.btn-lg {
+  height: 3.5rem; /* 56px */
+  padding: 0 2.25rem;
+  font-size: 1.05rem; /* 17px */
+}
+
+/* Specific Pill Dimensions for Ask for Quotation (Matching Image 1) */
+.btn-quotation {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.75rem; /* 44px */
+  padding: 0 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  border-radius: 9999px;
+  color: #191A18;
+  background: linear-gradient(90deg, #F3B93E 0%, #FFD670 100%);
+  box-shadow: 0 8px 20px -4px rgba(243, 185, 62, 0.45);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+.btn-quotation:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 28px -4px rgba(243, 185, 62, 0.6);
+}
+.btn-quotation:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Primary Shimmer Button */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.btn-shimmer {
+  background-size: 200% 100%;
+  background-image: linear-gradient(90deg, #F3B93E 0%, #FFF3C8 45%, #F3B93E 100%);
+  color: #191A18;
+  box-shadow: 0 10px 24px -4px rgba(243, 185, 62, 0.45), inset 0 1px 0 rgba(255,255,255,0.7);
+  border: 1px solid rgba(243, 185, 62, 0.8);
+}
+
+.btn-shimmer:hover {
+  animation: shimmer 1.8s infinite;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.65), 0 0 20px rgba(243, 185, 62, 0.35);
+}
+
+.btn-shimmer:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4);
+}
+
+/* Secondary Button 3D Outline */
+.btn-outline-gold {
+  border: 1.5px solid rgba(243, 185, 62, 0.7);
+  color: #F3B93E;
+  background: rgba(243, 185, 62, 0.05);
+  backdrop-filter: blur(8px);
+}
+.btn-outline-gold:hover {
+  background: #F3B93E;
+  color: #191A18;
+  border-color: #F3B93E;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 28px -4px rgba(243, 185, 62, 0.45);
+}
+
+/* Mandatory Correction for Submit Enquiry (Matching Image 2 / Contact Form) */
+.btn-submit-enquiry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto !important;
+  min-width: 14rem;
+  max-width: 22rem;
+  height: 3.25rem; /* 52px */
+  padding: 0 2.25rem;
+  border-radius: 0.85rem;
+  background: #F3B93E;
+  color: #191A18;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 850;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.45);
+  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease, background-color 0.2s ease;
+}
+.btn-submit-enquiry:hover {
+  background-color: #e5a727;
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.6);
+}
+.btn-submit-enquiry:active {
+  transform: translateY(1px) scale(0.98);
+}
+.btn-submit-enquiry:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Gliding Arrow Micro-interaction (RULE 4) */
+.btn-arrow-icon {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+button:hover .btn-arrow-icon,
+a:hover .btn-arrow-icon {
+  transform: translateX(5px);
+}
+
+/* ============================================================
+   RULE 1 & 4: HEADINGS & SECTION TYPOGRAPHY
    ============================================================ */
 .section-label {
   font-family: 'Outfit', sans-serif;
@@ -88,16 +246,18 @@ section.bg-slate-50, section.bg-neutral-50 {
 }
 
 /* ============================================================
-   2. SHADOW BEHIND ALL BOXES & CARDS
+   BOXES & SHADOW SYSTEM
    ============================================================ */
 .card-hover,
 .card-3d-wrap,
 .brand-card,
 .industry-card,
 article {
-  box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.15), 0 4px 14px -2px rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.14), 0 4px 14px -2px rgba(15, 23, 42, 0.08) !important;
   border: 1.5px solid #e2e8f0 !important;
+  border-radius: 1.25rem !important;
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
+  transform-style: preserve-3d;
 }
 
 .card-hover:hover,
@@ -110,7 +270,7 @@ article:hover {
   border-color: #F3B93E !important;
 }
 
-/* Distinctive Brand Detail Cards (Matching user screenshot 1) */
+/* Distinctive Brand Detail Box (Image 1) */
 .brand-detail-box {
   background: #ffffff;
   border-radius: 1.5rem;
@@ -129,14 +289,14 @@ article:hover {
 }
 
 /* ============================================================
-   3. HIGH-CONTRAST BANNER OVERLAY FOR IMAGE 2
+   BANNER SECTION WITH TEXT CONTRAST (Image 2)
    ============================================================ */
 .banner-overlay-dark {
   background: linear-gradient(90deg,
-    rgba(17, 24, 39, 0.94) 0%,
-    rgba(17, 24, 39, 0.85) 45%,
-    rgba(17, 24, 39, 0.55) 75%,
-    rgba(17, 24, 39, 0.35) 100%) !important;
+    rgba(15, 20, 25, 0.95) 0%,
+    rgba(15, 20, 25, 0.88) 42%,
+    rgba(15, 20, 25, 0.60) 75%,
+    rgba(15, 20, 25, 0.40) 100%) !important;
 }
 
 .banner-heading-text {
@@ -157,7 +317,7 @@ article:hover {
 }
 
 /* ============================================================
-   4. LOGO & HEADER ANIMATIONS
+   LOGO & ICON ANIMATIONS
    ============================================================ */
 .site-logo {
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
@@ -176,76 +336,6 @@ article:hover {
   animation: logoGlow 4s infinite ease-in-out;
 }
 
-header {
-  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
-}
-header.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
-}
-
-nav a {
-  position: relative;
-  transition: color 0.25s ease;
-}
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 0;
-  height: 2.5px;
-  background: #F3B93E;
-  transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
-  border-radius: 2px;
-}
-nav a:hover::after, nav a.nav-active::after {
-  width: 100% !important;
-}
-nav a.nav-active {
-  color: #F3B93E !important;
-}
-
-/* ============================================================
-   5. BUTTON & SHIMMER CTA ANIMATIONS
-   ============================================================ */
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position:  200% 0; }
-}
-
-.btn-shimmer {
-  background-size: 200% 100%;
-  background-image: linear-gradient(90deg, #F3B93E 0%, #FFF3C8 45%, #F3B93E 100%);
-  position: relative;
-  box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.5), inset 0 1px 0 rgba(255,255,255,0.7);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.btn-shimmer:hover {
-  animation: shimmer 1.8s infinite;
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 18px 36px -4px rgba(243, 185, 62, 0.65), 0 0 25px rgba(243, 185, 62, 0.35);
-}
-
-.btn-shimmer:active {
-  transform: translateY(1px) scale(0.97);
-  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4);
-}
-
-.btn-arrow-icon {
-  display: inline-block;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.btn-shimmer:hover .btn-arrow-icon, a:hover .btn-arrow-icon, button:hover .btn-arrow-icon {
-  transform: translateX(6px);
-}
-
-/* ============================================================
-   6. ICON & PROCESS STEP ANIMATIONS
-   ============================================================ */
 .trust-icon-pill {
   width: 5rem; height: 5rem;
   border-radius: 1.35rem;
@@ -293,7 +383,7 @@ nav a.nav-active {
 }
 
 /* ============================================================
-   7. FORM ANIMATIONS
+   FORMS SYSTEM
    ============================================================ */
 .form-input {
   width: 100%;
@@ -306,7 +396,7 @@ nav a.nav-active {
   color: var(--primary);
   outline: none;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
-  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 .form-input:focus {
   border-color: #F3B93E;
@@ -331,7 +421,7 @@ nav a.nav-active {
 }
 
 /* ============================================================
-   8. 3D HERO CARD & STAT CARDS
+   3D HERO CARD & STAT CARDS
    ============================================================ */
 .cad-hero-card {
   background: #181917;
@@ -376,7 +466,7 @@ nav a.nav-active {
 }
 
 /* ============================================================
-   9. SCROLL REVEALS
+   SCROLL REVEALS
    ============================================================ */
 .reveal-item {
   opacity: 0;
@@ -388,6 +478,36 @@ nav a.nav-active {
 .reveal-item.revealed {
   opacity: 1 !important;
   transform: translateY(0) scale(1) !important;
+}
+
+header {
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  position: relative;
+  transition: color 0.25s ease;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: #F3B93E;
+  transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+  border-radius: 2px;
+}
+nav a:hover::after, nav a.nav-active::after {
+  width: 100% !important;
+}
+nav a.nav-active {
+  color: #F3B93E !important;
 }
 
 /* Page Hero */
@@ -473,7 +593,6 @@ nav a.nav-active {
 .bg-primary { background: var(--primary); }
 .font-outfit { font-family: 'Outfit', sans-serif; }
 
-/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;
