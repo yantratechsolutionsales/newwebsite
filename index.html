@@ -33,7 +33,7 @@
     }}
   }
 </script>
-<link rel="stylesheet" href="assets/shared.css?v=10.0">
+<link rel="stylesheet" href="assets/shared.css?v=11.0">
 </head>
 <body class="antialiased selection:bg-yellow-300 selection:text-black">
 
@@ -376,19 +376,41 @@
 <!-- WHATSAPP FAB -->
 <a href="https://wa.me/918655813866?text=Hello%20Yantratech%20Solutions,%20I%20need%20help%20with%20industrial%20instruments." target="_blank" rel="noopener" aria-label="WhatsApp" class="fixed right-6 bottom-6 z-50 w-14 h-14 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-2xl shadow-2xl border-4 border-white hover:scale-110 transition-transform pulse-badge">✆</a>
 
-<!-- RFQ MODAL -->
-<div id="rfq-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
-  <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
-    <button onclick="closeRFQModal()" class="absolute top-5 right-5 text-slate-400 hover:text-primaryDark text-2xl font-bold">✕</button>
+<!-- RFQ MODAL (Synchronized with Send Us a Message Form) -->
+<div id="rfq-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto">
+  <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-10 shadow-2xl relative border border-slate-200 my-8">
+    <button onclick="closeRFQModal()" aria-label="Close modal" class="absolute top-5 right-5 text-slate-400 hover:text-primaryDark text-2xl font-bold w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition">✕</button>
     <div class="mb-6">
-      <span class="text-greySlate font-outfit font-extrabold text-xs uppercase tracking-widest">REQUEST A QUOTE</span>
-      <h3 class="text-2xl font-outfit font-extrabold text-primaryDark mt-1">Get Commercial Pricing</h3>
-      <p class="text-xs sm:text-sm text-greySlate">Our Experts are ready to help you choose the perfect products.</p>
+      <span class="section-label">ENQUIRY FORM</span>
+      <h2 class="section-title mt-1" style="font-size:1.75rem;">Send Us a Message</h2>
+      <p class="text-greySlate text-sm mt-1">Fill in the form and choose WhatsApp or email to send your enquiry directly.</p>
     </div>
+
     <form id="rfq-form" onsubmit="handleRFQSubmit(event)" class="space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="form-label" for="rfq-name">Full Name *</label>
+          <input type="text" id="rfq-name" name="name" required placeholder="e.g. Rahul Sharma" class="form-input">
+        </div>
+        <div>
+          <label class="form-label" for="rfq-company">Company / Organisation</label>
+          <input type="text" id="rfq-company" name="company" placeholder="e.g. ABC Pvt Ltd" class="form-input">
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="form-label" for="rfq-phone">Phone / WhatsApp *</label>
+          <input type="tel" id="rfq-phone" name="phone" required placeholder="+91 8655813866" class="form-input">
+        </div>
+        <div>
+          <label class="form-label" for="rfq-email">Email Address *</label>
+          <input type="email" id="rfq-email" name="email" required placeholder="your@email.com" class="form-input">
+        </div>
+      </div>
       <div>
-        <label class="form-label">Select Category / Product</label>
-        <select id="rfq-category" class="form-input">
+        <label class="form-label" for="rfq-category">Product Category of Interest</label>
+        <select id="rfq-category" name="category" class="form-input">
+          <option value="">— Select a Category —</option>
           <option>Testing &amp; Measuring Instruments</option>
           <option>Safety Accessories</option>
           <option>Calibration Instruments</option>
@@ -397,21 +419,25 @@
           <option>Panel Meters</option>
           <option>Switchgears &amp; Panel Accessories</option>
           <option>Industrial Tools</option>
+          <option>General Enquiry</option>
         </select>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div><label class="form-label">Your Name *</label><input type="text" id="rfq-name" required placeholder="e.g. Rahul Sharma" class="form-input"></div>
-        <div><label class="form-label">Phone / Mobile *</label><input type="tel" id="rfq-phone" required placeholder="+91 8655813866" class="form-input"></div>
+      <div>
+        <label class="form-label" for="rfq-subject">Subject *</label>
+        <input type="text" id="rfq-subject" name="subject" required placeholder="e.g. Quote for Fluke 87V Multimeter" class="form-input">
       </div>
-      <div><label class="form-label">Email Address *</label><input type="email" id="rfq-email" required placeholder="your@email.com" class="form-input"></div>
-      <div><label class="form-label">Requirement Details / Model No.</label><textarea id="rfq-details" rows="3" placeholder="Specify brand, quantity or model number..." class="form-input"></textarea></div>
-      <div class="pt-2 flex flex-col gap-2">
-        <button type="submit" class="btn-shimmer btn-md w-full rounded-xl"><span>Submit Enquiry</span><span class="btn-arrow-icon">💬</span></button>
+      <div>
+        <label class="form-label" for="rfq-message">Message / Requirement Details *</label>
+        <textarea id="rfq-message" name="message" rows="4" required placeholder="Describe your requirement — brand, model number, quantity, application, urgency, etc." class="form-input"></textarea>
+      </div>
+      <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
+        <button type="submit" class="btn-submit-enquiry w-full sm:w-auto"><span>Submit Enquiry</span></button>
+        <p class="text-xs text-greySlate">Direct response within 2-4 business hours.</p>
       </div>
     </form>
   </div>
 </div>
 
-<script src="assets/shared.js?v=10.0"></script>
+<script src="assets/shared.js?v=11.0"></script>
 </body>
 </html>
