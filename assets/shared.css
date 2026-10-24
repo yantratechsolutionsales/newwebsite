@@ -712,3 +712,56 @@ body.modal-open {
   box-shadow: 0 25px 65px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
   transform-origin: center top !important;
 }
+
+
+/* ============================================================
+   UNIFIED BUTTON ANIMATIONS & TRANSITIONS (Consistent Across Entire Site)
+   ============================================================ */
+.btn-primary,
+.btn-secondary,
+.btn-shimmer,
+.btn-quotation,
+.btn-outline-gold,
+.btn-submit-enquiry,
+button[onclick*="openRFQModal"],
+a.btn-shimmer {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              background-color 0.2s ease,
+              border-color 0.2s ease !important;
+  will-change: transform, box-shadow;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-outline-gold:hover,
+.btn-submit-enquiry:hover,
+button[onclick*="openRFQModal"]:hover,
+a.btn-shimmer:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 14px 28px -4px rgba(243, 185, 62, 0.55), 0 0 16px rgba(243, 185, 62, 0.25) !important;
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-outline-gold:active,
+.btn-submit-enquiry:active,
+button[onclick*="openRFQModal"]:active,
+a.btn-shimmer:active {
+  transform: translateY(1px) scale(0.98) !important;
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.3) !important;
+}
+
+/* Arrow Icon uniform gliding motion */
+.btn-arrow-icon {
+  display: inline-block !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+button:hover .btn-arrow-icon,
+a:hover .btn-arrow-icon {
+  transform: translateX(4px) !important;
+}
