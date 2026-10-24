@@ -37,12 +37,11 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Smooth Page Load Fade-in */
 body.page-loaded {
   opacity: 1;
 }
 
-/* Subtly animated industrial engineering blueprint grid */
+/* Animated industrial engineering blueprint grid */
 body::before {
   content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .10;
   background-image:
@@ -98,23 +97,44 @@ body::before {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(243, 185, 62, 0.25);
+  border: 1.5px solid rgba(243, 185, 62, 0.3);
   box-shadow: 0 20px 40px rgba(25, 26, 24, 0.08), inset 0 1px 0 rgba(255,255,255,0.8);
 }
 
-/* Unique 3D CAD Showcase Screen Card */
+/* Unique 3D Meter & Instrument Showcase Screen Card */
 .cad-hero-card {
   background: #181917;
-  border: 1.5px solid rgba(243, 185, 62, 0.35);
+  border: 1.5px solid rgba(243, 185, 62, 0.4);
   border-radius: 1.5rem;
-  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.6), 0 0 35px rgba(243, 185, 62, 0.18);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.6), 0 0 35px rgba(243, 185, 62, 0.2);
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
   transform-style: preserve-3d;
 }
 .cad-hero-card:hover {
   transform: translateY(-8px) rotateX(3deg) rotateY(-3deg) scale(1.02);
-  box-shadow: 0 40px 90px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(243, 185, 62, 0.3);
+  box-shadow: 0 40px 90px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(243, 185, 62, 0.35);
   border-color: #F3B93E;
+}
+
+/* ---------- Stat Cards (Faithful to media_1792822727694_987d028c.png) ---------- */
+.stat-pill-box {
+  background: #191A18;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1.25rem;
+  padding: 1.35rem 1rem;
+  text-align: center;
+  transition: transform 0.35s cubic-bezier(0.2,1,0.3,1), border-color 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+.stat-pill-box.stat-active {
+  border-color: #F3B93E;
+  box-shadow: 0 0 25px rgba(243, 185, 62, 0.25);
+}
+.stat-pill-box:hover {
+  transform: translateY(-6px) scale(1.04);
+  border-color: #F3B93E;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(243, 185, 62, 0.3);
 }
 
 /* ---------- Gradient Overlays ---------- */
@@ -142,16 +162,6 @@ body::before {
   0% { transform: scale(1.05) translate3d(0, 0, 0); }
   50% { transform: scale(1.10) translate3d(-1%, -1.5%, 0); }
   100% { transform: scale(1.06) translate3d(1%, 0.5%, 0); }
-}
-
-/* Floating 3D Geometric Ring / Hologram Elements */
-@keyframes float3D {
-  0%, 100% { transform: translateY(0px) rotateX(12deg) rotateY(0deg) rotateZ(0deg); }
-  50% { transform: translateY(-16px) rotateX(16deg) rotateY(180deg) rotateZ(5deg); }
-}
-.floating-3d-hologram {
-  animation: float3D 10s ease-in-out infinite;
-  transform-style: preserve-3d;
 }
 
 @keyframes orbPulse {
@@ -183,7 +193,6 @@ body::before {
 .stagger-parent .reveal-item:nth-child(3) { transition-delay: 0.25s; }
 .stagger-parent .reveal-item:nth-child(4) { transition-delay: 0.35s; }
 .stagger-parent .reveal-item:nth-child(5) { transition-delay: 0.45s; }
-.stagger-parent .reveal-item:nth-child(6) { transition-delay: 0.55s; }
 
 /* ---------- Card Hover ---------- */
 .card-hover {
@@ -195,11 +204,6 @@ body::before {
   transform: translateY(-8px) scale(1.015);
   box-shadow: 0 25px 50px -10px rgba(25,26,24,0.2), 0 0 25px rgba(243, 185, 62, 0.15);
   border-color: #F3B93E;
-}
-
-/* The industry catalogue uses one responsive card template at every breakpoint. */
-@media (min-width: 1024px) {
-  .industry-card { min-height: 25rem; }
 }
 
 /* ---------- Brand Card 3D Depth ---------- */
@@ -229,7 +233,13 @@ body::before {
   border-color: #F3B93E;
   box-shadow: 0 20px 40px -10px rgba(25,26,24,0.18), 0 0 20px rgba(243,185,62,0.2);
 }
-.brand-card img { object-fit: contain; }
+.brand-card img {
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+.brand-card:hover img {
+  transform: scale(1.08);
+}
 
 /* ---------- Floating Animation ---------- */
 @keyframes floatY {
@@ -245,7 +255,7 @@ body::before {
 }
 .pulse-badge { animation: pulseGlow 3s infinite ease-in-out; }
 
-/* ---------- Button Shimmer with 3D Depth ---------- */
+/* ---------- Button Shimmer with 3D Depth & Active Feedback ---------- */
 @keyframes shimmer {
   0%   { background-position: -200% 0; }
   100% { background-position:  200% 0; }
@@ -256,14 +266,25 @@ body::before {
   position: relative;
   box-shadow: 0 10px 25px -5px rgba(243, 185, 62, 0.4), inset 0 1px 0 rgba(255,255,255,0.6);
   transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  overflow: hidden;
 }
 .btn-shimmer:hover {
   animation: shimmer 2s infinite;
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 16px 32px -5px rgba(243, 185, 62, 0.6), 0 0 15px rgba(243, 185, 62, 0.3);
+  box-shadow: 0 16px 32px -5px rgba(243, 185, 62, 0.6), 0 0 20px rgba(243, 185, 62, 0.3);
 }
 .btn-shimmer:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4);
+}
+
+/* Micro-interaction: Animated Button Arrow */
+.btn-arrow-icon {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-shimmer:hover .btn-arrow-icon, a:hover .btn-arrow-icon, button:hover .btn-arrow-icon {
+  transform: translateX(4px);
 }
 
 /* Secondary Button 3D Outline */
@@ -407,7 +428,7 @@ nav a.nav-active {
   color: #F3B93E !important;
 }
 
-/* Keep the public navigation in the required product-first sequence. */
+/* Nav order */
 nav a[data-page="index.html"], nav a[data-page="/"] { order:1; }
 nav a[data-page="products.html"], nav a[data-page="/products"] { order:2; }
 nav a[data-page="brands.html"], nav a[data-page="/brands"] { order:3; }
@@ -469,7 +490,7 @@ nav a[data-page="contact.html"], nav a[data-page="/contact"] { order:6; }
 .bg-primary { background: var(--primary); }
 .font-outfit { font-family: 'Outfit', sans-serif; }
 
-/* 3D Trust Icon Pill (Matching uploaded user reference ref-trust-strip.png) */
+/* 3D Trust Icon Pill */
 .trust-icon-pill {
   width: 4.85rem; height: 4.85rem;
   border-radius: 1.25rem;
@@ -491,10 +512,10 @@ nav a[data-page="contact.html"], nav a[data-page="/contact"] { order:6; }
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(243, 185, 62, 0.3);
 }
 .trust-icon-pill:hover svg {
-  transform: scale(1.15);
+  transform: scale(1.15) rotate(5deg);
 }
 
-/* 4-Step Process Circles (Matching uploaded user reference ref-process-steps.png) */
+/* 4-Step Process Circles */
 .step-circle {
   width: 4.5rem; height: 4.5rem;
   border-radius: 9999px;

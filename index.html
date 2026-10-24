@@ -113,35 +113,35 @@
         </p>
         <div class="flex flex-wrap gap-4 pt-3">
           <button onclick="openRFQModal()" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-4 rounded-full shadow-2xl transition-all duration-300 text-base flex items-center gap-2">
-            <span>Request Commercial Quote</span><span class="text-lg">→</span>
+            <span>Request Commercial Quote</span><span class="btn-arrow-icon text-lg">→</span>
           </button>
           <a href="/products" class="btn-outline-gold font-outfit font-bold px-7 py-4 rounded-full transition-all duration-300 flex items-center gap-2">
-            <span>Explore Catalogue</span>
+            <span>Explore Catalogue</span><span class="btn-arrow-icon text-lg">→</span>
           </a>
         </div>
 
-        <!-- 3D Stat Cards -->
+        <!-- 3D Stat Cards (Faithfully styled to attached reference image 2) -->
         <div class="grid grid-cols-3 gap-4 pt-8 border-t border-white/15 max-w-xl">
-          <div class="glass-panel p-4 rounded-2xl border border-white/10 text-center hover:border-secondaryGold/50 transition-transform duration-300 hover:-translate-y-1" data-tilt data-tilt-max="5">
+          <div class="stat-pill-box stat-active" data-tilt data-tilt-max="5">
             <strong data-counter="10" data-suffix="+" class="block text-3xl sm:text-4xl font-outfit font-black text-secondaryGold">10+</strong>
-            <span class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-semibold">Years Experience</span>
+            <span class="text-xs text-slate-300 uppercase tracking-widest font-bold mt-1 block">YEARS EXPERIENCE</span>
           </div>
-          <div class="glass-panel p-4 rounded-2xl border border-white/10 text-center hover:border-secondaryGold/50 transition-transform duration-300 hover:-translate-y-1" data-tilt data-tilt-max="5">
+          <div class="stat-pill-box" data-tilt data-tilt-max="5">
             <strong data-counter="500" data-suffix="+" class="block text-3xl sm:text-4xl font-outfit font-black text-secondaryGold">500+</strong>
-            <span class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-semibold">Products Stocked</span>
+            <span class="text-xs text-slate-300 uppercase tracking-widest font-bold mt-1 block">PRODUCTS STOCKED</span>
           </div>
-          <div class="glass-panel p-4 rounded-2xl border border-white/10 text-center hover:border-secondaryGold/50 transition-transform duration-300 hover:-translate-y-1" data-tilt data-tilt-max="5">
+          <div class="stat-pill-box" data-tilt data-tilt-max="5">
             <strong data-counter="100" data-suffix="+" class="block text-3xl sm:text-4xl font-outfit font-black text-secondaryGold">100+</strong>
-            <span class="text-xs sm:text-sm text-slate-300 uppercase tracking-wider font-semibold">Trusted Clients</span>
+            <span class="text-xs text-slate-300 uppercase tracking-widest font-bold mt-1 block">TRUSTED CLIENTS</span>
           </div>
         </div>
       </div>
 
-      <!-- 3D Floating Showcase Card (Matches user reference ref-3d-cad-card.png) -->
+      <!-- 3D Floating Showcase Card (Replaced with High-Quality Industrial Meter & Instrument Imagery) -->
       <div class="lg:col-span-5 relative reveal-item perspective-1000">
         <div class="cad-hero-card p-4 float-anim" data-tilt data-tilt-max="8">
           <div class="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-white/10">
-            <img src="assets/ref-3d-cad-card.png" alt="Industrial Automation, CAD & Switchgear Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
+            <img src="assets/hero-industrial-meter.webp" alt="High Precision Industrial Meters and Electrical Switchgear Panel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-[#191A18] via-transparent to-transparent"></div>
             <div class="absolute top-4 right-4 bg-secondaryGold text-primaryDark font-outfit font-black text-[11px] px-3.5 py-1 rounded-full shadow-lg">
               PAN INDIA SUPPLY
@@ -152,8 +152,8 @@
               <span class="text-xs font-outfit font-black uppercase tracking-widest text-secondaryGold">COMPLETE INDUSTRIAL SETUP</span>
               <span class="text-slate-400 text-xs font-semibold">ISO &amp; CE Certified Brands</span>
             </div>
-            <h3 class="font-outfit font-extrabold text-2xl text-white">Industrial Automation &amp; Switchgear</h3>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Precision electrical switchgears, thermal cameras, digital panel meters, and calibration equipment.</p>
+            <h3 class="font-outfit font-extrabold text-2xl text-white">Industrial Measuring &amp; Panel Meters</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Precision digital multimeters, multi-function panel meters, thermal imagers, clamp testers, and process calibration equipment.</p>
           </div>
         </div>
       </div>
@@ -217,7 +217,7 @@
             <h3 class="font-outfit font-extrabold text-xl text-primaryDark mb-2">Testing &amp; Measuring</h3>
             <p class="text-sm text-greySlate leading-relaxed flex-1">Multimeters, clamp meters, insulation testers, power quality analyzers, and oscilloscopes.</p>
             <button onclick="openRFQModal('Testing')" class="mt-4 text-sm font-outfit font-extrabold text-primaryDark hover:text-secondaryGold transition flex items-center gap-1.5 group">
-              <span>Enquire Now</span><span class="transition-transform group-hover:translate-x-1">→</span>
+              <span>Enquire Now</span><span class="btn-arrow-icon text-secondaryGold font-bold">→</span>
             </button>
           </div>
         </article>
@@ -231,7 +231,7 @@
             <h3 class="font-outfit font-extrabold text-xl text-primaryDark mb-2">Calibration Instruments</h3>
             <p class="text-sm text-greySlate leading-relaxed flex-1">Process calibrators, temperature calibrators, pressure calibrators, and loop testers.</p>
             <button onclick="openRFQModal('Calibration')" class="mt-4 text-sm font-outfit font-extrabold text-primaryDark hover:text-secondaryGold transition flex items-center gap-1.5 group">
-              <span>Enquire Now</span><span class="transition-transform group-hover:translate-x-1">→</span>
+              <span>Enquire Now</span><span class="btn-arrow-icon text-secondaryGold font-bold">→</span>
             </button>
           </div>
         </article>
@@ -245,7 +245,7 @@
             <h3 class="font-outfit font-extrabold text-xl text-primaryDark mb-2">Thermal Imaging Cameras</h3>
             <p class="text-sm text-greySlate leading-relaxed flex-1">Handheld thermal cameras, predictive maintenance scanners, and hot-spot detection systems.</p>
             <button onclick="openRFQModal('Thermal')" class="mt-4 text-sm font-outfit font-extrabold text-primaryDark hover:text-secondaryGold transition flex items-center gap-1.5 group">
-              <span>Enquire Now</span><span class="transition-transform group-hover:translate-x-1">→</span>
+              <span>Enquire Now</span><span class="btn-arrow-icon text-secondaryGold font-bold">→</span>
             </button>
           </div>
         </article>
@@ -259,7 +259,7 @@
             <h3 class="font-outfit font-extrabold text-xl text-primaryDark mb-2">Switchgears &amp; Panel Meters</h3>
             <p class="text-sm text-greySlate leading-relaxed flex-1">Multi-function digital panel meters, contactors, MCCBs, relays, and enclosure components.</p>
             <button onclick="openRFQModal('Switchgears')" class="mt-4 text-sm font-outfit font-extrabold text-primaryDark hover:text-secondaryGold transition flex items-center gap-1.5 group">
-              <span>Enquire Now</span><span class="transition-transform group-hover:translate-x-1">→</span>
+              <span>Enquire Now</span><span class="btn-arrow-icon text-secondaryGold font-bold">→</span>
             </button>
           </div>
         </article>
@@ -267,7 +267,7 @@
 
       <div class="text-center mt-14 reveal-item">
         <a href="/products" class="btn-shimmer inline-flex items-center gap-3 text-primaryDark font-outfit font-extrabold px-10 py-4 rounded-full shadow-2xl text-base">
-          <span>Explore Complete Product Catalogue</span><span>→</span>
+          <span>Explore Complete Product Catalogue</span><span class="btn-arrow-icon text-lg">→</span>
         </a>
       </div>
     </div>
@@ -287,7 +287,7 @@
           <p class="text-slate-200 text-base sm:text-lg leading-relaxed">Our qualified technical specialists will evaluate your system requirements, provide datasheet comparisons, and quote optimal commercial terms.</p>
           <div class="pt-2">
             <button onclick="openRFQModal()" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-4 rounded-full shadow-2xl text-base flex items-center gap-2">
-              <span>Request Custom RFQ Now</span><span>→</span>
+              <span>Request Custom RFQ Now</span><span class="btn-arrow-icon text-lg">→</span>
             </button>
           </div>
         </div>
@@ -309,7 +309,7 @@
           </div>
         </div>
         <a href="https://wa.me/918655813866?text=Hello%20Yantratech%20Solutions,%20I%20would%20like%20to%20request%20a%20quote." target="_blank" rel="noopener" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-10 py-5 rounded-full shadow-2xl text-base flex items-center gap-2 hover:scale-105 transition-transform">
-          <span>Chat on WhatsApp</span><span>💬</span>
+          <span>Chat on WhatsApp</span><span class="btn-arrow-icon text-lg">💬</span>
         </a>
       </div>
     </div>
@@ -395,7 +395,9 @@
       <div><label class="form-label">Email Address *</label><input type="email" id="rfq-email" required placeholder="your@email.com" class="form-input"></div>
       <div><label class="form-label">Requirement Details / Model No.</label><textarea id="rfq-details" rows="3" placeholder="Specify brand, quantity or model number..." class="form-input"></textarea></div>
       <div class="pt-2 flex flex-col gap-2">
-        <button type="submit" class="w-full bg-secondaryGold hover:bg-goldHover text-primaryDark font-outfit font-extrabold py-3.5 rounded-xl shadow-lg transition text-sm">Submit Enquiry 💬</button>
+        <button type="submit" class="w-full bg-secondaryGold hover:bg-goldHover text-primaryDark font-outfit font-extrabold py-3.5 rounded-xl shadow-lg transition text-sm flex items-center justify-center gap-2">
+          <span>Submit Enquiry</span><span class="btn-arrow-icon">💬</span>
+        </button>
       </div>
     </form>
   </div>
