@@ -33,7 +33,7 @@
     }}
   }
 </script>
-<link rel="stylesheet" href="assets/shared.css?v=6.0">
+<link rel="stylesheet" href="assets/shared.css?v=10.0">
 </head>
 <body class="antialiased selection:bg-yellow-300 selection:text-black">
 
@@ -140,8 +140,8 @@
       <!-- 3D Floating Showcase Card (Replaced with High-Quality Industrial Meter & Instrument Imagery) -->
       <div class="lg:col-span-5 relative reveal-item perspective-1000">
         <div class="cad-hero-card p-4 float-anim" data-tilt data-tilt-max="8">
-          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-white/10">
-            <img src="assets/solutions-tools.webp" alt="High Precision Industrial Meters and Electrical Switchgear Panel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-white/10 shadow-2xl">
+            <img src="assets/precision-industrial-meters.jpg?v=9.0" alt="Industrial Digital Panel Meters & Multifunction Electrical Measurement Equipment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
             <div class="absolute inset-0 bg-gradient-to-t from-[#191A18] via-transparent to-transparent"></div>
             <div class="absolute top-4 right-4 bg-secondaryGold text-primaryDark font-outfit font-black text-[11px] px-3.5 py-1 rounded-full shadow-lg">
               PAN INDIA SUPPLY
@@ -149,11 +149,11 @@
           </div>
           <div class="p-5 space-y-2.5">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-outfit font-black uppercase tracking-widest text-secondaryGold">COMPLETE INDUSTRIAL SETUP</span>
+              <span class="text-xs font-outfit font-black uppercase tracking-widest text-secondaryGold">INDUSTRIAL MEASURING TOOLS</span>
               <span class="text-slate-400 text-xs font-semibold">ISO &amp; CE Certified Brands</span>
             </div>
-            <h3 class="font-outfit font-extrabold text-2xl text-white">Industrial Measuring &amp; Panel Meters</h3>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Precision digital multimeters, multi-function panel meters, thermal imagers, clamp testers, and process calibration equipment.</p>
+            <h3 class="font-outfit font-extrabold text-2xl text-white">Precision Industrial Meters</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">High-precision digital multimeters, multi-function panel meters, energy monitors, clamp testers, and industrial control instrumentation.</p>
           </div>
         </div>
       </div>
@@ -273,21 +273,32 @@
     </div>
   </section>
 
-  <!-- 3D INTERACTIVE HIGHLIGHT BANNER (Enhanced High Contrast for Image 2) -->
+  <!-- 3D INTERACTIVE HIGHLIGHT BANNER (Industrial Meters & Instruments — 100% Crisp Single Layer) -->
   <section class="py-20 bg-slate-50 border-t border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="relative rounded-3xl overflow-hidden min-h-[460px] flex items-center p-8 sm:p-16 shadow-2xl reveal-item border border-slate-300">
-        <img src="assets/banner-engineer-partner.png" alt="Industrial Engineer Partner" class="absolute inset-0 w-full h-full object-cover object-right sm:object-center" loading="lazy" decoding="async">
-        <div class="absolute inset-0 banner-overlay-dark"></div>
-        <div class="relative z-10 max-w-2xl space-y-6">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primaryDark/80 border border-secondaryGold/60 text-secondaryGold font-outfit font-black text-xs tracking-widest uppercase backdrop-blur-md shadow-lg">
+      <div class="banner-showcase-box relative rounded-3xl overflow-hidden min-h-[480px] flex items-center p-8 sm:p-16 shadow-2xl reveal-item border border-slate-700/30 bg-[#191A18] group">
+        <!-- Clean, HD Industrial Meters & Electrical Panel Image (No embedded text!) -->
+        <img src="assets/banner-industrial-meters.jpg" alt="Industrial Digital Panel Meters and Electrical Measurement Equipment" class="banner-bg-img absolute inset-0 w-full h-full object-cover object-right sm:object-center transition-transform duration-1000 ease-out group-hover:scale-105" loading="lazy" decoding="async">
+        
+        <!-- Deep gradient overlay ensuring optimal contrast on left side for crisp text rendering -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#191A18] via-[#191A18]/85 to-transparent sm:max-w-[65%] pointer-events-none"></div>
+        
+        <!-- Single crisp text layer: Eyebrow, Heading, Paragraph, and CTA -->
+        <div class="relative z-10 max-w-2xl space-y-6 text-left">
+          <div class="banner-eyebrow inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primaryDark/95 border border-secondaryGold text-secondaryGold font-outfit font-extrabold text-xs tracking-widest uppercase shadow-lg">
+            <span class="w-2 h-2 rounded-full bg-secondaryGold animate-pulse"></span>
             INDUSTRIAL ENGINEERING PARTNER
           </div>
-          <h2 class="banner-heading-text">Ready to Find the Exact Industrial Solution?</h2>
-          <p class="banner-sub-text">Our qualified technical specialists will evaluate your system requirements, provide datasheet comparisons, and quote optimal commercial terms.</p>
-          <div class="pt-2">
-            <button onclick="openRFQModal()" class="btn-shimmer btn-lg shadow-2xl">
-              <span>Request Custom RFQ Now</span><span class="btn-arrow-icon text-lg">→</span>
+          <h2 class="banner-heading-text font-outfit font-extrabold text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+            Ready to Find the Exact Industrial Solution?
+          </h2>
+          <p class="banner-sub-text text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
+            Our qualified technical specialists will evaluate your system requirements, provide datasheet comparisons, and quote optimal commercial terms.
+          </p>
+          <div class="banner-cta-wrap pt-2 flex items-center">
+            <button onclick="openRFQModal()" class="btn-shimmer btn-lg shadow-2xl text-primaryDark font-outfit font-black inline-flex items-center gap-2">
+              <span>Request Custom RFQ Now</span>
+              <span class="btn-arrow-icon text-lg transition-transform duration-300">→</span>
             </button>
           </div>
         </div>
@@ -401,6 +412,6 @@
   </div>
 </div>
 
-<script src="assets/shared.js?v=6.0"></script>
+<script src="assets/shared.js?v=10.0"></script>
 </body>
 </html>

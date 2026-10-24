@@ -29,7 +29,7 @@
     }}
   }
 </script>
-<link rel="stylesheet" href="assets/shared.css?v=6.0">
+<link rel="stylesheet" href="assets/shared.css?v=10.0">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.yantratechsolutions.co.in/"},{"@type":"ListItem","position":2,"name":"Brands","item":"https://www.yantratechsolutions.co.in/brands"}]}</script>
 </head>
 <body class="antialiased">
@@ -142,54 +142,150 @@
         <span class="section-label">BRAND PROFILES</span>
         <h2 class="section-title">Selected Brand Profiles</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <div class="card-hover bg-slate-50 rounded-2xl border border-slate-200 p-7 flex flex-col gap-4 reveal-item">
-          <img src="assets/brand-fluke.webp" alt="Fluke" class="h-12 w-auto object-contain" loading="lazy" decoding="async">
-          <h3 class="font-outfit font-extrabold text-lg text-primaryDark">Fluke Corporation</h3>
-          <p class="text-sm text-greySlate leading-relaxed">World leader in handheld test and measurement instruments. Fluke products are used by technicians across electrical, industrial and HVAC applications globally.</p>
-          <span class="text-xs font-outfit font-bold text-secondaryGold uppercase tracking-wider">Multimeters • Clamp Meters • Calibrators • Thermal Cameras</span>
-          <button onclick="openRFQModal('Testing')" class="btn-quotation">Ask for Quotation</button>
+        <!-- Fluke -->
+        <div class="card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 p-8 flex flex-col reveal-item shadow-sm hover:shadow-xl transition-all duration-300" data-tilt data-tilt-max="6">
+          <div class="h-16 flex items-center justify-start border-b border-slate-100 pb-4 mb-5">
+            <img src="assets/brand-fluke.webp" alt="Fluke Corporation" class="max-h-12 max-w-[170px] w-auto object-contain" loading="lazy" decoding="async">
+          </div>
+          <div class="space-y-2 mb-3">
+            <h3 class="font-outfit font-extrabold text-xl text-primaryDark">Fluke Corporation</h3>
+            <span class="inline-block text-xs font-outfit font-bold text-amber-700 bg-amber-500/10 px-3 py-1 rounded-full uppercase tracking-wider">USA • Premium Precision</span>
+          </div>
+          <p class="text-sm text-greySlate leading-relaxed flex-1 mb-5">
+            World leader in handheld test and measurement instruments. Fluke tools are trusted by industrial engineers, plant electricians, and calibration specialists globally.
+          </p>
+          <div class="pt-4 border-t border-slate-100 mt-auto flex flex-col gap-3">
+            <div class="text-[11px] font-outfit font-semibold text-slate-500 flex flex-wrap gap-1.5">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Digital Multimeters</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Clamp Meters</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Calibrators</span>
+            </div>
+            <div class="pt-2">
+              <button onclick="openRFQModal('Fluke')" class="btn-quotation w-full text-center">Ask for Quotation</button>
+            </div>
+          </div>
         </div>
 
-        <div class="card-hover bg-slate-50 rounded-2xl border border-slate-200 p-7 flex flex-col gap-4 reveal-item">
-          <img src="assets/brand-flir.webp" alt="FLIR" class="h-12 w-auto object-contain" loading="lazy" decoding="async">
-          <h3 class="font-outfit font-extrabold text-lg text-primaryDark">FLIR Systems</h3>
-          <p class="text-sm text-greySlate leading-relaxed">Global leader in thermal imaging systems, used in predictive maintenance, electrical inspections, building diagnostics and research applications worldwide.</p>
-          <span class="text-xs font-outfit font-bold text-secondaryGold uppercase tracking-wider">Thermal Cameras • IR Detectors • Inspection Tools</span>
-          <button onclick="openRFQModal('Thermal')" class="btn-quotation">Ask for Quotation</button>
+        <!-- FLIR -->
+        <div class="card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 p-8 flex flex-col reveal-item shadow-sm hover:shadow-xl transition-all duration-300" data-tilt data-tilt-max="6">
+          <div class="h-16 flex items-center justify-start border-b border-slate-100 pb-4 mb-5">
+            <img src="assets/brand-flir.webp" alt="FLIR Systems" class="max-h-12 max-w-[170px] w-auto object-contain" loading="lazy" decoding="async">
+          </div>
+          <div class="space-y-2 mb-3">
+            <h3 class="font-outfit font-extrabold text-xl text-primaryDark">FLIR Systems</h3>
+            <span class="inline-block text-xs font-outfit font-bold text-amber-700 bg-amber-500/10 px-3 py-1 rounded-full uppercase tracking-wider">Thermal Imaging Leader</span>
+          </div>
+          <p class="text-sm text-greySlate leading-relaxed flex-1 mb-5">
+            Global pioneer in thermal imaging systems and infrared cameras, crucial for predictive maintenance, electrical hot-spot inspections, and building diagnostics.
+          </p>
+          <div class="pt-4 border-t border-slate-100 mt-auto flex flex-col gap-3">
+            <div class="text-[11px] font-outfit font-semibold text-slate-500 flex flex-wrap gap-1.5">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Thermal Cameras</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">IR Detectors</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Inspection Tools</span>
+            </div>
+            <div class="pt-2">
+              <button onclick="openRFQModal('FLIR')" class="btn-quotation w-full text-center">Ask for Quotation</button>
+            </div>
+          </div>
         </div>
 
-        <div class="card-hover bg-slate-50 rounded-2xl border border-slate-200 p-7 flex flex-col gap-4 reveal-item">
-          <img src="assets/brand-kyoritsu.webp" alt="Kyoritsu" class="h-12 w-auto object-contain" loading="lazy" decoding="async">
-          <h3 class="font-outfit font-extrabold text-lg text-primaryDark">Kyoritsu Electrical</h3>
-          <p class="text-sm text-greySlate leading-relaxed">Japanese manufacturer of professional electrical test instruments, known for reliable clamp meters, insulation testers, phase sequence meters and earth testers.</p>
-          <span class="text-xs font-outfit font-bold text-secondaryGold uppercase tracking-wider">Clamp Meters • Insulation Testers • Earth Testers</span>
-          <button onclick="openRFQModal('Testing')" class="btn-quotation">Ask for Quotation</button>
+        <!-- Kyoritsu -->
+        <div class="card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 p-8 flex flex-col reveal-item shadow-sm hover:shadow-xl transition-all duration-300" data-tilt data-tilt-max="6">
+          <div class="h-16 flex items-center justify-start border-b border-slate-100 pb-4 mb-5">
+            <img src="assets/brand-kyoritsu.webp" alt="Kyoritsu Electrical" class="max-h-12 max-w-[170px] w-auto object-contain" loading="lazy" decoding="async">
+          </div>
+          <div class="space-y-2 mb-3">
+            <h3 class="font-outfit font-extrabold text-xl text-primaryDark">Kyoritsu Electrical</h3>
+            <span class="inline-block text-xs font-outfit font-bold text-amber-700 bg-amber-500/10 px-3 py-1 rounded-full uppercase tracking-wider">Japan • High Reliability</span>
+          </div>
+          <p class="text-sm text-greySlate leading-relaxed flex-1 mb-5">
+            Japanese precision engineering in electrical test instruments, renowned for rugged insulation testers, earth resistance meters, and digital clamp meters.
+          </p>
+          <div class="pt-4 border-t border-slate-100 mt-auto flex flex-col gap-3">
+            <div class="text-[11px] font-outfit font-semibold text-slate-500 flex flex-wrap gap-1.5">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Insulation Testers</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Earth Testers</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Clamp Meters</span>
+            </div>
+            <div class="pt-2">
+              <button onclick="openRFQModal('Kyoritsu')" class="btn-quotation w-full text-center">Ask for Quotation</button>
+            </div>
+          </div>
         </div>
 
-        <div class="card-hover bg-slate-50 rounded-2xl border border-slate-200 p-7 flex flex-col gap-4 reveal-item">
-          <img src="assets/brand-rishabh.webp" alt="Rishabh" class="h-12 w-auto object-contain" loading="lazy" decoding="async">
-          <h3 class="font-outfit font-extrabold text-lg text-primaryDark">Rishabh Instruments</h3>
-          <p class="text-sm text-greySlate leading-relaxed">India's leading manufacturer of panel meters, process calibrators and portable test instruments trusted across power utilities, industry and research labs.</p>
-          <span class="text-xs font-outfit font-bold text-secondaryGold uppercase tracking-wider">Panel Meters • Calibrators • Portable Instruments</span>
-          <button onclick="openRFQModal('Panel')" class="btn-quotation">Ask for Quotation</button>
+        <!-- Rishabh -->
+        <div class="card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 p-8 flex flex-col reveal-item shadow-sm hover:shadow-xl transition-all duration-300" data-tilt data-tilt-max="6">
+          <div class="h-16 flex items-center justify-start border-b border-slate-100 pb-4 mb-5">
+            <img src="assets/brand-rishabh.webp" alt="Rishabh Instruments" class="max-h-12 max-w-[170px] w-auto object-contain" loading="lazy" decoding="async">
+          </div>
+          <div class="space-y-2 mb-3">
+            <h3 class="font-outfit font-extrabold text-xl text-primaryDark">Rishabh Instruments</h3>
+            <span class="inline-block text-xs font-outfit font-bold text-amber-700 bg-amber-500/10 px-3 py-1 rounded-full uppercase tracking-wider">India • Industrial Grade</span>
+          </div>
+          <p class="text-sm text-greySlate leading-relaxed flex-1 mb-5">
+            Leading manufacturer of energy meters, analog & digital panel meters, transducers, process calibrators, and portable test instruments for utilities and industry.
+          </p>
+          <div class="pt-4 border-t border-slate-100 mt-auto flex flex-col gap-3">
+            <div class="text-[11px] font-outfit font-semibold text-slate-500 flex flex-wrap gap-1.5">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Panel Meters</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Transducers</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Calibrators</span>
+            </div>
+            <div class="pt-2">
+              <button onclick="openRFQModal('Rishabh')" class="btn-quotation w-full text-center">Ask for Quotation</button>
+            </div>
+          </div>
         </div>
 
-        <div class="card-hover bg-slate-50 rounded-2xl border border-slate-200 p-7 flex flex-col gap-4 reveal-item">
-          <img src="assets/brand-selec.webp" alt="Selec" class="h-12 w-auto object-contain" loading="lazy" decoding="async">
-          <h3 class="font-outfit font-extrabold text-lg text-primaryDark">Selec Controls</h3>
-          <p class="text-sm text-greySlate leading-relaxed">Indian manufacturer of digital panel meters, timers, counters, temperature controllers and energy meters for industrial control panels and automation applications.</p>
-          <span class="text-xs font-outfit font-bold text-secondaryGold uppercase tracking-wider">Panel Meters • Timers • Energy Meters • Controllers</span>
-          <button onclick="openRFQModal('Switchgear')" class="btn-quotation">Ask for Quotation</button>
+        <!-- Selec -->
+        <div class="card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 p-8 flex flex-col reveal-item shadow-sm hover:shadow-xl transition-all duration-300" data-tilt data-tilt-max="6">
+          <div class="h-16 flex items-center justify-start border-b border-slate-100 pb-4 mb-5">
+            <img src="assets/brand-selec.webp" alt="Selec Controls" class="max-h-12 max-w-[170px] w-auto object-contain" loading="lazy" decoding="async">
+          </div>
+          <div class="space-y-2 mb-3">
+            <h3 class="font-outfit font-extrabold text-xl text-primaryDark">Selec Controls</h3>
+            <span class="inline-block text-xs font-outfit font-bold text-amber-700 bg-amber-500/10 px-3 py-1 rounded-full uppercase tracking-wider">Control & Automation</span>
+          </div>
+          <p class="text-sm text-greySlate leading-relaxed flex-1 mb-5">
+            Premier supplier of digital panel meters, timers, counters, temperature controllers, and electrical protection relays for switchgear control panels.
+          </p>
+          <div class="pt-4 border-t border-slate-100 mt-auto flex flex-col gap-3">
+            <div class="text-[11px] font-outfit font-semibold text-slate-500 flex flex-wrap gap-1.5">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Digital Timers</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Temperature Controllers</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Relays</span>
+            </div>
+            <div class="pt-2">
+              <button onclick="openRFQModal('Selec')" class="btn-quotation w-full text-center">Ask for Quotation</button>
+            </div>
+          </div>
         </div>
 
-        <div class="card-hover bg-slate-50 rounded-2xl border border-slate-200 p-7 flex flex-col gap-4 reveal-item">
-          <img src="assets/brand-gwinstek.webp" alt="GW Instek" class="h-12 w-auto object-contain" loading="lazy" decoding="async">
-          <h3 class="font-outfit font-extrabold text-lg text-primaryDark">GW Instek</h3>
-          <p class="text-sm text-greySlate leading-relaxed">Taiwan-based manufacturer of bench test equipment including oscilloscopes, function generators, spectrum analysers, power supplies and LCR meters for R&amp;D labs.</p>
-          <span class="text-xs font-outfit font-bold text-secondaryGold uppercase tracking-wider">Oscilloscopes • Power Supplies • LCR Meters</span>
-          <button onclick="openRFQModal('Testing')" class="btn-quotation">Ask for Quotation</button>
+        <!-- GW Instek -->
+        <div class="card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 p-8 flex flex-col reveal-item shadow-sm hover:shadow-xl transition-all duration-300" data-tilt data-tilt-max="6">
+          <div class="h-16 flex items-center justify-start border-b border-slate-100 pb-4 mb-5">
+            <img src="assets/brand-gwinstek.webp" alt="GW Instek" class="max-h-12 max-w-[170px] w-auto object-contain" loading="lazy" decoding="async">
+          </div>
+          <div class="space-y-2 mb-3">
+            <h3 class="font-outfit font-extrabold text-xl text-primaryDark">GW Instek</h3>
+            <span class="inline-block text-xs font-outfit font-bold text-amber-700 bg-amber-500/10 px-3 py-1 rounded-full uppercase tracking-wider">Bench & Laboratory Test</span>
+          </div>
+          <p class="text-sm text-greySlate leading-relaxed flex-1 mb-5">
+            World-class benchtop test equipment including digital storage oscilloscopes, DC power supplies, LCR meters, and spectrum analyzers for electronics labs and QA.
+          </p>
+          <div class="pt-4 border-t border-slate-100 mt-auto flex flex-col gap-3">
+            <div class="text-[11px] font-outfit font-semibold text-slate-500 flex flex-wrap gap-1.5">
+              <span class="bg-slate-100 px-2 py-0.5 rounded">Oscilloscopes</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">DC Power Supplies</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded">LCR Meters</span>
+            </div>
+            <div class="pt-2">
+              <button onclick="openRFQModal('GW Instek')" class="btn-quotation w-full text-center">Ask for Quotation</button>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -245,6 +341,6 @@
   </div>
 </div>
 
-<script src="assets/shared.js?v=6.0"></script>
+<script src="assets/shared.js?v=10.0"></script>
 </body>
 </html>
