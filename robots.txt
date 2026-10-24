@@ -4,5 +4,38 @@ Disallow: /admin
 Disallow: /admin.html
 Disallow: /api/
 
-# Keep the public sitemap discoverable for all compliant crawlers.
+# AI Search & Generative Engine Crawlers (ChatGPT Search, Perplexity, Claude, Google Gemini)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+# Public sitemap and LLM context files
 Sitemap: https://www.yantratechsolutions.co.in/sitemap.xml
+# LLM Context: https://www.yantratechsolutions.co.in/llms.txt
+# LLM Full Knowledge Base: https://www.yantratechsolutions.co.in/llms-full.txt

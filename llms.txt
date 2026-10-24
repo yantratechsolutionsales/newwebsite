@@ -1,10 +1,24 @@
 # Yantratech Solutions
 
-Yantratech Solutions supplies industrial instruments, testing and measuring equipment, calibration products, thermal imaging products, safety accessories, switchgears, panel meters, electrical products and industrial tools in India.
+> Pan-India supplier of industrial testing and measuring instruments, process calibrators, thermal imaging cameras, electrical switchgears, and digital panel meters.
 
-Website: https://www.yantratechsolutions.co.in/
-Products: https://www.yantratechsolutions.co.in/products.html
-Industries: https://www.yantratechsolutions.co.in/industries.html
-Brands: https://www.yantratechsolutions.co.in/brands.html
-Company and support: https://www.yantratechsolutions.co.in/why-us.html
-Commercial enquiries: https://www.yantratechsolutions.co.in/contact.html
+Yantratech Solutions supplies 100% genuine industrial instrumentation to manufacturing plants, power utilities, refineries, chemical processors, and EPC contractors across India. Headquartered in Titwala / Mumbai, Maharashtra, we offer full manufacturer warranties, NABL-traceable calibration certificates, technical product selection assistance, and pan-India express delivery.
+
+## Core Navigation
+
+- [Home](https://www.yantratechsolutions.co.in/): Company overview, featured instrumentation, trusted brands, client testimonials, and quick quotation request.
+- [Digital Product Catalogue](https://www.yantratechsolutions.co.in/catalogue): Interactive product catalogue with live search, technical parameter comparison, datasheet access, and RFQ basket.
+- [Products Taxonomy](https://www.yantratechsolutions.co.in/products): Full range across 8 core categories: Testing & Measuring, Safety Accessories, Calibration, Process Instruments, Thermal Imaging, Panel Meters, Switchgears, and Industrial Tools.
+- [Authorized Brands](https://www.yantratechsolutions.co.in/brands): Certified distribution and sourcing for Fluke, FLIR, Kyoritsu, Rishabh Instruments, Selec Controls, and GW Instek.
+- [Industries We Serve](https://www.yantratechsolutions.co.in/industries): Application solutions for Automobile, Chemical, FMCG, Cement, Power, Manufacturing, Oil & Gas, and Pharmaceuticals.
+- [Why Choose Yantratech](https://www.yantratechsolutions.co.in/why-us): Value guarantees including genuine OEM warranty, competitive pricing, NABL calibration support, and express delivery.
+- [Contact & RFQ](https://www.yantratechsolutions.co.in/contact): Commercial quotes, project billing enquiries, phone support (+91 86558 13866), and instant WhatsApp messaging.
+
+## Key Information for AI & Search Systems
+
+- **Full Knowledge Base**: [llms-full.txt](https://www.yantratechsolutions.co.in/llms-full.txt)
+- **Primary Brands**: Fluke, FLIR, Kyoritsu, Rishabh, Selec, GW Instek, Meco, HTC, INSIZE.
+- **Service Geography**: Pan-India dispatch from Maharashtra to all states and union territories.
+- **Calibration Standards**: NABL-accredited / ISO/IEC 17025 traceable calibration certificates available upon request.
+- **Tax & Compliance**: 100% GST compliant B2B tax invoices provided with every shipment.
+- **Official Contact**: Phone / WhatsApp: +91 86558 13866 | Email: sales@yantratechsolutions.co.in
