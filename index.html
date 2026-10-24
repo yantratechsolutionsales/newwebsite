@@ -33,7 +33,7 @@
     }}
   }
 </script>
-<link rel="stylesheet" href="assets/shared.css">
+<link rel="stylesheet" href="assets/shared.css?v=3.2">
 </head>
 <body class="antialiased selection:bg-yellow-300 selection:text-black">
 
@@ -56,16 +56,16 @@
 <!-- STICKY HEADER (Matches uploaded navbar reference) -->
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 h-24 sm:h-28 flex items-center justify-between gap-4">
-    <a href="/" class="flex items-center gap-3 group py-2" aria-label="Yantratech Solutions Home">
+    <a href="index.html" class="flex items-center gap-3 group py-2" aria-label="Yantratech Solutions Home">
       <img src="assets/yantratech-logo.webp" alt="Yantratech Solutions" class="h-16 sm:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm" loading="lazy" decoding="async">
     </a>
     <nav class="hidden lg:flex items-center gap-8 font-outfit font-semibold text-base text-primaryDark">
-      <a href="/"          data-page="/"         class="hover:text-secondaryGold transition py-2">Home</a>
-      <a href="/products"   data-page="/products"  class="hover:text-secondaryGold transition py-2">Products</a>
-      <a href="/brands"     data-page="/brands"    class="hover:text-secondaryGold transition py-2">Brands</a>
-      <a href="/industries" data-page="/industries"class="hover:text-secondaryGold transition py-2">Industries</a>
-      <a href="/why-us"     data-page="/why-us"    class="hover:text-secondaryGold transition py-2">Why Us</a>
-      <a href="/contact"    data-page="/contact"   class="hover:text-secondaryGold transition py-2">Contact</a>
+      <a href="index.html"          data-page="/"         class="hover:text-secondaryGold transition py-2">Home</a>
+      <a href="products.html"   data-page="/products"  class="hover:text-secondaryGold transition py-2">Products</a>
+      <a href="brands.html"     data-page="/brands"    class="hover:text-secondaryGold transition py-2">Brands</a>
+      <a href="industries.html" data-page="/industries"class="hover:text-secondaryGold transition py-2">Industries</a>
+      <a href="why-us.html"     data-page="/why-us"    class="hover:text-secondaryGold transition py-2">Why Us</a>
+      <a href="contact.html"    data-page="/contact"   class="hover:text-secondaryGold transition py-2">Contact</a>
     </nav>
     <div class="flex items-center gap-3">
       <button onclick="openRFQModal()" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full shadow-lg hover:shadow-yellow-400/50 transition-all duration-300 transform hover:-translate-y-0.5 text-base flex items-center gap-2">
@@ -75,12 +75,12 @@
     </div>
   </div>
   <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 font-outfit font-semibold text-primaryDark">
-    <a href="/"      onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Home</a>
-    <a href="/products"   onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Products</a>
-    <a href="/brands"     onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Brands</a>
-    <a href="/industries" onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Industries</a>
-    <a href="/why-us"     onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Why Us</a>
-    <a href="/contact"    onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Contact</a>
+    <a href="index.html"      onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Home</a>
+    <a href="products.html"   onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Products</a>
+    <a href="brands.html"     onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Brands</a>
+    <a href="industries.html" onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Industries</a>
+    <a href="why-us.html"     onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Why Us</a>
+    <a href="contact.html"    onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Contact</a>
     <button onclick="toggleMobileMenu(); openRFQModal();" class="w-full bg-secondaryGold text-primaryDark font-bold py-3.5 rounded-xl mt-2 shadow text-base">Request Quote Now</button>
   </div>
 </header>
@@ -115,7 +115,7 @@
           <button onclick="openRFQModal()" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-4 rounded-full shadow-2xl transition-all duration-300 text-base flex items-center gap-2">
             <span>Request Commercial Quote</span><span class="btn-arrow-icon text-lg">→</span>
           </button>
-          <a href="/products" class="btn-outline-gold font-outfit font-bold px-7 py-4 rounded-full transition-all duration-300 flex items-center gap-2">
+          <a href="products.html" class="btn-outline-gold font-outfit font-bold px-7 py-4 rounded-full transition-all duration-300 flex items-center gap-2">
             <span>Explore Catalogue</span><span class="btn-arrow-icon text-lg">→</span>
           </a>
         </div>
@@ -266,7 +266,7 @@
       </div>
 
       <div class="text-center mt-14 reveal-item">
-        <a href="/products" class="btn-shimmer inline-flex items-center gap-3 text-primaryDark font-outfit font-extrabold px-10 py-4 rounded-full shadow-2xl text-base">
+        <a href="products.html" class="btn-shimmer inline-flex items-center gap-3 text-primaryDark font-outfit font-extrabold px-10 py-4 rounded-full shadow-2xl text-base">
           <span>Explore Complete Product Catalogue</span><span class="btn-arrow-icon text-lg">→</span>
         </a>
       </div>
@@ -328,22 +328,22 @@
       <div class="lg:col-span-2 space-y-3">
         <h3 class="text-white font-outfit font-bold text-sm uppercase tracking-wider">Quick Links</h3>
         <ul class="space-y-2 text-xs sm:text-sm">
-          <li><a href="/"      class="hover:text-secondaryGold transition">Home</a></li>
-          <li><a href="/products"   class="hover:text-secondaryGold transition">Products</a></li>
-          <li><a href="/brands"     class="hover:text-secondaryGold transition">Brands</a></li>
-          <li><a href="/industries" class="hover:text-secondaryGold transition">Industries</a></li>
-          <li><a href="/why-us"     class="hover:text-secondaryGold transition">Why Us</a></li>
-          <li><a href="/contact"    class="hover:text-secondaryGold transition">Contact</a></li>
+          <li><a href="index.html"      class="hover:text-secondaryGold transition">Home</a></li>
+          <li><a href="products.html"   class="hover:text-secondaryGold transition">Products</a></li>
+          <li><a href="brands.html"     class="hover:text-secondaryGold transition">Brands</a></li>
+          <li><a href="industries.html" class="hover:text-secondaryGold transition">Industries</a></li>
+          <li><a href="why-us.html"     class="hover:text-secondaryGold transition">Why Us</a></li>
+          <li><a href="contact.html"    class="hover:text-secondaryGold transition">Contact</a></li>
         </ul>
       </div>
       <div class="lg:col-span-3 space-y-3">
         <h3 class="text-white font-outfit font-bold text-sm uppercase tracking-wider">Solutions</h3>
         <ul class="space-y-2 text-xs sm:text-sm">
-          <li><a href="/products" class="hover:text-secondaryGold transition">Industrial Instruments</a></li>
-          <li><a href="/products" class="hover:text-secondaryGold transition">Calibration Tools</a></li>
-          <li><a href="/products" class="hover:text-secondaryGold transition">Switchgears</a></li>
-          <li><a href="/products" class="hover:text-secondaryGold transition">Panel Meters</a></li>
-          <li><a href="/products" class="hover:text-secondaryGold transition">Thermal Imaging</a></li>
+          <li><a href="products.html" class="hover:text-secondaryGold transition">Industrial Instruments</a></li>
+          <li><a href="products.html" class="hover:text-secondaryGold transition">Calibration Tools</a></li>
+          <li><a href="products.html" class="hover:text-secondaryGold transition">Switchgears</a></li>
+          <li><a href="products.html" class="hover:text-secondaryGold transition">Panel Meters</a></li>
+          <li><a href="products.html" class="hover:text-secondaryGold transition">Thermal Imaging</a></li>
         </ul>
       </div>
       <div class="lg:col-span-3 space-y-3">
@@ -403,6 +403,6 @@
   </div>
 </div>
 
-<script src="assets/shared.js"></script>
+<script src="assets/shared.js?v=3.2"></script>
 </body>
 </html>
