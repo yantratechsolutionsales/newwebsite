@@ -48,164 +48,6 @@ body::before {
 }
 
 /* ============================================================
-   RULE 2: CONSISTENT & STRICT BUTTON SYSTEM
-   ============================================================ */
-
-/* Base Button Properties */
-.btn-primary,
-.btn-shimmer,
-.btn-secondary,
-.btn-outline-gold {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  line-height: 1;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  border-radius: 9999px;
-  position: relative;
-  will-change: transform, box-shadow;
-  /* Transform only to prevent layout jump (RULE 3) */
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-
-/* Size Variants */
-.btn-sm {
-  height: 2.5rem; /* 40px */
-  padding: 0 1.25rem;
-  font-size: 0.875rem; /* 14px */
-}
-
-.btn-md {
-  height: 3rem; /* 48px */
-  padding: 0 1.75rem;
-  font-size: 0.95rem; /* 15px */
-}
-
-.btn-lg {
-  height: 3.5rem; /* 56px */
-  padding: 0 2.25rem;
-  font-size: 1.05rem; /* 17px */
-}
-
-/* Specific Pill Dimensions for Ask for Quotation (Matching Image 1) */
-.btn-quotation {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.75rem; /* 44px */
-  padding: 0 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 800;
-  font-family: 'Outfit', sans-serif;
-  border-radius: 9999px;
-  color: #191A18;
-  background: linear-gradient(90deg, #F3B93E 0%, #FFD670 100%);
-  box-shadow: 0 8px 20px -4px rgba(243, 185, 62, 0.45);
-  border: none;
-  cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
-}
-.btn-quotation:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 14px 28px -4px rgba(243, 185, 62, 0.6);
-}
-.btn-quotation:active {
-  transform: translateY(1px) scale(0.98);
-}
-
-/* Primary Shimmer Button */
-@keyframes shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position:  200% 0; }
-}
-
-.btn-shimmer {
-  background-size: 200% 100%;
-  background-image: linear-gradient(90deg, #F3B93E 0%, #FFF3C8 45%, #F3B93E 100%);
-  color: #191A18;
-  box-shadow: 0 10px 24px -4px rgba(243, 185, 62, 0.45), inset 0 1px 0 rgba(255,255,255,0.7);
-  border: 1px solid rgba(243, 185, 62, 0.8);
-}
-
-.btn-shimmer:hover {
-  animation: shimmer 1.8s infinite;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.65), 0 0 20px rgba(243, 185, 62, 0.35);
-}
-
-.btn-shimmer:active {
-  transform: translateY(1px) scale(0.98);
-  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4);
-}
-
-/* Secondary Button 3D Outline */
-.btn-outline-gold {
-  border: 1.5px solid rgba(243, 185, 62, 0.7);
-  color: #F3B93E;
-  background: rgba(243, 185, 62, 0.05);
-  backdrop-filter: blur(8px);
-}
-.btn-outline-gold:hover {
-  background: #F3B93E;
-  color: #191A18;
-  border-color: #F3B93E;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 14px 28px -4px rgba(243, 185, 62, 0.45);
-}
-
-/* Mandatory Correction for Submit Enquiry (Matching Image 2 / Contact Form) */
-.btn-submit-enquiry {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto !important;
-  min-width: 14rem;
-  max-width: 22rem;
-  height: 3.25rem; /* 52px */
-  padding: 0 2.25rem;
-  border-radius: 0.85rem;
-  background: #F3B93E;
-  color: #191A18;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 850;
-  font-size: 1.05rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.45);
-  transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease, background-color 0.2s ease;
-}
-.btn-submit-enquiry:hover {
-  background-color: #e5a727;
-  transform: translateY(-3px) scale(1.015);
-  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.6);
-}
-.btn-submit-enquiry:active {
-  transform: translateY(1px) scale(0.98);
-}
-.btn-submit-enquiry:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-  transform: none !important;
-}
-
-/* Gliding Arrow Micro-interaction (RULE 4) */
-.btn-arrow-icon {
-  display: inline-block;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-button:hover .btn-arrow-icon,
-a:hover .btn-arrow-icon {
-  transform: translateX(5px);
-}
-
-/* ============================================================
    RULE 1 & 4: HEADINGS & SECTION TYPOGRAPHY
    ============================================================ */
 .section-label {
@@ -655,16 +497,6 @@ body {
 .stagger-4 { transition-delay: 0.4s !important; }
 .stagger-5 { transition-delay: 0.5s !important; }
 
-/* Interactive Icon motion */
-.btn-arrow-icon {
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-button:hover .btn-arrow-icon,
-a:hover .btn-arrow-icon {
-  transform: translateX(4px);
-}
-
 /* Form inputs focus transition */
 .form-input {
   transition: all 0.25s ease-in-out;
@@ -715,205 +547,216 @@ body.modal-open {
 
 
 /* ============================================================
-   UNIFIED BUTTON ANIMATIONS & TRANSITIONS (Consistent Across Entire Site)
+   MASTER UNIFIED BUTTON SYSTEM
+   (Identical Animations, Colors, Transitions, Hover Physics & Typography)
    ============================================================ */
-.btn-primary,
-.btn-secondary,
+
+/* 1. UNIVERSAL BASE & PHYSICS FOR ALL BUTTONS & CTAs */
+button,
+a.btn-primary-gold,
+a.btn-shimmer,
+a.btn-quotation,
+a.btn-enquire-now,
+a.btn-submit-enquiry,
+a.btn-outline-gold,
+a.btn-dark-pill,
+.btn-primary-gold,
 .btn-shimmer,
 .btn-quotation,
-.btn-outline-gold,
+.btn-enquire-now,
 .btn-submit-enquiry,
-button[onclick*="openRFQModal"],
-a.btn-shimmer {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s ease,
-              background-color 0.2s ease,
-              border-color 0.2s ease !important;
-  will-change: transform, box-shadow;
-}
-
-.btn-primary:hover,
-.btn-secondary:hover,
-.btn-shimmer:hover,
-.btn-quotation:hover,
-.btn-outline-gold:hover,
-.btn-submit-enquiry:hover,
-button[onclick*="openRFQModal"]:hover,
-a.btn-shimmer:hover {
-  transform: translateY(-3px) scale(1.02) !important;
-  box-shadow: 0 14px 28px -4px rgba(243, 185, 62, 0.55), 0 0 16px rgba(243, 185, 62, 0.25) !important;
-}
-
-.btn-primary:active,
-.btn-secondary:active,
-.btn-shimmer:active,
-.btn-quotation:active,
-.btn-outline-gold:active,
-.btn-submit-enquiry:active,
-button[onclick*="openRFQModal"]:active,
-a.btn-shimmer:active {
-  transform: translateY(1px) scale(0.98) !important;
-  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.3) !important;
-}
-
-/* Arrow Icon uniform gliding motion */
-.btn-arrow-icon {
-  display: inline-block !important;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-button:hover .btn-arrow-icon,
-a:hover .btn-arrow-icon {
-  transform: translateX(4px) !important;
-}
-
-
-/* ============================================================
-   PERFECT REFERENCE BUTTON SYSTEM (Matching 4 Uploaded Button Images)
-   ============================================================ */
-
-/* 1. SOLID GOLD PILL BUTTON (Image 4: "Ask for Quotation" & "Enquire Now") */
-.btn-quotation,
-.btn-enquire-now {
+.btn-outline-gold,
+.btn-dark-pill,
+.btn-primary {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 0.5rem !important;
-  height: 2.75rem !important; /* 44px */
-  padding: 0 1.75rem !important;
   font-family: 'Outfit', sans-serif !important;
-  font-size: 0.925rem !important;
   font-weight: 850 !important;
-  border-radius: 9999px !important;
-  color: #191A18 !important;
-  background: linear-gradient(90deg, #F3B93E 0%, #FFD670 100%) !important;
-  border: 1px solid rgba(243, 185, 62, 0.9) !important;
-  box-shadow: 0 8px 22px -4px rgba(243, 185, 62, 0.5) !important;
-  cursor: pointer !important;
   text-decoration: none !important;
   white-space: nowrap !important;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s ease,
-              filter 0.2s ease !important;
+  cursor: pointer !important;
+  border-radius: 9999px;
+  position: relative;
   will-change: transform, box-shadow !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease !important;
 }
 
+/* 2. UNIFORM HOVER LIFT & GLOW (Identical Across Entire Site) */
+button:hover,
+a.btn-primary-gold:hover,
+a.btn-shimmer:hover,
+a.btn-quotation:hover,
+a.btn-enquire-now:hover,
+a.btn-submit-enquiry:hover,
+a.btn-outline-gold:hover,
+a.btn-dark-pill:hover,
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
 .btn-quotation:hover,
-.btn-enquire-now:hover {
-  transform: translateY(-3px) scale(1.02) !important;
-  box-shadow: 0 14px 30px -4px rgba(243, 185, 62, 0.7), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+.btn-enquire-now:hover,
+.btn-submit-enquiry:hover,
+.btn-outline-gold:hover,
+.btn-dark-pill:hover,
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.025) !important;
 }
 
+/* 3. UNIFORM ACTIVE / CLICK PRESS PHYSICS */
+button:active,
+a.btn-primary-gold:active,
+a.btn-shimmer:active,
+a.btn-quotation:active,
+a.btn-enquire-now:active,
+a.btn-submit-enquiry:active,
+a.btn-outline-gold:active,
+a.btn-dark-pill:active,
+.btn-primary-gold:active,
+.btn-shimmer:active,
 .btn-quotation:active,
-.btn-enquire-now:active {
+.btn-enquire-now:active,
+.btn-submit-enquiry:active,
+.btn-outline-gold:active,
+.btn-dark-pill:active,
+.btn-primary:active {
   transform: translateY(1px) scale(0.98) !important;
+}
+
+/* 4. DISABLED STATE */
+button:disabled,
+.btn-submit-enquiry:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* 5. ARROW GLIDE MICRO-INTERACTION (Always Identical Distance & Easing) */
+.btn-arrow-icon {
+  display: inline-block !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform !important;
+}
+button:hover .btn-arrow-icon,
+a:hover .btn-arrow-icon,
+.btn-primary-gold:hover .btn-arrow-icon,
+.btn-shimmer:hover .btn-arrow-icon,
+.btn-quotation:hover .btn-arrow-icon,
+.btn-enquire-now:hover .btn-arrow-icon,
+.btn-submit-enquiry:hover .btn-arrow-icon,
+.btn-outline-gold:hover .btn-arrow-icon,
+.btn-dark-pill:hover .btn-arrow-icon {
+  transform: translateX(5px) !important;
+}
+
+/* 6. STANDARDIZED SIZING SCALES */
+.btn-sm {
+  height: 2.35rem !important; /* ~38px */
+  padding: 0 1.25rem !important;
+  font-size: 0.85rem !important;
+}
+.btn-md,
+.btn-quotation,
+.btn-enquire-now {
+  height: 2.85rem !important; /* ~45px */
+  padding: 0 1.75rem !important;
+  font-size: 0.935rem !important;
+}
+.btn-lg {
+  height: 3.35rem !important; /* ~54px */
+  padding: 0 2.25rem !important;
+  font-size: 1.05rem !important;
+}
+
+/* 7. REFERENCE STYLE 1: RADIANT SOLID GOLD PILL BUTTON (Image 4 & Master CTA)
+   Used for: Ask for Quotation, Enquire Now, Request Quote, Hero Primary CTA, WhatsApp */
+.btn-primary-gold,
+.btn-shimmer,
+.btn-quotation,
+.btn-enquire-now,
+.btn-primary {
+  color: #191A18 !important;
+  background: linear-gradient(90deg, #F3B93E 0%, #FFD670 100%) !important;
+  border: 1px solid rgba(243, 185, 62, 0.95) !important;
+  box-shadow: 0 8px 22px -4px rgba(243, 185, 62, 0.5) !important;
+}
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-enquire-now:hover,
+.btn-primary:hover {
+  background: linear-gradient(90deg, #FFC84B 0%, #FFE08A 100%) !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.68), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+}
+.btn-primary-gold:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-enquire-now:active,
+.btn-primary:active {
   box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
 }
 
-/* 2. SOLID GOLD RECTANGULAR BUTTON (Image 1: "Submit Enquiry") */
+/* 8. REFERENCE STYLE 2: SOLID GOLD RECTANGULAR BUTTON (Image 1: Submit Enquiry)
+   Used for: Contact Form & RFQ Modal Submission */
 .btn-submit-enquiry {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  width: auto !important;
-  min-width: 14rem !important;
+  border-radius: 0.85rem !important; /* ~14px rounded rectangle matching Image 1 */
   height: 3.25rem !important; /* 52px */
   padding: 0 2.25rem !important;
-  border-radius: 0.85rem !important; /* ~14px rounded rectangle matching Image 1 */
-  background: #F3B93E !important;
   color: #191A18 !important;
-  font-family: 'Outfit', sans-serif !important;
-  font-weight: 850 !important;
-  font-size: 1.05rem !important;
+  background: #F3B93E !important;
   border: none !important;
-  cursor: pointer !important;
+  font-size: 1.05rem !important;
   box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.5) !important;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s ease,
-              background-color 0.2s ease !important;
-  will-change: transform, box-shadow !important;
 }
-
 .btn-submit-enquiry:hover {
-  background-color: #e5a727 !important;
-  transform: translateY(-3px) scale(1.02) !important;
+  background: #e5a727 !important;
   box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.65), 0 0 20px rgba(243, 185, 62, 0.35) !important;
 }
-
 .btn-submit-enquiry:active {
-  transform: translateY(1px) scale(0.98) !important;
   box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
 }
 
-/* 3. GOLD OUTLINE PILL BUTTON (Image 2: "Explore Catalogue →") */
+/* 9. REFERENCE STYLE 3: GOLD OUTLINE PILL BUTTON (Image 2: Explore Catalogue →) */
 .btn-outline-gold {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  border-radius: 9999px !important;
   border: 1.5px solid #F3B93E !important;
   color: #F3B93E !important;
   background: rgba(25, 26, 24, 0.45) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
-  font-family: 'Outfit', sans-serif !important;
-  font-weight: 850 !important;
-  text-decoration: none !important;
   box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s ease,
-              background 0.2s ease,
-              color 0.2s ease !important;
-  will-change: transform, box-shadow !important;
 }
-
 .btn-outline-gold:hover {
   background: #F3B93E !important;
   color: #191A18 !important;
   border-color: #F3B93E !important;
-  transform: translateY(-3px) scale(1.02) !important;
-  box-shadow: 0 14px 28px -4px rgba(243, 185, 62, 0.55), 0 0 16px rgba(243, 185, 62, 0.3) !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.55), 0 0 16px rgba(243, 185, 62, 0.3) !important;
 }
-
 .btn-outline-gold:active {
-  transform: translateY(1px) scale(0.98) !important;
   box-shadow: 0 4px 10px rgba(243, 185, 62, 0.3) !important;
 }
 
-/* 4. DARK GLASS PILL BUTTON (Image 3: "Contact Us") */
+/* 10. REFERENCE STYLE 4: DARK GLASS PILL BUTTON (Image 3: Contact Us) */
 .btn-dark-pill,
 a[href="contact.html"].bg-white\/10 {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  border-radius: 9999px !important;
   background: rgba(255, 255, 255, 0.12) !important;
   border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
   color: #ffffff !important;
-  font-family: 'Outfit', sans-serif !important;
-  font-weight: 850 !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
-  text-decoration: none !important;
   box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s ease,
-              background 0.2s ease,
-              border-color 0.2s ease !important;
-  will-change: transform, box-shadow !important;
 }
-
 .btn-dark-pill:hover,
 a[href="contact.html"].bg-white\/10:hover {
   background: rgba(255, 255, 255, 0.22) !important;
   border-color: rgba(255, 255, 255, 0.45) !important;
-  transform: translateY(-3px) scale(1.02) !important;
   box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.6) !important;
 }
-
 .btn-dark-pill:active,
 a[href="contact.html"].bg-white\/10:active {
-  transform: translateY(1px) scale(0.98) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
 }

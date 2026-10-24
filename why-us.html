@@ -29,7 +29,199 @@
     }}
   }
 </script>
-<link rel="stylesheet" href="assets/shared.css?v=14.0">
+<link rel="stylesheet" href="assets/shared-v15.css?v=15.0">
+<style id="unified-button-system">
+/* UNIVERSAL GUARANTEE: Identical Animations, Colors, Transitions, Hover Physics & Typography Across All Buttons */
+button,
+a.btn-primary-gold,
+a.btn-shimmer,
+a.btn-quotation,
+a.btn-enquire-now,
+a.btn-submit-enquiry,
+a.btn-outline-gold,
+a.btn-dark-pill,
+.btn-primary-gold,
+.btn-shimmer,
+.btn-quotation,
+.btn-enquire-now,
+.btn-submit-enquiry,
+.btn-outline-gold,
+.btn-dark-pill,
+.btn-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  border-radius: 9999px;
+  position: relative;
+  will-change: transform, box-shadow !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease !important;
+}
+
+button:hover,
+a.btn-primary-gold:hover,
+a.btn-shimmer:hover,
+a.btn-quotation:hover,
+a.btn-enquire-now:hover,
+a.btn-submit-enquiry:hover,
+a.btn-outline-gold:hover,
+a.btn-dark-pill:hover,
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-enquire-now:hover,
+.btn-submit-enquiry:hover,
+.btn-outline-gold:hover,
+.btn-dark-pill:hover,
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.025) !important;
+}
+
+button:active,
+a.btn-primary-gold:active,
+a.btn-shimmer:active,
+a.btn-quotation:active,
+a.btn-enquire-now:active,
+a.btn-submit-enquiry:active,
+a.btn-outline-gold:active,
+a.btn-dark-pill:active,
+.btn-primary-gold:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-enquire-now:active,
+.btn-submit-enquiry:active,
+.btn-outline-gold:active,
+.btn-dark-pill:active,
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98) !important;
+}
+
+.btn-arrow-icon {
+  display: inline-block !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform !important;
+}
+button:hover .btn-arrow-icon,
+a:hover .btn-arrow-icon,
+.btn-primary-gold:hover .btn-arrow-icon,
+.btn-shimmer:hover .btn-arrow-icon,
+.btn-quotation:hover .btn-arrow-icon,
+.btn-enquire-now:hover .btn-arrow-icon,
+.btn-submit-enquiry:hover .btn-arrow-icon,
+.btn-outline-gold:hover .btn-arrow-icon,
+.btn-dark-pill:hover .btn-arrow-icon {
+  transform: translateX(5px) !important;
+}
+
+.btn-sm {
+  height: 2.35rem !important;
+  padding: 0 1.25rem !important;
+  font-size: 0.85rem !important;
+}
+.btn-md,
+.btn-quotation,
+.btn-enquire-now {
+  height: 2.85rem !important;
+  padding: 0 1.75rem !important;
+  font-size: 0.935rem !important;
+}
+.btn-lg {
+  height: 3.35rem !important;
+  padding: 0 2.25rem !important;
+  font-size: 1.05rem !important;
+}
+
+.btn-primary-gold,
+.btn-shimmer,
+.btn-quotation,
+.btn-enquire-now,
+.btn-primary {
+  color: #191A18 !important;
+  background: linear-gradient(90deg, #F3B93E 0%, #FFD670 100%) !important;
+  border: 1px solid rgba(243, 185, 62, 0.95) !important;
+  box-shadow: 0 8px 22px -4px rgba(243, 185, 62, 0.5) !important;
+}
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-enquire-now:hover,
+.btn-primary:hover {
+  background: linear-gradient(90deg, #FFC84B 0%, #FFE08A 100%) !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.68), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+}
+.btn-primary-gold:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-enquire-now:active,
+.btn-primary:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
+}
+
+.btn-submit-enquiry {
+  border-radius: 0.85rem !important;
+  height: 3.25rem !important;
+  padding: 0 2.25rem !important;
+  color: #191A18 !important;
+  background: #F3B93E !important;
+  border: none !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.5) !important;
+}
+.btn-submit-enquiry:hover {
+  background: #e5a727 !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.65), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+}
+.btn-submit-enquiry:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
+}
+
+.btn-outline-gold {
+  border: 1.5px solid #F3B93E !important;
+  color: #F3B93E !important;
+  background: rgba(25, 26, 24, 0.45) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
+}
+.btn-outline-gold:hover {
+  background: #F3B93E !important;
+  color: #191A18 !important;
+  border-color: #F3B93E !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.55), 0 0 16px rgba(243, 185, 62, 0.3) !important;
+}
+.btn-outline-gold:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.3) !important;
+}
+
+.btn-dark-pill,
+a[href="contact.html"].bg-white\/10 {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
+}
+.btn-dark-pill:hover,
+a[href="contact.html"].bg-white\/10:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.6) !important;
+}
+.btn-dark-pill:active,
+a[href="contact.html"].bg-white\/10:active {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
+}
+</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.yantratechsolutions.co.in/"},{"@type":"ListItem","position":2,"name":"Why Us","item":"https://www.yantratechsolutions.co.in/why-us"}]}</script>
 </head>
 <body class="antialiased">
@@ -64,7 +256,7 @@
       <a href="contact.html"    data-page="/contact"   class="hover:text-secondaryGold transition py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondaryGold hover:after:w-full after:transition-all">Contact</a>
     </nav>
     <div class="flex items-center gap-3">
-      <button onclick="openRFQModal()" class="btn-shimmer btn-md shadow-lg">Request Quote</button>
+      <button onclick="openRFQModal()" class="btn-primary-gold btn-md"><span>Request Quote</span><span class="btn-arrow-icon">→</span></button>
       <button onclick="toggleMobileMenu()" class="lg:hidden text-3xl text-primaryDark p-2">â˜°</button>
     </div>
   </div>
@@ -75,7 +267,7 @@
     <a href="brands.html"     onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Brands</a>
     <a href="industries.html" onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Industries</a>
     <a href="contact.html"    onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Contact</a>
-    <button onclick="toggleMobileMenu(); openRFQModal();" class="w-full bg-secondaryGold text-primaryDark font-bold py-3.5 rounded-xl mt-2 shadow text-base">Request Quote Now</button>
+    <button onclick="toggleMobileMenu(); openRFQModal();" class="btn-primary-gold w-full mt-2"><span>Request Quote Now</span><span class="btn-arrow-icon">→</span></button>
   </div>
 </header>
 
@@ -221,7 +413,7 @@
       <h2 class="text-3xl sm:text-4xl font-outfit font-extrabold text-white mt-3">Talk to an Expert â€” It's Free</h2>
       <p class="text-slate-300 mt-3 text-base sm:text-lg max-w-2xl mx-auto">Share your requirement for a personalised quotation.</p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <button onclick="openRFQModal()" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-10 py-4 rounded-full shadow-xl transition-all text-base">Request a Quote â†’</button>
+        <button onclick="openRFQModal()" class="btn-primary-gold btn-lg"><span>Request a Quote</span><span class="btn-arrow-icon">→</span></button>
         <a href="contact.html" class="btn-dark-pill px-8 py-3.5 text-base">Contact Us</a>
       </div>
     </div>
@@ -308,7 +500,7 @@
   </div>
 </div>
 
-<script src="assets/shared.js?v=14.0"></script>
+<script src="assets/shared-v15.js?v=15.0"></script>
 </body>
 </html>
 

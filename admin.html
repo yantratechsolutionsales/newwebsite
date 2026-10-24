@@ -1,4 +1,196 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Website Admin | Yantratech Solutions</title><link rel="stylesheet" href="assets/shared.css?v=14.0"><style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Website Admin | Yantratech Solutions</title><link rel="stylesheet" href="assets/shared-v15.css?v=15.0">
+<style id="unified-button-system">
+/* UNIVERSAL GUARANTEE: Identical Animations, Colors, Transitions, Hover Physics & Typography Across All Buttons */
+button,
+a.btn-primary-gold,
+a.btn-shimmer,
+a.btn-quotation,
+a.btn-enquire-now,
+a.btn-submit-enquiry,
+a.btn-outline-gold,
+a.btn-dark-pill,
+.btn-primary-gold,
+.btn-shimmer,
+.btn-quotation,
+.btn-enquire-now,
+.btn-submit-enquiry,
+.btn-outline-gold,
+.btn-dark-pill,
+.btn-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  border-radius: 9999px;
+  position: relative;
+  will-change: transform, box-shadow !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease !important;
+}
+
+button:hover,
+a.btn-primary-gold:hover,
+a.btn-shimmer:hover,
+a.btn-quotation:hover,
+a.btn-enquire-now:hover,
+a.btn-submit-enquiry:hover,
+a.btn-outline-gold:hover,
+a.btn-dark-pill:hover,
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-enquire-now:hover,
+.btn-submit-enquiry:hover,
+.btn-outline-gold:hover,
+.btn-dark-pill:hover,
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.025) !important;
+}
+
+button:active,
+a.btn-primary-gold:active,
+a.btn-shimmer:active,
+a.btn-quotation:active,
+a.btn-enquire-now:active,
+a.btn-submit-enquiry:active,
+a.btn-outline-gold:active,
+a.btn-dark-pill:active,
+.btn-primary-gold:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-enquire-now:active,
+.btn-submit-enquiry:active,
+.btn-outline-gold:active,
+.btn-dark-pill:active,
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98) !important;
+}
+
+.btn-arrow-icon {
+  display: inline-block !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform !important;
+}
+button:hover .btn-arrow-icon,
+a:hover .btn-arrow-icon,
+.btn-primary-gold:hover .btn-arrow-icon,
+.btn-shimmer:hover .btn-arrow-icon,
+.btn-quotation:hover .btn-arrow-icon,
+.btn-enquire-now:hover .btn-arrow-icon,
+.btn-submit-enquiry:hover .btn-arrow-icon,
+.btn-outline-gold:hover .btn-arrow-icon,
+.btn-dark-pill:hover .btn-arrow-icon {
+  transform: translateX(5px) !important;
+}
+
+.btn-sm {
+  height: 2.35rem !important;
+  padding: 0 1.25rem !important;
+  font-size: 0.85rem !important;
+}
+.btn-md,
+.btn-quotation,
+.btn-enquire-now {
+  height: 2.85rem !important;
+  padding: 0 1.75rem !important;
+  font-size: 0.935rem !important;
+}
+.btn-lg {
+  height: 3.35rem !important;
+  padding: 0 2.25rem !important;
+  font-size: 1.05rem !important;
+}
+
+.btn-primary-gold,
+.btn-shimmer,
+.btn-quotation,
+.btn-enquire-now,
+.btn-primary {
+  color: #191A18 !important;
+  background: linear-gradient(90deg, #F3B93E 0%, #FFD670 100%) !important;
+  border: 1px solid rgba(243, 185, 62, 0.95) !important;
+  box-shadow: 0 8px 22px -4px rgba(243, 185, 62, 0.5) !important;
+}
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-enquire-now:hover,
+.btn-primary:hover {
+  background: linear-gradient(90deg, #FFC84B 0%, #FFE08A 100%) !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.68), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+}
+.btn-primary-gold:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-enquire-now:active,
+.btn-primary:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
+}
+
+.btn-submit-enquiry {
+  border-radius: 0.85rem !important;
+  height: 3.25rem !important;
+  padding: 0 2.25rem !important;
+  color: #191A18 !important;
+  background: #F3B93E !important;
+  border: none !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.5) !important;
+}
+.btn-submit-enquiry:hover {
+  background: #e5a727 !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.65), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+}
+.btn-submit-enquiry:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
+}
+
+.btn-outline-gold {
+  border: 1.5px solid #F3B93E !important;
+  color: #F3B93E !important;
+  background: rgba(25, 26, 24, 0.45) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
+}
+.btn-outline-gold:hover {
+  background: #F3B93E !important;
+  color: #191A18 !important;
+  border-color: #F3B93E !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.55), 0 0 16px rgba(243, 185, 62, 0.3) !important;
+}
+.btn-outline-gold:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.3) !important;
+}
+
+.btn-dark-pill,
+a[href="contact.html"].bg-white\/10 {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
+}
+.btn-dark-pill:hover,
+a[href="contact.html"].bg-white\/10:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.6) !important;
+}
+.btn-dark-pill:active,
+a[href="contact.html"].bg-white\/10:active {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
+}
+</style><style>
 body{background:#f3f5f8}.admin{max-width:1040px;margin:3rem auto;padding:1rem}.panel{background:white;border:1px solid #e2e8f0;border-radius:20px;padding:2rem;box-shadow:0 15px 50px #191a1810}.bar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}.admin input,.admin select{padding:.8rem 1rem;border:1px solid #ccd3dc;border-radius:10px;font:inherit}.admin button{border:0;border-radius:10px;padding:.8rem 1.2rem;background:#f3b93e;font-weight:800;cursor:pointer}.admin button.secondary{background:#191a18;color:white}iframe{width:100%;height:65vh;border:1px solid #d6dbe1;border-radius:14px}.notice{font-size:.9rem;color:#535556;margin:.8rem 0}#editor,#workspace{display:none}.login{max-width:450px;margin:12vh auto}.status{min-height:1.5em;color:#267044}.cms-editing{outline:2px dashed #f3b93e!important;outline-offset:2px;cursor:text}.cms-editing:focus{outline:2px solid #191a18!important;background:#fff8e6}
 </style></head><body><main class="admin">
 <section id="login" class="panel login"><img src="assets/yantratech-logo.png" alt="Yantratech Solutions" style="max-width:240px"><h1>Website Admin</h1><p class="notice">Sign in to edit the content shown across your website.</p><form id="login-form"><label for="password">Admin password</label><p><input id="password" type="password" required autocomplete="current-password" style="width:100%"></p><button>Sign in</button></form><p id="login-status" class="status" role="status"></p></section>

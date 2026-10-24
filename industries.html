@@ -29,7 +29,199 @@
     }}
   }
 </script>
-<link rel="stylesheet" href="assets/shared.css?v=14.0">
+<link rel="stylesheet" href="assets/shared-v15.css?v=15.0">
+<style id="unified-button-system">
+/* UNIVERSAL GUARANTEE: Identical Animations, Colors, Transitions, Hover Physics & Typography Across All Buttons */
+button,
+a.btn-primary-gold,
+a.btn-shimmer,
+a.btn-quotation,
+a.btn-enquire-now,
+a.btn-submit-enquiry,
+a.btn-outline-gold,
+a.btn-dark-pill,
+.btn-primary-gold,
+.btn-shimmer,
+.btn-quotation,
+.btn-enquire-now,
+.btn-submit-enquiry,
+.btn-outline-gold,
+.btn-dark-pill,
+.btn-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  border-radius: 9999px;
+  position: relative;
+  will-change: transform, box-shadow !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease !important;
+}
+
+button:hover,
+a.btn-primary-gold:hover,
+a.btn-shimmer:hover,
+a.btn-quotation:hover,
+a.btn-enquire-now:hover,
+a.btn-submit-enquiry:hover,
+a.btn-outline-gold:hover,
+a.btn-dark-pill:hover,
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-enquire-now:hover,
+.btn-submit-enquiry:hover,
+.btn-outline-gold:hover,
+.btn-dark-pill:hover,
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.025) !important;
+}
+
+button:active,
+a.btn-primary-gold:active,
+a.btn-shimmer:active,
+a.btn-quotation:active,
+a.btn-enquire-now:active,
+a.btn-submit-enquiry:active,
+a.btn-outline-gold:active,
+a.btn-dark-pill:active,
+.btn-primary-gold:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-enquire-now:active,
+.btn-submit-enquiry:active,
+.btn-outline-gold:active,
+.btn-dark-pill:active,
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98) !important;
+}
+
+.btn-arrow-icon {
+  display: inline-block !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform !important;
+}
+button:hover .btn-arrow-icon,
+a:hover .btn-arrow-icon,
+.btn-primary-gold:hover .btn-arrow-icon,
+.btn-shimmer:hover .btn-arrow-icon,
+.btn-quotation:hover .btn-arrow-icon,
+.btn-enquire-now:hover .btn-arrow-icon,
+.btn-submit-enquiry:hover .btn-arrow-icon,
+.btn-outline-gold:hover .btn-arrow-icon,
+.btn-dark-pill:hover .btn-arrow-icon {
+  transform: translateX(5px) !important;
+}
+
+.btn-sm {
+  height: 2.35rem !important;
+  padding: 0 1.25rem !important;
+  font-size: 0.85rem !important;
+}
+.btn-md,
+.btn-quotation,
+.btn-enquire-now {
+  height: 2.85rem !important;
+  padding: 0 1.75rem !important;
+  font-size: 0.935rem !important;
+}
+.btn-lg {
+  height: 3.35rem !important;
+  padding: 0 2.25rem !important;
+  font-size: 1.05rem !important;
+}
+
+.btn-primary-gold,
+.btn-shimmer,
+.btn-quotation,
+.btn-enquire-now,
+.btn-primary {
+  color: #191A18 !important;
+  background: linear-gradient(90deg, #F3B93E 0%, #FFD670 100%) !important;
+  border: 1px solid rgba(243, 185, 62, 0.95) !important;
+  box-shadow: 0 8px 22px -4px rgba(243, 185, 62, 0.5) !important;
+}
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-enquire-now:hover,
+.btn-primary:hover {
+  background: linear-gradient(90deg, #FFC84B 0%, #FFE08A 100%) !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.68), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+}
+.btn-primary-gold:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-enquire-now:active,
+.btn-primary:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
+}
+
+.btn-submit-enquiry {
+  border-radius: 0.85rem !important;
+  height: 3.25rem !important;
+  padding: 0 2.25rem !important;
+  color: #191A18 !important;
+  background: #F3B93E !important;
+  border: none !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.5) !important;
+}
+.btn-submit-enquiry:hover {
+  background: #e5a727 !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.65), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+}
+.btn-submit-enquiry:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
+}
+
+.btn-outline-gold {
+  border: 1.5px solid #F3B93E !important;
+  color: #F3B93E !important;
+  background: rgba(25, 26, 24, 0.45) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
+}
+.btn-outline-gold:hover {
+  background: #F3B93E !important;
+  color: #191A18 !important;
+  border-color: #F3B93E !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.55), 0 0 16px rgba(243, 185, 62, 0.3) !important;
+}
+.btn-outline-gold:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.3) !important;
+}
+
+.btn-dark-pill,
+a[href="contact.html"].bg-white\/10 {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
+}
+.btn-dark-pill:hover,
+a[href="contact.html"].bg-white\/10:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.6) !important;
+}
+.btn-dark-pill:active,
+a[href="contact.html"].bg-white\/10:active {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
+}
+</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.yantratechsolutions.co.in/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://www.yantratechsolutions.co.in/industries"}]}</script>
 </head>
 <body class="antialiased">
@@ -59,7 +251,7 @@
       <a href="contact.html"    data-page="/contact"    class="hover:text-secondaryGold transition py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondaryGold hover:after:w-full after:transition-all">Contact</a>
     </nav>
     <div class="flex items-center gap-3">
-      <button onclick="openRFQModal()" class="btn-shimmer btn-md shadow-lg">Request Quote</button>
+      <button onclick="openRFQModal()" class="btn-primary-gold btn-md"><span>Request Quote</span><span class="btn-arrow-icon">→</span></button>
       <button onclick="toggleMobileMenu()" class="lg:hidden text-3xl text-primaryDark p-2">☰</button>
     </div>
   </div>
@@ -70,7 +262,7 @@
     <a href="brands.html"     onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Brands</a>
     <a href="industries.html" onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Industries</a>
     <a href="contact.html"    onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Contact</a>
-    <button onclick="toggleMobileMenu(); openRFQModal();" class="w-full bg-secondaryGold text-primaryDark font-bold py-3.5 rounded-xl mt-2 shadow text-base">Request Quote Now</button>
+    <button onclick="toggleMobileMenu(); openRFQModal();" class="btn-primary-gold w-full mt-2"><span>Request Quote Now</span><span class="btn-arrow-icon">→</span></button>
   </div>
 </header>
 
@@ -102,35 +294,35 @@
         <div class="industry-card card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 reveal-item" data-tilt data-tilt-max="5">
           <div class="lg:col-span-5 relative h-72 lg:h-auto overflow-hidden group">
             <img src="assets/industry-manufacturing.webp" alt="Automobile manufacturing" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-r from-transparent to-primaryDark/30"></div></div>
-          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">Automobile</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">Automobile Industry</h3><p class="text-greySlate text-base leading-relaxed">Testing, torque and electrical diagnostic tools for assembly, maintenance and quality checks.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Torque tools for controlled assembly</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Electrical diagnostic and test equipment</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Quality-check instruments for production teams</span></li></ul><div><button onclick="openRFQModal('Automobile')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for Automobile</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div></div>
+          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">Automobile</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">Automobile Industry</h3><p class="text-greySlate text-base leading-relaxed">Testing, torque and electrical diagnostic tools for assembly, maintenance and quality checks.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Torque tools for controlled assembly</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Electrical diagnostic and test equipment</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Quality-check instruments for production teams</span></li></ul><div><button onclick="openRFQModal(\'Automobile\')" class="btn-enquire-now"><span>Enquire for Automobile</span><span class="btn-arrow-icon">→</span></button></div></div>
         </div>
 
         <!-- Chemical -->
         <div class="industry-card card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 reveal-item" data-tilt data-tilt-max="5">
           <div class="lg:col-span-5 relative h-72 lg:h-auto overflow-hidden group lg:order-2">
             <img fetchpriority="high" decoding="async" src="assets/hero-refinery.webp" alt="Chemical process plant" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"><div class="absolute inset-0 bg-gradient-to-r from-transparent to-primaryDark/30"></div></div>
-          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4 order-2 lg:order-1"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">Chemical</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">Chemical Industry</h3><p class="text-greySlate text-base leading-relaxed">Process measurement and electrical safety instruments for demanding plant environments.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Process measurement instruments</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Electrical safety and monitoring tools</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Durable equipment for plant maintenance</span></li></ul><div><button onclick="openRFQModal('Chemical')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for Chemical</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div></div>
+          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4 order-2 lg:order-1"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">Chemical</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">Chemical Industry</h3><p class="text-greySlate text-base leading-relaxed">Process measurement and electrical safety instruments for demanding plant environments.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Process measurement instruments</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Electrical safety and monitoring tools</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Durable equipment for plant maintenance</span></li></ul><div><button onclick="openRFQModal(\'Chemical\')" class="btn-enquire-now"><span>Enquire for Chemical</span><span class="btn-arrow-icon">→</span></button></div></div>
         </div>
 
         <!-- FMCG -->
         <div class="industry-card card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 reveal-item" data-tilt data-tilt-max="5">
           <div class="lg:col-span-5 relative h-72 lg:h-auto overflow-hidden group">
             <img src="assets/industry-manufacturing.webp" alt="FMCG production facility" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-r from-transparent to-primaryDark/30"></div></div>
-          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">FMCG</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">FMCG Industry</h3><p class="text-greySlate text-base leading-relaxed">Practical tools for production lines, packaging equipment and routine maintenance.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Production-line testing tools</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Packaging equipment diagnostics</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Routine maintenance instruments</span></li></ul><div><button onclick="openRFQModal('FMCG')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for FMCG</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div></div>
+          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">FMCG</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">FMCG Industry</h3><p class="text-greySlate text-base leading-relaxed">Practical tools for production lines, packaging equipment and routine maintenance.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Production-line testing tools</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Packaging equipment diagnostics</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Routine maintenance instruments</span></li></ul><div><button onclick="openRFQModal(\'FMCG\')" class="btn-enquire-now"><span>Enquire for FMCG</span><span class="btn-arrow-icon">→</span></button></div></div>
         </div>
 
         <!-- Cement -->
         <div class="industry-card card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 reveal-item" data-tilt data-tilt-max="5">
           <div class="lg:col-span-5 relative h-72 lg:h-auto overflow-hidden group lg:order-2">
             <img fetchpriority="high" decoding="async" src="assets/hero-refinery.webp" alt="Cement process environment" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"><div class="absolute inset-0 bg-gradient-to-r from-transparent to-primaryDark/30"></div></div>
-          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4 order-2 lg:order-1"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">Cement</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">Cement Industry</h3><p class="text-greySlate text-base leading-relaxed">Robust testing and monitoring instruments for heavy-duty process and electrical work.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Heavy-duty electrical testing equipment</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Process monitoring instruments</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Rugged maintenance tools</span></li></ul><div><button onclick="openRFQModal('Cement')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for Cement</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div></div>
+          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4 order-2 lg:order-1"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">Cement</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">Cement Industry</h3><p class="text-greySlate text-base leading-relaxed">Robust testing and monitoring instruments for heavy-duty process and electrical work.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Heavy-duty electrical testing equipment</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Process monitoring instruments</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Rugged maintenance tools</span></li></ul><div><button onclick="openRFQModal(\'Cement\')" class="btn-enquire-now"><span>Enquire for Cement</span><span class="btn-arrow-icon">→</span></button></div></div>
         </div>
 
         <!-- Power -->
         <div class="industry-card card-3d-wrap glass-panel-light bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 reveal-item" data-tilt data-tilt-max="5">
           <div class="lg:col-span-5 relative h-72 lg:h-auto overflow-hidden group">
             <img src="assets/industry-electrical.webp" alt="Power distribution environment" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" decoding="async"><div class="absolute inset-0 bg-gradient-to-r from-transparent to-primaryDark/30"></div></div>
-          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">Power</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">Power Industry</h3><p class="text-greySlate text-base leading-relaxed">Electrical testing, energy monitoring and panel components for power systems.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Electrical test and measurement tools</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Energy monitoring instruments</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Panel and distribution components</span></li></ul><div><button onclick="openRFQModal('Power')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for Power</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div></div>
+          <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center gap-4"><span class="inline-block w-fit bg-secondaryGold text-primaryDark font-outfit font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider">Power</span><h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-primaryDark">Power Industry</h3><p class="text-greySlate text-base leading-relaxed">Electrical testing, energy monitoring and panel components for power systems.</p><ul class="text-sm text-greySlate space-y-1.5 pl-2"><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Electrical test and measurement tools</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Energy monitoring instruments</span></li><li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Panel and distribution components</span></li></ul><div><button onclick="openRFQModal(\'Power\')" class="btn-enquire-now"><span>Enquire for Power</span><span class="btn-arrow-icon">→</span></button></div></div>
         </div>
 
         <!-- Electrical -->
@@ -148,7 +340,7 @@
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Power quality analysers &amp; energy loggers</span></li>
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Panel meters, timers &amp; switchgear components</span></li>
             </ul>
-            <div><button onclick="openRFQModal('Electrical')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for Electrical</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div>
+            <div><button onclick="openRFQModal(\'Electrical\')" class="btn-enquire-now"><span>Enquire for Electrical</span><span class="btn-arrow-icon">→</span></button></div>
           </div>
         </div>
 
@@ -167,7 +359,7 @@
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Thermal cameras for predictive maintenance</span></li>
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Industrial hand tools &amp; torque equipment</span></li>
             </ul>
-            <div><button onclick="openRFQModal('Manufacturing')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for Manufacturing</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div>
+            <div><button onclick="openRFQModal(\'Manufacturing\')" class="btn-enquire-now"><span>Enquire for Manufacturing</span><span class="btn-arrow-icon">→</span></button></div>
           </div>
         </div>
 
@@ -186,7 +378,7 @@
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Pressure &amp; temperature transmitters</span></li>
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Gas detectors &amp; thermal imaging cameras</span></li>
             </ul>
-            <div><button onclick="openRFQModal('Oil &amp; Gas')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for Oil &amp; Gas</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div>
+            <div><button onclick="openRFQModal(\'Oil &amp; Gas\')" class="btn-enquire-now"><span>Enquire for Oil &amp; Gas</span><span class="btn-arrow-icon">→</span></button></div>
           </div>
         </div>
 
@@ -205,7 +397,7 @@
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Precision pressure &amp; flow measuring tools</span></li>
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">GMP-compliant calibration documentation</span></li>
             </ul>
-            <div><button onclick="openRFQModal('Pharma')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for Pharma</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div>
+            <div><button onclick="openRFQModal(\'Pharma\')" class="btn-enquire-now"><span>Enquire for Pharma</span><span class="btn-arrow-icon">→</span></button></div>
           </div>
         </div>
 
@@ -224,7 +416,7 @@
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Thermal cameras for building diagnostics</span></li>
               <li class="flex items-center gap-2.5 transition-transform duration-200 hover:translate-x-1.5"><span class="text-secondaryGold font-black text-base">✓</span> <span class="text-slate-600 font-medium">Safety accessories for site engineers</span></li>
             </ul>
-            <div><button onclick="openRFQModal('Real Estate')" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full text-sm shadow-xl inline-flex items-center gap-2 group transition-all duration-300 "><span>Enquire for Real Estate</span><span class="btn-arrow-icon text-secondaryGold font-bold group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div>
+            <div><button onclick="openRFQModal(\'Real Estate\')" class="btn-enquire-now"><span>Enquire for Real Estate</span><span class="btn-arrow-icon">→</span></button></div>
           </div>
         </div>
 
@@ -239,7 +431,7 @@
       <h2 class="text-3xl sm:text-4xl font-outfit font-extrabold text-white mt-3">Not Listed? We Serve Many More</h2>
       <p class="text-slate-300 mt-3 text-base sm:text-lg max-w-2xl mx-auto">Share your industry and requirement — we'll recommend the best instruments for your application.</p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
-        <button onclick="openRFQModal()" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-10 py-4 rounded-full shadow-xl transition-all text-base">Request a Quote →</button>
+        <button onclick="openRFQModal()" class="btn-primary-gold btn-lg"><span>Request a Quote</span><span class="btn-arrow-icon">→</span></button>
         <a href="contact.html" class="btn-dark-pill px-8 py-3.5 text-base">Contact Us</a>
       </div>
     </div>
@@ -326,6 +518,6 @@
   </div>
 </div>
 
-<script src="assets/shared.js?v=14.0"></script>
+<script src="assets/shared-v15.js?v=15.0"></script>
 </body>
 </html>

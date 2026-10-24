@@ -30,7 +30,199 @@
     }}
   }
 </script>
-<link rel="stylesheet" href="assets/shared.css?v=14.0">
+<link rel="stylesheet" href="assets/shared-v15.css?v=15.0">
+<style id="unified-button-system">
+/* UNIVERSAL GUARANTEE: Identical Animations, Colors, Transitions, Hover Physics & Typography Across All Buttons */
+button,
+a.btn-primary-gold,
+a.btn-shimmer,
+a.btn-quotation,
+a.btn-enquire-now,
+a.btn-submit-enquiry,
+a.btn-outline-gold,
+a.btn-dark-pill,
+.btn-primary-gold,
+.btn-shimmer,
+.btn-quotation,
+.btn-enquire-now,
+.btn-submit-enquiry,
+.btn-outline-gold,
+.btn-dark-pill,
+.btn-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  border-radius: 9999px;
+  position: relative;
+  will-change: transform, box-shadow !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease !important;
+}
+
+button:hover,
+a.btn-primary-gold:hover,
+a.btn-shimmer:hover,
+a.btn-quotation:hover,
+a.btn-enquire-now:hover,
+a.btn-submit-enquiry:hover,
+a.btn-outline-gold:hover,
+a.btn-dark-pill:hover,
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-enquire-now:hover,
+.btn-submit-enquiry:hover,
+.btn-outline-gold:hover,
+.btn-dark-pill:hover,
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.025) !important;
+}
+
+button:active,
+a.btn-primary-gold:active,
+a.btn-shimmer:active,
+a.btn-quotation:active,
+a.btn-enquire-now:active,
+a.btn-submit-enquiry:active,
+a.btn-outline-gold:active,
+a.btn-dark-pill:active,
+.btn-primary-gold:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-enquire-now:active,
+.btn-submit-enquiry:active,
+.btn-outline-gold:active,
+.btn-dark-pill:active,
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98) !important;
+}
+
+.btn-arrow-icon {
+  display: inline-block !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform !important;
+}
+button:hover .btn-arrow-icon,
+a:hover .btn-arrow-icon,
+.btn-primary-gold:hover .btn-arrow-icon,
+.btn-shimmer:hover .btn-arrow-icon,
+.btn-quotation:hover .btn-arrow-icon,
+.btn-enquire-now:hover .btn-arrow-icon,
+.btn-submit-enquiry:hover .btn-arrow-icon,
+.btn-outline-gold:hover .btn-arrow-icon,
+.btn-dark-pill:hover .btn-arrow-icon {
+  transform: translateX(5px) !important;
+}
+
+.btn-sm {
+  height: 2.35rem !important;
+  padding: 0 1.25rem !important;
+  font-size: 0.85rem !important;
+}
+.btn-md,
+.btn-quotation,
+.btn-enquire-now {
+  height: 2.85rem !important;
+  padding: 0 1.75rem !important;
+  font-size: 0.935rem !important;
+}
+.btn-lg {
+  height: 3.35rem !important;
+  padding: 0 2.25rem !important;
+  font-size: 1.05rem !important;
+}
+
+.btn-primary-gold,
+.btn-shimmer,
+.btn-quotation,
+.btn-enquire-now,
+.btn-primary {
+  color: #191A18 !important;
+  background: linear-gradient(90deg, #F3B93E 0%, #FFD670 100%) !important;
+  border: 1px solid rgba(243, 185, 62, 0.95) !important;
+  box-shadow: 0 8px 22px -4px rgba(243, 185, 62, 0.5) !important;
+}
+.btn-primary-gold:hover,
+.btn-shimmer:hover,
+.btn-quotation:hover,
+.btn-enquire-now:hover,
+.btn-primary:hover {
+  background: linear-gradient(90deg, #FFC84B 0%, #FFE08A 100%) !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.68), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+}
+.btn-primary-gold:active,
+.btn-shimmer:active,
+.btn-quotation:active,
+.btn-enquire-now:active,
+.btn-primary:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
+}
+
+.btn-submit-enquiry {
+  border-radius: 0.85rem !important;
+  height: 3.25rem !important;
+  padding: 0 2.25rem !important;
+  color: #191A18 !important;
+  background: #F3B93E !important;
+  border: none !important;
+  font-size: 1.05rem !important;
+  box-shadow: 0 10px 25px -4px rgba(243, 185, 62, 0.5) !important;
+}
+.btn-submit-enquiry:hover {
+  background: #e5a727 !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.65), 0 0 20px rgba(243, 185, 62, 0.35) !important;
+}
+.btn-submit-enquiry:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.4) !important;
+}
+
+.btn-outline-gold {
+  border: 1.5px solid #F3B93E !important;
+  color: #F3B93E !important;
+  background: rgba(25, 26, 24, 0.45) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
+}
+.btn-outline-gold:hover {
+  background: #F3B93E !important;
+  color: #191A18 !important;
+  border-color: #F3B93E !important;
+  box-shadow: 0 16px 32px -4px rgba(243, 185, 62, 0.55), 0 0 16px rgba(243, 185, 62, 0.3) !important;
+}
+.btn-outline-gold:active {
+  box-shadow: 0 4px 10px rgba(243, 185, 62, 0.3) !important;
+}
+
+.btn-dark-pill,
+a[href="contact.html"].bg-white\/10 {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.4) !important;
+}
+.btn-dark-pill:hover,
+a[href="contact.html"].bg-white\/10:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 14px 28px -4px rgba(0, 0, 0, 0.6) !important;
+}
+.btn-dark-pill:active,
+a[href="contact.html"].bg-white\/10:active {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
+}
+</style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.yantratechsolutions.co.in/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://www.yantratechsolutions.co.in/contact"}]}</script>
 </head>
 <body class="antialiased">
@@ -60,7 +252,7 @@
       <a href="contact.html"    data-page="/contact"    class="hover:text-secondaryGold transition py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondaryGold hover:after:w-full after:transition-all">Contact</a>
     </nav>
     <div class="flex items-center gap-3">
-      <button onclick="openRFQModal()" class="btn-shimmer btn-md shadow-lg">Request Quote</button>
+      <button onclick="openRFQModal()" class="btn-primary-gold btn-md"><span>Request Quote</span><span class="btn-arrow-icon">→</span></button>
       <button onclick="toggleMobileMenu()" class="lg:hidden text-3xl text-primaryDark p-2">☰</button>
     </div>
   </div>
@@ -71,7 +263,7 @@
     <a href="brands.html"     onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Brands</a>
     <a href="industries.html" onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Industries</a>
     <a href="contact.html"    onclick="toggleMobileMenu()" class="block py-2 hover:text-secondaryGold">Contact</a>
-    <button onclick="toggleMobileMenu(); openRFQModal();" class="w-full bg-secondaryGold text-primaryDark font-bold py-3.5 rounded-xl mt-2 shadow text-base">Request Quote Now</button>
+    <button onclick="toggleMobileMenu(); openRFQModal();" class="btn-primary-gold w-full mt-2"><span>Request Quote Now</span><span class="btn-arrow-icon">→</span></button>
   </div>
 </header>
 
@@ -274,7 +466,7 @@
             <p>✉️ <a href="mailto:sales@yantratechsolutions.co.in" class="font-bold hover:text-secondaryGold">sales@yantratechsolutions.co.in</a></p>
             <p>🕐 <strong>Mon – Sat: 9:00 AM – 7:00 PM</strong></p>
           </div>
-          <a href="https://www.google.com/maps/place/Titvala,+Gajanan+Colony,+Kalyan,+Maharashtra+421605/@19.295146,73.2118868,21z/data=!4m6!3m5!1s0x3be7911ecd3c3039:0x1bdc80be70ed4879!8m2!3d19.2958653!4d73.2036821!16zL20vMDZzZGg4" target="_blank" rel="noopener" class="btn-shimmer mt-7 text-center text-primaryDark font-outfit font-extrabold px-5 py-3 rounded-full">Open in Google Maps</a>
+          <a href="https://www.google.com/maps/place/Titvala,+Gajanan+Colony,+Kalyan,+Maharashtra+421605/@19.295146,73.2118868,21z/data=!4m6!3m5!1s0x3be7911ecd3c3039:0x1bdc80be70ed4879!8m2!3d19.2958653!4d73.2036821!16zL20vMDZzZGg4" target="_blank" rel="noopener" class="btn-primary-gold btn-md mt-7"><span>Open in Google Maps</span><span class="btn-arrow-icon">↗</span></a>
         </div>
         <div class="lg:col-span-8 min-h-[350px] rounded-2xl overflow-hidden border border-slate-200">
           <iframe src="https://www.google.com/maps?q=19.2958653,73.2036821&z=18&output=embed" width="100%" height="100%" style="border:0; min-height:350px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Yantratech Solutions business location in Titwala"></iframe>
@@ -364,7 +556,7 @@
   </div>
 </div>
 
-<script src="assets/shared.js?v=14.0"></script>
+<script src="assets/shared-v15.js?v=15.0"></script>
 <script>
 async function handleContactSubmit(e) {
   e.preventDefault();
