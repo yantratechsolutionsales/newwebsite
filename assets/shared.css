@@ -31,14 +31,20 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Roboto', Arial, sans-serif;
   color: var(--ink);
-  background: #0f100e;
+  background: #ffffff;
   line-height: 1.6;
   overflow-x: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Smooth Page Load Fade-in */
+body.page-loaded {
+  opacity: 1;
 }
 
 /* Subtly animated industrial engineering blueprint grid */
 body::before {
-  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .14;
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: .10;
   background-image:
     linear-gradient(90deg, transparent 49.5%, rgba(243,185,62,.15) 50%, transparent 50.5%),
     linear-gradient(0deg, transparent 49.5%, rgba(243,185,62,.12) 50%, transparent 50.5%);
@@ -72,7 +78,7 @@ body::before {
 
 .card-3d-wrap:hover {
   transform: translateY(-8px) rotateX(4deg) rotateY(-2deg);
-  box-shadow: 0 30px 60px -15px rgba(25, 26, 24, 0.35), 0 0 30px rgba(243, 185, 62, 0.2);
+  box-shadow: 0 30px 60px -15px rgba(25, 26, 24, 0.22), 0 0 30px rgba(243, 185, 62, 0.2);
 }
 
 .card-3d-content {
@@ -81,19 +87,34 @@ body::before {
 
 /* Glassmorphism 3D Surface */
 .glass-panel {
-  background: rgba(25, 26, 24, 0.75);
+  background: rgba(25, 26, 24, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
 }
 
 .glass-panel-light {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(243, 185, 62, 0.25);
   box-shadow: 0 20px 40px rgba(25, 26, 24, 0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+/* Unique 3D CAD Showcase Screen Card */
+.cad-hero-card {
+  background: #181917;
+  border: 1.5px solid rgba(243, 185, 62, 0.35);
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.6), 0 0 35px rgba(243, 185, 62, 0.18);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
+  transform-style: preserve-3d;
+}
+.cad-hero-card:hover {
+  transform: translateY(-8px) rotateX(3deg) rotateY(-3deg) scale(1.02);
+  box-shadow: 0 40px 90px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(243, 185, 62, 0.3);
+  border-color: #F3B93E;
 }
 
 /* ---------- Gradient Overlays ---------- */
@@ -106,10 +127,10 @@ body::before {
 
 .hero-overlay-gradient {
   background: linear-gradient(90deg,
-    rgba(25,26,24,0.92) 0%,
-    rgba(25,26,24,0.80) 45%,
-    rgba(25,26,24,0.55) 75%,
-    rgba(25,26,24,0.70) 100%);
+    rgba(25,26,24,0.94) 0%,
+    rgba(25,26,24,0.82) 45%,
+    rgba(25,26,24,0.60) 75%,
+    rgba(25,26,24,0.75) 100%);
 }
 
 .hero-parallax {
@@ -355,12 +376,35 @@ body::before {
   line-height: 1.65;
 }
 
-/* ---------- Nav Active Link ---------- */
+/* ---------- Nav Bar Styling (Ref Match) ---------- */
+header {
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+nav a {
+  position: relative;
+  transition: color 0.25s ease;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: #F3B93E;
+  transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
+  border-radius: 2px;
+}
+nav a:hover::after, nav a.nav-active::after {
+  width: 100% !important;
+}
 nav a.nav-active {
   color: #F3B93E !important;
-}
-nav a.nav-active::after {
-  width: 100% !important;
 }
 
 /* Keep the public navigation in the required product-first sequence. */
@@ -385,15 +429,15 @@ nav a[data-page="contact.html"], nav a[data-page="/contact"] { order:6; }
 ::-webkit-scrollbar-thumb { background: #F3B93E; border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: #e0a426; }
 
-/* ---------- Form Inputs ---------- */
+/* ---------- Form Inputs & Floating Transitions ---------- */
 .form-input {
   width: 100%;
-  padding: 0.85rem 1.15rem;
-  border: 1.5px solid #E5EAF2;
+  padding: 0.95rem 1.25rem;
+  border: 1.5px solid #E2E8F0;
   border-radius: 0.85rem;
   font-size: 0.925rem;
   font-family: 'Outfit', sans-serif;
-  background: #f8f9fa;
+  background: #F8FAFC;
   color: var(--primary);
   outline: none;
   transition: border-color 0.25s, background-color 0.25s, box-shadow 0.25s, transform 0.25s;
@@ -407,13 +451,17 @@ nav a[data-page="contact.html"], nav a[data-page="/contact"] { order:6; }
 .form-input:invalid:not(:placeholder-shown) { border-color: #d9534f; }
 .form-label {
   display: block;
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--primary);
-  margin-bottom: 0.4rem;
+  color: #191A18;
+  margin-bottom: 0.45rem;
   font-family: 'Outfit', sans-serif;
+  transition: color 0.2s ease;
+}
+.form-group:focus-within .form-label {
+  color: #F3B93E;
 }
 
 /* ---------- Utility ---------- */
@@ -421,31 +469,60 @@ nav a[data-page="contact.html"], nav a[data-page="/contact"] { order:6; }
 .bg-primary { background: var(--primary); }
 .font-outfit { font-family: 'Outfit', sans-serif; }
 
-/* 3D Trust Icon Pill */
-.trust-icon {
-  width: 4.5rem; height: 4.5rem;
+/* 3D Trust Icon Pill (Matching uploaded user reference ref-trust-strip.png) */
+.trust-icon-pill {
+  width: 4.85rem; height: 4.85rem;
   border-radius: 1.25rem;
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1.2rem;
-  color: var(--secondary);
-  background: linear-gradient(135deg, #242622 0%, #191A18 100%);
-  border: 1.5px solid rgba(243,185,62,0.4);
-  box-shadow: 0 10px 25px rgba(25,26,24,.18), inset 0 1px 0 rgba(255,255,255,.1);
-  transition: transform .35s cubic-bezier(0.2,1,0.3,1), box-shadow .35s ease, border-color .35s ease;
+  margin-bottom: 1.1rem;
+  color: #F3B93E;
+  background: #191A18;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  transition: transform .35s cubic-bezier(0.2,1,0.3,1), box-shadow .35s ease;
 }
-.trust-icon svg {
-  width: 1.85rem; height: 1.85rem;
-  stroke: currentColor; stroke-width: 2; fill: none;
+.trust-icon-pill svg {
+  width: 2rem; height: 2rem;
+  stroke: #F3B93E; stroke-width: 2.2; fill: none;
   stroke-linecap: round; stroke-linejoin: round;
   transition: transform .35s ease;
 }
-.trust-icon:hover {
-  transform: translateY(-6px) rotate(3deg) scale(1.05);
-  border-color: #F3B93E;
-  box-shadow: 0 18px 36px rgba(25,26,24,.25), 0 0 20px rgba(243,185,62,.3);
+.trust-icon-pill:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(243, 185, 62, 0.3);
 }
-.trust-icon:hover svg {
-  transform: scale(1.1);
+.trust-icon-pill:hover svg {
+  transform: scale(1.15);
+}
+
+/* 4-Step Process Circles (Matching uploaded user reference ref-process-steps.png) */
+.step-circle {
+  width: 4.5rem; height: 4.5rem;
+  border-radius: 9999px;
+  background: #191A18;
+  color: #F3B93E;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, background-color 0.3s;
+}
+.step-circle:hover {
+  transform: translateY(-8px) scale(1.12);
+  background: #111210;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.35), 0 0 25px rgba(243,185,62,0.4);
+}
+
+/* Interactive Details/FAQ Accordion */
+details {
+  transition: all 0.3s ease;
+}
+details[open] {
+  border-color: #F3B93E !important;
+  box-shadow: 0 12px 30px rgba(243,185,62,0.12);
 }
 
 /* Respect visitors who prefer reduced motion */

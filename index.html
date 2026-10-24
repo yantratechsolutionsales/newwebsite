@@ -53,22 +53,22 @@
   </div>
 </div>
 
-<!-- STICKY HEADER -->
+<!-- STICKY HEADER (Matches uploaded navbar reference) -->
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 h-24 sm:h-28 flex items-center justify-between gap-4">
     <a href="/" class="flex items-center gap-3 group py-2" aria-label="Yantratech Solutions Home">
       <img src="assets/yantratech-logo.webp" alt="Yantratech Solutions" class="h-16 sm:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm" loading="lazy" decoding="async">
     </a>
     <nav class="hidden lg:flex items-center gap-8 font-outfit font-semibold text-base text-primaryDark">
-      <a href="/"          data-page="/"         class="hover:text-secondaryGold transition py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondaryGold hover:after:w-full after:transition-all">Home</a>
-      <a href="/products"   data-page="/products"  class="hover:text-secondaryGold transition py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondaryGold hover:after:w-full after:transition-all">Products</a>
-      <a href="/brands"     data-page="/brands"    class="hover:text-secondaryGold transition py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondaryGold hover:after:w-full after:transition-all">Brands</a>
-      <a href="/industries" data-page="/industries"class="hover:text-secondaryGold transition py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondaryGold hover:after:w-full after:transition-all">Industries</a>
-      <a href="/why-us"     data-page="/why-us"    class="hover:text-secondaryGold transition py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondaryGold hover:after:w-full after:transition-all">Why Us</a>
-      <a href="/contact"    data-page="/contact"   class="hover:text-secondaryGold transition py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondaryGold hover:after:w-full after:transition-all">Contact</a>
+      <a href="/"          data-page="/"         class="hover:text-secondaryGold transition py-2">Home</a>
+      <a href="/products"   data-page="/products"  class="hover:text-secondaryGold transition py-2">Products</a>
+      <a href="/brands"     data-page="/brands"    class="hover:text-secondaryGold transition py-2">Brands</a>
+      <a href="/industries" data-page="/industries"class="hover:text-secondaryGold transition py-2">Industries</a>
+      <a href="/why-us"     data-page="/why-us"    class="hover:text-secondaryGold transition py-2">Why Us</a>
+      <a href="/contact"    data-page="/contact"   class="hover:text-secondaryGold transition py-2">Contact</a>
     </nav>
     <div class="flex items-center gap-3">
-      <button onclick="openRFQModal()" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-7 py-3 rounded-full shadow-lg hover:shadow-yellow-400/50 transition-all duration-300 transform hover:-translate-y-0.5 text-base flex items-center gap-2">
+      <button onclick="openRFQModal()" class="btn-shimmer text-primaryDark font-outfit font-extrabold px-8 py-3.5 rounded-full shadow-lg hover:shadow-yellow-400/50 transition-all duration-300 transform hover:-translate-y-0.5 text-base flex items-center gap-2">
         <span>Request Quote</span>
       </button>
       <button onclick="toggleMobileMenu()" class="lg:hidden text-3xl text-primaryDark p-2 focus:outline-none" aria-label="Open menu">☰</button>
@@ -137,50 +137,60 @@
         </div>
       </div>
 
-      <!-- 3D Floating Showcase Card -->
+      <!-- 3D Floating Showcase Card (Matches user reference ref-3d-cad-card.png) -->
       <div class="lg:col-span-5 relative reveal-item perspective-1000">
-        <div class="card-3d-wrap glass-panel p-3 border-2 border-secondaryGold/30 shadow-2xl float-anim" data-tilt data-tilt-max="10">
-          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] group">
-            <img src="assets/bg-switchgear-panel.webp" alt="Industrial Switchgear Control Panel Installation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
-            <div class="absolute inset-0 bg-gradient-to-t from-primaryDark via-primaryDark/40 to-transparent"></div>
-            <div class="absolute top-4 right-4 bg-secondaryGold text-primaryDark font-outfit font-extrabold text-[11px] px-3.5 py-1 rounded-full shadow-lg">
+        <div class="cad-hero-card p-4 float-anim" data-tilt data-tilt-max="8">
+          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-white/10">
+            <img src="assets/ref-3d-cad-card.png" alt="Industrial Automation, CAD & Switchgear Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#191A18] via-transparent to-transparent"></div>
+            <div class="absolute top-4 right-4 bg-secondaryGold text-primaryDark font-outfit font-black text-[11px] px-3.5 py-1 rounded-full shadow-lg">
               PAN INDIA SUPPLY
             </div>
           </div>
-          <div class="p-5 space-y-2 card-3d-content">
+          <div class="p-5 space-y-2.5">
             <div class="flex items-center justify-between">
-              <span class="text-xs font-outfit font-extrabold uppercase tracking-widest text-secondaryGold">Complete Industrial Setup</span>
-              <span class="text-slate-400 text-xs font-mono">ISO &amp; CE Certified Brands</span>
+              <span class="text-xs font-outfit font-black uppercase tracking-widest text-secondaryGold">COMPLETE INDUSTRIAL SETUP</span>
+              <span class="text-slate-400 text-xs font-semibold">ISO &amp; CE Certified Brands</span>
             </div>
-            <h3 class="font-outfit font-extrabold text-xl text-white">Industrial Automation &amp; Switchgear</h3>
-            <p class="text-xs sm:text-sm text-slate-300">Precision electrical switchgears, thermal cameras, digital panel meters, and calibration equipment.</p>
+            <h3 class="font-outfit font-extrabold text-2xl text-white">Industrial Automation &amp; Switchgear</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">Precision electrical switchgears, thermal cameras, digital panel meters, and calibration equipment.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
-  <section class="bg-white py-12 border-b border-slate-200 relative z-30 shadow-md">
+  <!-- TRUST STRIP (Faithful to uploaded reference ref-trust-strip.png) -->
+  <section class="bg-white py-14 border-b border-slate-200 relative z-30 shadow-sm">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <!-- Item 1: Genuine Products (Gear Icon) -->
         <div class="p-4 flex flex-col items-center reveal-item">
-          <div class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.12 2.12-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20h-3v-.08A1.7 1.7 0 0 0 10.68 18.36a1.7 1.7 0 0 0-1.88.34l-.06.06-2.12-2.12.06-.06A1.7 1.7 0 0 0 7.02 14.7 1.7 1.7 0 0 0 5.46 13.67H5v-3h.08A1.7 1.7 0 0 0 6.64 9.64 1.7 1.7 0 0 0 6.3 7.76l-.06-.06 2.12-2.12.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 11.33 4.42V4h3v.08a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06 2.12 2.12-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.56 1.03H21v3h-.08A1.7 1.7 0 0 0 19.4 15Z"></path></svg></div>
+          <div class="trust-icon-pill" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.12 2.12-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20h-3v-.08A1.7 1.7 0 0 0 10.68 18.36a1.7 1.7 0 0 0-1.88.34l-.06.06-2.12-2.12.06-.06A1.7 1.7 0 0 0 7.02 14.7 1.7 1.7 0 0 0 5.46 13.67H5v-3h.08A1.7 1.7 0 0 0 6.64 9.64 1.7 1.7 0 0 0 6.3 7.76l-.06-.06 2.12-2.12.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 11.33 4.42V4h3v.08a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06 2.12 2.12-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.56 1.03H21v3h-.08A1.7 1.7 0 0 0 19.4 15Z"></path></svg>
+          </div>
           <strong class="text-primaryDark text-base sm:text-lg font-outfit font-extrabold">100% Genuine Products</strong>
           <span class="text-xs sm:text-sm text-greySlate mt-1">Authorised OEM partnerships</span>
         </div>
+        <!-- Item 2: Technical Support (Sun/Support Icon) -->
         <div class="p-4 flex flex-col items-center reveal-item">
-          <div class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M18.36 5.64l-2.12 2.12M7.76 16.24l-2.12 2.12"></path><circle cx="12" cy="12" r="4"></circle></svg></div>
+          <div class="trust-icon-pill" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M18.36 5.64l-2.12 2.12M7.76 16.24l-2.12 2.12"></path><circle cx="12" cy="12" r="4"></circle></svg>
+          </div>
           <strong class="text-primaryDark text-base sm:text-lg font-outfit font-extrabold">Expert Technical Support</strong>
           <span class="text-xs sm:text-sm text-greySlate mt-1">Engineers for tailored guidance</span>
         </div>
+        <!-- Item 3: Pricing (Rupee Icon) -->
         <div class="p-4 flex flex-col items-center reveal-item">
-          <div class="trust-icon font-outfit text-2xl font-extrabold" aria-label="Competitive pricing">₹</div>
+          <div class="trust-icon-pill font-outfit text-3xl font-extrabold" aria-label="Competitive pricing">₹</div>
           <strong class="text-primaryDark text-base sm:text-lg font-outfit font-extrabold">Competitive Pricing</strong>
           <span class="text-xs sm:text-sm text-greySlate mt-1">Direct B2B commercial quotes</span>
         </div>
+        <!-- Item 4: Delivery (Truck Icon) -->
         <div class="p-4 flex flex-col items-center reveal-item">
-          <div class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v11H3zM14 10h4l3 3v4h-7z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="18" cy="18" r="1.5"></circle></svg></div>
+          <div class="trust-icon-pill" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 6h11v11H3zM14 10h4l3 3v4h-7z"></path><circle cx="7" cy="18" r="1.5"></circle><circle cx="18" cy="18" r="1.5"></circle></svg>
+          </div>
           <strong class="text-primaryDark text-base sm:text-lg font-outfit font-extrabold">On-Time Delivery</strong>
           <span class="text-xs sm:text-sm text-greySlate mt-1">Fast PAN-India shipping</span>
         </div>

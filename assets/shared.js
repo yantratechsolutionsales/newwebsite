@@ -1,12 +1,27 @@
 /* ============================================================
    YANTRATECH SOLUTIONS — shared.js
-   Premium 3D Micro-interactions & Core Functionality
+   Premium 3D Micro-interactions, Transitions & Core Functionality
    ============================================================ */
 
 /* ---- Mobile Menu ---- */
 function toggleMobileMenu() {
   const menu = document.getElementById('mobile-menu');
-  if (menu) menu.classList.toggle('hidden');
+  if (menu) {
+    if (menu.classList.contains('hidden')) {
+      menu.classList.remove('hidden');
+      menu.style.opacity = '0';
+      menu.style.transform = 'translateY(-10px)';
+      requestAnimationFrame(() => {
+        menu.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        menu.style.opacity = '1';
+        menu.style.transform = 'translateY(0)';
+      });
+    } else {
+      menu.style.opacity = '0';
+      menu.style.transform = 'translateY(-10px)';
+      setTimeout(() => menu.classList.add('hidden'), 300);
+    }
+  }
 }
 
 /* ---- RFQ Modal ---- */
@@ -14,6 +29,16 @@ function openRFQModal(preselectCategory) {
   const modal = document.getElementById('rfq-modal');
   if (!modal) return;
   modal.classList.remove('hidden');
+  const modalBox = modal.querySelector('div');
+  if (modalBox) {
+    modalBox.style.opacity = '0';
+    modalBox.style.transform = 'scale(0.92) translateY(20px)';
+    requestAnimationFrame(() => {
+      modalBox.style.transition = 'all 0.35s cubic-bezier(0.16,1,0.3,1)';
+      modalBox.style.opacity = '1';
+      modalBox.style.transform = 'scale(1) translateY(0)';
+    });
+  }
   if (preselectCategory) {
     const select = document.getElementById('rfq-category');
     if (select) {
@@ -29,7 +54,15 @@ function openRFQModal(preselectCategory) {
 
 function closeRFQModal() {
   const modal = document.getElementById('rfq-modal');
-  if (modal) modal.classList.add('hidden');
+  if (!modal) return;
+  const modalBox = modal.querySelector('div');
+  if (modalBox) {
+    modalBox.style.opacity = '0';
+    modalBox.style.transform = 'scale(0.92) translateY(20px)';
+    setTimeout(() => modal.classList.add('hidden'), 300);
+  } else {
+    modal.classList.add('hidden');
+  }
 }
 
 async function handleRFQSubmit(e) {
@@ -37,22 +70,56 @@ async function handleRFQSubmit(e) {
   await submitEnquiry(e.currentTarget, { type: 'Quote request' });
 }
 
+async function handleContactSubmit(e) {
+  e.preventDefault();
+  await submitEnquiry(e.currentTarget, { type: 'Contact form message' });
+}
+
 async function submitEnquiry(form, extra = {}) {
   const button = form.querySelector('[type="submit"]');
-  const initialText = button ? button.textContent : '';
+  const initialText = button ? button.innerHTML : '';
   const fields = {};
   form.querySelectorAll('input, select, textarea').forEach((field) => {
-    if (field.type !== 'submit' && field.type !== 'button' && field.type !== 'hidden') fields[field.name || field.id] = field.value.trim();
+    if (field.type !== 'submit' && field.type !== 'button' && field.type !== 'hidden') {
+      fields[field.name || field.id] = field.value.trim();
+    }
   });
-  if (fields.website) return; // Honeypot.
-  if (button) { button.disabled = true; button.textContent = 'Sending...'; }
+
+  if (fields.website) return; // Honeypot spam defense.
+
+  if (button) {
+    button.disabled = true;
+    button.innerHTML = `
+      <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-primaryDark inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      <span>Submitting Enquiry...</span>
+    `;
+  }
+
+  let status = form.querySelector('[data-form-status]');
+  if (!status) {
+    status = document.createElement('div');
+    status.dataset.formStatus = '';
+    status.className = 'p-4 rounded-xl mt-4 font-outfit font-semibold text-sm transition-all duration-300';
+    form.append(status);
+  }
+
   try {
     const response = await fetch('/api/enquiry', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fields, sourcePage: location.pathname, websiteUrl: location.href, ...extra })
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fields,
+        sourcePage: location.pathname,
+        websiteUrl: location.href,
+        ...extra
+      })
     });
     const result = await response.json();
     if (!response.ok || !result.ok) throw new Error('Unable to send enquiry');
+
     form.reset();
     if (typeof gtag === 'function') {
       gtag('event', 'generate_lead', {
@@ -61,27 +128,47 @@ async function submitEnquiry(form, extra = {}) {
         value: 1
       });
     }
-    let status = form.querySelector('[data-form-status]');
-    if (!status) { status = document.createElement('p'); status.dataset.formStatus = ''; status.className = 'text-sm font-semibold text-green-700'; form.append(status); }
-    status.textContent = 'Thank you. Your enquiry has been submitted successfully. Our sales team will contact you shortly.'; status.hidden = false;
-    if (form.id === 'rfq-form') setTimeout(closeRFQModal, 1600);
+
+    status.className = 'p-4 rounded-xl mt-4 font-outfit font-semibold text-sm bg-green-50 border border-green-200 text-green-800 flex items-center gap-2';
+    status.innerHTML = `<span>✓</span><span>Thank you. Your enquiry has been submitted successfully. Our engineering sales team will contact you shortly.</span>`;
+    status.hidden = false;
+
+    if (form.id === 'rfq-form') {
+      setTimeout(closeRFQModal, 2200);
+    }
   } catch (_) {
-    let status = form.querySelector('[data-form-status]');
-    if (!status) { status = document.createElement('p'); status.dataset.formStatus = ''; status.className = 'text-sm font-semibold text-red-700'; form.append(status); }
-    status.textContent = 'We could not send your enquiry. Please call or email our sales team.'; status.hidden = false;
+    status.className = 'p-4 rounded-xl mt-4 font-outfit font-semibold text-sm bg-amber-50 border border-amber-200 text-amber-900 flex items-center gap-2';
+    status.innerHTML = `<span>⚠️</span><span>We could not reach the server right now. Please reach us directly at <a href="tel:+918655813866" class="underline font-bold">+91 8655813866</a> or <a href="mailto:sales@yantratechsolutions.co.in" class="underline font-bold">sales@yantratechsolutions.co.in</a>.</span>`;
+    status.hidden = false;
   } finally {
-    if (button) { button.disabled = false; button.textContent = initialText; }
+    if (button) {
+      button.disabled = false;
+      button.innerHTML = initialText;
+    }
   }
 }
 
 function sendViaEmailDirect() {
-  const cat     = document.getElementById('rfq-category').value;
-  const name    = document.getElementById('rfq-name').value    || 'Customer';
-  const phone   = document.getElementById('rfq-phone').value   || 'Not provided';
-  const details = document.getElementById('rfq-details').value || 'N/A';
+  const cat     = document.getElementById('rfq-category')?.value || 'Industrial Instrumentation';
+  const name    = document.getElementById('rfq-name')?.value    || 'Customer';
+  const phone   = document.getElementById('rfq-phone')?.value   || 'Not provided';
+  const details = document.getElementById('rfq-details')?.value || 'N/A';
 
   const subject = `Quote Inquiry: ${cat} - ${name}`;
   const body    = `Category: ${cat}\nName: ${name}\nPhone: ${phone}\nDetails: ${details}`;
+  window.location.href = `mailto:sales@yantratechsolutions.co.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function handleContactEmail() {
+  const name    = document.getElementById('c-name')?.value    || 'Customer';
+  const company = document.getElementById('c-company')?.value || 'N/A';
+  const phone   = document.getElementById('c-phone')?.value   || 'Not provided';
+  const email   = document.getElementById('c-email')?.value   || 'Not provided';
+  const cat     = document.getElementById('c-category')?.value|| 'General';
+  const subject = document.getElementById('c-subject')?.value || `Product Enquiry - ${name}`;
+  const message = document.getElementById('c-message')?.value || '';
+
+  const body = `Name: ${name}\nCompany: ${company}\nPhone: ${phone}\nEmail: ${email}\nCategory: ${cat}\n\nMessage:\n${message}`;
   window.location.href = `mailto:sales@yantratechsolutions.co.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
@@ -98,25 +185,20 @@ function init3DTilt() {
   cards.forEach(card => {
     let bounds;
     function rotateToMouse(e) {
+      if (!bounds) bounds = card.getBoundingClientRect();
       const mouseX = e.clientX;
       const mouseY = e.clientY;
       const leftX = mouseX - bounds.x;
       const topY = mouseY - bounds.y;
-      const center = {
-        x: leftX - bounds.width / 2,
-        y: topY - bounds.height / 2
-      };
-      const distance = Math.sqrt(center.x**2 + center.y**2);
-      
       const maxAngle = Number(card.dataset.tiltMax || 8);
-      const rotateX = (center.y / (bounds.height / 2)) * -maxAngle;
-      const rotateY = (center.x / (bounds.width / 2)) * maxAngle;
+      const rotateX = ((topY - bounds.height / 2) / (bounds.height / 2)) * -maxAngle;
+      const rotateY = ((leftX - bounds.width / 2) / (bounds.width / 2)) * maxAngle;
       
       card.style.transform = `
         perspective(1000px)
-        scale3d(1.02, 1.02, 1.02)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
+        scale3d(1.025, 1.025, 1.025)
+        rotateX(${rotateX.toFixed(2)}deg)
+        rotateY(${rotateY.toFixed(2)}deg)
       `;
     }
 
@@ -128,6 +210,7 @@ function init3DTilt() {
     card.addEventListener('mouseleave', () => {
       document.removeEventListener('mousemove', rotateToMouse);
       card.style.transform = '';
+      bounds = null;
     });
   });
 }
@@ -135,8 +218,8 @@ function init3DTilt() {
 /* ---- Parallax Mouse Hero Effect ---- */
 function initHeroParallax() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const hero = document.querySelector('section.relative.min-h-\\[660px\\], .page-hero');
-  const floatingCards = document.querySelectorAll('.hero-float-layer');
+  const hero = document.querySelector('section.relative.perspective-1500, .page-hero');
+  const floatingCards = document.querySelectorAll('.hero-float-layer, .cad-hero-card');
   if (!hero || floatingCards.length === 0) return;
 
   hero.addEventListener('mousemove', (e) => {
@@ -144,26 +227,36 @@ function initHeroParallax() {
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-    floatingCards.forEach((layer, i) => {
-      const factor = (i + 1) * 15;
-      layer.style.transform = `translate3d(${x * factor}px, ${y * factor}px, 0)`;
+    floatingCards.forEach((layer) => {
+      layer.style.transform = `perspective(1000px) translate3d(${x * 16}px, ${y * 16}px, 0) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
     });
   });
 }
 
+/* ---- Header Scroll Shadow & Page Transitions ---- */
+function initScrollHeader() {
+  const header = document.querySelector('header');
+  if (!header) return;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+}
+
 /* ---- Scroll Reveal (IntersectionObserver) & DOM Initialisation ---- */
 document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('page-loaded');
+
   const main = document.querySelector('main');
   if (main && !document.querySelector('.skip-link')) {
     const skip = document.createElement('a');
     skip.className = 'skip-link'; skip.href = `#${main.id || 'main-content'}`; skip.textContent = 'Skip to content';
     if (!main.id) main.id = 'main-content'; document.body.prepend(skip);
   }
-  document.querySelectorAll('form[id="rfq-form"] button[type="submit"]').forEach((button) => {
-    if (/WhatsApp/i.test(button.textContent)) button.textContent = 'Submit Enquiry';
-  });
   
-  document.querySelectorAll('[onclick="sendViaEmailDirect()"], [onclick="handleContactEmail()"]').forEach((button) => button.remove());
   document.querySelectorAll('footer').forEach((footer) => {
     if (!footer.querySelector('[data-legal-links]')) {
       const legal = document.createElement('p'); legal.dataset.legalLinks = ''; legal.className = 'mt-3 text-xs text-slate-500';
@@ -209,9 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ---- Initialise 3D tilt & Parallax ---- */
+  /* ---- Initialise 3D Tilt, Parallax & Header ---- */
   init3DTilt();
   initHeroParallax();
+  initScrollHeader();
 
   /* ---- GA4 Business Enquiry Events (Click to Call & Click to Email) ---- */
   document.addEventListener('click', (e) => {
