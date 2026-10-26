@@ -17,6 +17,7 @@ import {
 import { CatalogueProduct, TechnicalSpecItem } from '../types';
 import { useApp } from '../context/AppContext';
 import { formatINR } from '../utils/calculations';
+import { DatasheetViewerModal } from './DatasheetViewerModal';
 
 interface ProductCatalogueProps {
   onSelectProductForQuotation?: (product: CatalogueProduct) => void;
@@ -39,6 +40,12 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<CatalogueProduct | null>(null);
   const [inspectingProduct, setInspectingProduct] = useState<CatalogueProduct | null>(null);
+  const [activeDatasheet, setActiveDatasheet] = useState<{
+    productName: string;
+    datasheetUrl: string;
+    brand?: string;
+    modelNumber?: string;
+  } | null>(null);
 
   // Form state for creating/editing product
   const [formData, setFormData] = useState<{
@@ -228,7 +235,7 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
     content += `LEAD TIME   : ${prod.leadTime}\n\n`;
 
     if (prod.datasheetUrl) {
-      content += `OFFICIAL DATASHEET: ${prod.datasheetUrl}\n\n`;
+      content += `OFFICIAL DATASHEET: Available in Yantratech Solutions Technical Library (${prod.name} Datasheet)\n\n`;
     }
 
     content += `----------------------------------------------------\n`;
@@ -646,17 +653,23 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
                 <div className="flex items-center justify-between pt-2 border-t border-slate-100 gap-1.5">
                   <div className="flex items-center gap-1.5 flex-wrap">
                     {prod.datasheetUrl ? (
-                      <a
-                        href={prod.datasheetUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        title="Open Official PDF Datasheet"
-                        className="inline-flex items-center bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-1 rounded text-[11px] font-bold transition-colors"
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveDatasheet({
+                            productName: prod.name,
+                            datasheetUrl: prod.datasheetUrl!,
+                            brand: prod.brand,
+                            modelNumber: prod.model
+                          });
+                        }}
+                        title={`View ${prod.name} Technical Datasheet`}
+                        className="inline-flex items-center bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-1 rounded text-[11px] font-bold transition-colors cursor-pointer"
                       >
                         <FileText className="w-3 h-3 mr-1" />
                         Datasheet PDF
-                      </a>
+                      </button>
                     ) : (
                       <span className="text-[10px] text-slate-400 italic">No PDF</span>
                     )}
@@ -831,15 +844,21 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
               <div className="pt-4 border-t border-slate-200 flex justify-between items-center flex-wrap gap-2">
                 <div className="flex items-center gap-2">
                   {inspectingProduct.datasheetUrl && (
-                    <a
-                      href={inspectingProduct.datasheetUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-2 rounded-lg text-xs shadow transition-all"
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setActiveDatasheet({
+                          productName: inspectingProduct.name,
+                          datasheetUrl: inspectingProduct.datasheetUrl!,
+                          brand: inspectingProduct.brand,
+                          modelNumber: inspectingProduct.model
+                        });
+                      }}
+                      className="inline-flex items-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-2 rounded-lg text-xs shadow transition-all cursor-pointer"
                     >
-                      <ExternalLink className="w-3.5 h-3.5 mr-1" />
+                      <FileText className="w-3.5 h-3.5 mr-1" />
                       Open Datasheet PDF
-                    </a>
+                    </button>
                   )}
                   <button
                     onClick={() => handleDownloadSingleSpec(inspectingProduct)}
@@ -1092,6 +1111,16 @@ export const ProductCatalogue: React.FC<ProductCatalogueProps> = ({
             </form>
           </div>
         </div>
+      )}
+      {/* Datasheet Viewer Modal - Clean Display Showing Only Product Name */}
+      {activeDatasheet && (
+        <DatasheetViewerModal
+          productName={activeDatasheet.productName}
+          datasheetUrl={activeDatasheet.datasheetUrl}
+          brand={activeDatasheet.brand}
+          modelNumber={activeDatasheet.modelNumber}
+          onClose={() => setActiveDatasheet(null)}
+        />
       )}
     </div>
   );

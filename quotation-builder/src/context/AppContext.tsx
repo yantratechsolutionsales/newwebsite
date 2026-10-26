@@ -61,7 +61,7 @@ const STORAGE_KEYS = {
   SETTINGS: 'yts_settings_v1',
   SALES_MEMBERS: 'yts_sales_members_v1',
   CATEGORIES: 'yts_categories_v3',
-  PRODUCTS: 'yts_products_v3',
+  PRODUCTS: 'yts_products_v4',
   CUSTOMERS: 'yts_customers_v1',
   TERMS: 'yts_terms_v1',
   QUOTATIONS: 'yts_quotations_v1',

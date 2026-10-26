@@ -1,6 +1,7 @@
 import React from 'react';
 import { Quotation, CompanySettings } from '../types';
 import { formatINR, numberToIndianWords } from '../utils/calculations';
+import { openCleanDatasheetWindow } from '../utils/datasheetViewer';
 
 interface QuotationDocumentViewProps {
   quotation: Quotation;
@@ -240,14 +241,14 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
                     )}
                     {item.datasheetRef && (
                       <div className="text-[10px] mt-1 font-semibold">
-                        <a 
-                          href={item.datasheetRef} 
-                          target="_blank" 
-                          rel="noreferrer" 
-                          className="hover:underline flex items-center gap-1 text-[#a8740f]"
+                        <button 
+                          type="button"
+                          onClick={() => openCleanDatasheetWindow(item.name, item.datasheetRef!)} 
+                          className="hover:underline flex items-center gap-1 text-[#a8740f] cursor-pointer text-left font-medium"
+                          title={`Open ${item.name} Technical Datasheet`}
                         >
-                          📄 Technical Datasheet (PDF)
-                        </a>
+                          📄 {item.name} - Technical Datasheet (PDF)
+                        </button>
                       </div>
                     )}
                   </td>
