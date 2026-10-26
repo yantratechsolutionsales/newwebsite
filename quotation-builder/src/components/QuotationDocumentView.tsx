@@ -1,14 +1,4 @@
 import React from 'react';
-import { 
-  Building2, 
-  Phone, 
-  Mail, 
-  Globe, 
-  MapPin, 
-  ShieldCheck, 
-  CheckCircle2, 
-  FileSignature 
-} from 'lucide-react';
 import { Quotation, CompanySettings } from '../types';
 import { formatINR, numberToIndianWords } from '../utils/calculations';
 
@@ -47,46 +37,43 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
       className={`bg-white text-slate-900 leading-relaxed font-sans mx-auto ${
         isPrintView
           ? 'w-[210mm] min-h-[297mm] p-[12mm] shadow-none'
-          : 'max-w-[210mm] w-full p-8 sm:p-12 shadow-xl border border-slate-200 rounded-xl my-4'
+          : 'max-w-[210mm] w-full p-8 sm:p-12 shadow-2xl border border-slate-200 rounded-xl my-4'
       }`}
       style={{
         boxSizing: 'border-box',
-        color: '#0f172a',
+        color: '#111827',
       }}
     >
-      {/* 1. Header & Brand Block */}
+      {/* 1. Header & Brand Block with Official Yantratech Logo */}
       {sections.showCoverHeader && (
-        <div className="border-b-2 border-amber-500 pb-4 mb-6">
+        <div className="border-b-2 border-[#F3B93E] pb-4 mb-6">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <div className="flex items-center space-x-3.5">
-              <div className="w-14 h-14 rounded-xl bg-slate-950 text-amber-400 flex items-center justify-center font-black text-3xl shadow-md border border-amber-500/30">
-                Y
-              </div>
-              <div>
-                <div className="flex items-baseline space-x-1.5">
-                  <h1 className="text-2xl font-black tracking-tight text-slate-950 uppercase">
-                    {companySettings.name.split(' ')[0]}
-                  </h1>
-                  <span className="text-xl font-bold tracking-wider text-amber-600 uppercase">
-                    {companySettings.name.split(' ').slice(1).join(' ')}
-                  </span>
-                </div>
-                <p className="text-[11px] font-semibold text-slate-600 max-w-md leading-tight mt-0.5">
+            <div className="flex items-center space-x-4">
+              <img 
+                src="/yantratech-logo.webp" 
+                alt="Yantratech Solutions" 
+                className="h-16 sm:h-20 w-auto object-contain drop-shadow-sm"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/yantratech-logo.png';
+                }}
+              />
+              <div className="border-l-2 border-slate-200 pl-3.5">
+                <p className="text-[11px] font-semibold text-slate-700 max-w-sm leading-tight">
                   {companySettings.tagline}
                 </p>
                 <div className="text-[10px] text-slate-500 mt-1 flex flex-wrap gap-x-3 gap-y-0.5">
-                  <span>GSTIN: <strong className="font-mono text-slate-800">{companySettings.gstin}</strong></span>
-                  <span>PAN: <strong className="font-mono text-slate-800">{companySettings.pan}</strong></span>
+                  <span>GSTIN: <strong className="font-mono text-slate-900 font-bold">{companySettings.gstin}</strong></span>
+                  <span>PAN: <strong className="font-mono text-slate-900 font-bold">{companySettings.pan}</strong></span>
                 </div>
               </div>
             </div>
 
-            {/* Contact details */}
+            {/* Corporate contact details */}
             <div className="text-right text-[11px] text-slate-600 space-y-0.5 self-end sm:self-center">
-              <p className="text-slate-800 font-semibold">{companySettings.address}</p>
+              <p className="text-slate-900 font-bold">{companySettings.address}</p>
               <p>{companySettings.city}, {companySettings.state} - {companySettings.pincode}, {companySettings.country}</p>
-              <p className="font-mono text-slate-700">Phone: {companySettings.phone}</p>
-              <p className="text-amber-700 font-medium">Email: {companySettings.email}</p>
+              <p className="font-mono text-slate-800">Phone: {companySettings.phone}</p>
+              <p className="text-[#c79124] font-semibold">Email: {companySettings.email}</p>
               <p className="text-slate-500">{companySettings.website}</p>
             </div>
           </div>
@@ -94,18 +81,18 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
           {/* Quotation Title Banner */}
           <div className="mt-4 pt-3 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
             <div>
-              <span className="text-[10px] font-black uppercase tracking-widest text-amber-700 block">
-                COMMERCIAL PROPOSAL & QUOTATION
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#a8740f] block font-outfit">
+                COMMERCIAL PROPOSAL & TECHNICAL QUOTATION
               </span>
-              <h2 className="text-base font-bold text-slate-900 leading-snug">
+              <h2 className="text-base font-bold text-[#191A18] leading-snug font-outfit">
                 {quotation.title}
               </h2>
             </div>
-            <div className="sm:text-right bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
-              <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">
+            <div className="sm:text-right bg-amber-50/70 px-3.5 py-1.5 rounded-lg border border-[#F3B93E]/50">
+              <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">
                 Quotation No:
               </span>
-              <span className="font-mono font-bold text-sm text-slate-950">
+              <span className="font-mono font-bold text-sm text-[#191A18]">
                 {quotation.quotationNumber}
               </span>
             </div>
@@ -117,11 +104,11 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
       <div className="grid grid-cols-2 gap-4 text-xs mb-6">
         {/* Customer / Client Details */}
         {sections.showCustomerInfo && (
-          <div className="bg-slate-50/70 p-3.5 rounded-lg border border-slate-200 space-y-1">
-            <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wider block mb-1">
+          <div className="bg-slate-50/80 p-3.5 rounded-lg border border-slate-200 space-y-1">
+            <span className="text-[10px] font-bold text-[#a8740f] uppercase tracking-wider block mb-1 font-outfit">
               Quotation Issued To:
             </span>
-            <div className="font-bold text-slate-950 text-sm">{quotation.customerName}</div>
+            <div className="font-bold text-slate-950 text-sm font-outfit">{quotation.customerName}</div>
             <div className="text-slate-700 font-medium">
               Attn: {quotation.customerContactPerson}
               {quotation.customerDesignation ? ` (${quotation.customerDesignation})` : ''}
@@ -147,9 +134,9 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
         )}
 
         {/* Commercial Metadata */}
-        <div className="bg-slate-50/70 p-3.5 rounded-lg border border-slate-200 flex flex-col justify-between">
+        <div className="bg-slate-50/80 p-3.5 rounded-lg border border-slate-200 flex flex-col justify-between">
           <div className="space-y-1.5">
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block font-outfit">
               Proposal Metadata:
             </span>
             <div className="flex justify-between border-b border-slate-200/60 pb-1">
@@ -165,7 +152,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
             {quotation.enquiryRefNumber && (
               <div className="flex justify-between border-b border-slate-200/60 pb-1">
                 <span className="text-slate-500">Enquiry / RFQ Ref:</span>
-                <span className="font-mono font-bold text-amber-800">{quotation.enquiryRefNumber}</span>
+                <span className="font-mono font-bold text-[#a8740f]">{quotation.enquiryRefNumber}</span>
               </div>
             )}
             {quotation.purchaseOrderRef && (
@@ -190,7 +177,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
 
       {/* 3. Introduction Note */}
       {sections.showIntroduction && quotation.introductionNote && (
-        <div className="mb-5 text-xs text-slate-700 bg-amber-50/40 p-3 rounded-lg border-l-4 border-amber-500 italic leading-relaxed">
+        <div className="mb-5 text-xs text-slate-700 bg-amber-50/40 p-3 rounded-lg border-l-4 border-[#F3B93E] italic leading-relaxed">
           {quotation.introductionNote}
         </div>
       )}
@@ -198,7 +185,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
       {/* 4. Products Table */}
       {sections.showProductDetails && (
         <div className="mb-6">
-          <div className="text-[11px] font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center justify-between">
+          <div className="text-[11px] font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center justify-between font-outfit">
             <span>Scope of Supply & Pricing Breakdown</span>
             <span className="text-slate-400 font-normal normal-case text-[10px]">
               (All figures in Indian Rupees ₹)
@@ -207,17 +194,17 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
 
           <table className="w-full text-left border-collapse border border-slate-300 text-[11px]">
             <thead>
-              <tr className="bg-slate-800 text-white font-semibold uppercase tracking-wider text-[10px]">
-                <th className="py-2 px-2.5 border border-slate-700 text-center w-8">#</th>
-                <th className="py-2 px-2.5 border border-slate-700">Product / Instrument Description</th>
-                <th className="py-2 px-2 border border-slate-700 text-center w-16">HSN/SAC</th>
-                <th className="py-2 px-2 border border-slate-700 text-center w-12">Qty</th>
-                <th className="py-2 px-2 border border-slate-700 text-center w-12">Unit</th>
-                <th className="py-2 px-2 border border-slate-700 text-right w-20">Rate (₹)</th>
-                <th className="py-2 px-2 border border-slate-700 text-right w-16">Disc %</th>
-                <th className="py-2 px-2 border border-slate-700 text-right w-24">Taxable (₹)</th>
-                <th className="py-2 px-2 border border-slate-700 text-center w-14">GST %</th>
-                <th className="py-2 px-2.5 border border-slate-700 text-right w-24">Total (₹)</th>
+              <tr className="bg-[#191A18] text-white font-semibold uppercase tracking-wider text-[10px]">
+                <th className="py-2.5 px-2.5 border border-slate-700 text-center w-8 text-[#F3B93E]">#</th>
+                <th className="py-2.5 px-2.5 border border-slate-700">Product / Instrument Description</th>
+                <th className="py-2.5 px-2 border border-slate-700 text-center w-16">HSN/SAC</th>
+                <th className="py-2.5 px-2 border border-slate-700 text-center w-12">Qty</th>
+                <th className="py-2.5 px-2 border border-slate-700 text-center w-12">Unit</th>
+                <th className="py-2.5 px-2 border border-slate-700 text-right w-20">Rate (₹)</th>
+                <th className="py-2.5 px-2 border border-slate-700 text-right w-16">Disc %</th>
+                <th className="py-2.5 px-2 border border-slate-700 text-right w-24">Taxable (₹)</th>
+                <th className="py-2.5 px-2 border border-slate-700 text-center w-14">GST %</th>
+                <th className="py-2.5 px-2.5 border border-slate-700 text-right w-24 text-[#F3B93E]">Total (₹)</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
@@ -227,7 +214,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
                     {idx + 1}
                   </td>
                   <td className="py-2 px-2.5 border border-slate-300 align-top">
-                    <div className="font-bold text-slate-950 text-xs">{item.name}</div>
+                    <div className="font-bold text-slate-950 text-xs font-outfit">{item.name}</div>
                     <div className="text-[10px] text-slate-600 mt-0.5">
                       {item.brand && <span className="font-semibold text-slate-700 mr-2">Brand: {item.brand}</span>}
                       {item.model && <span className="font-mono text-slate-600">Model: {item.model}</span>}
@@ -247,7 +234,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
                       </div>
                     )}
                     {item.warranty && (
-                      <div className="text-[10px] text-amber-700 mt-1 font-medium">
+                      <div className="text-[10px] text-[#a8740f] mt-1 font-medium">
                         Warranty: {item.warranty}
                       </div>
                     )}
@@ -289,17 +276,17 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
           {/* Amount in words & Bank info */}
           <div className="space-y-3">
             <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-0.5">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-0.5 font-outfit">
                 Grand Total Amount In Words:
               </span>
-              <p className="text-xs font-bold text-slate-900 italic">
+              <p className="text-xs font-bold text-slate-900 italic font-outfit">
                 {numberToIndianWords(quotation.grandTotal)}
               </p>
             </div>
 
             {sections.showBankDetails && (
               <div className="bg-slate-50/80 p-3 rounded-lg border border-slate-200 text-[11px] space-y-1">
-                <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider block mb-1">
+                <span className="text-[10px] font-bold text-slate-700 uppercase tracking-wider block mb-1 font-outfit">
                   Bank Details for Electronic Remittance (RTGS / NEFT):
                 </span>
                 <div className="flex justify-between">
@@ -312,7 +299,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">IFSC Code:</span>
-                  <span className="font-mono font-bold text-amber-800">{companySettings.ifscCode}</span>
+                  <span className="font-mono font-bold text-[#a8740f]">{companySettings.ifscCode}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Branch:</span>
@@ -330,7 +317,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
             </div>
 
             {quotation.totalDiscount > 0 && (
-              <div className="flex justify-between text-emerald-700">
+              <div className="flex justify-between text-emerald-700 font-medium">
                 <span>Total Discount Applied:</span>
                 <span className="font-mono">- {formatINR(quotation.totalDiscount)}</span>
               </div>
@@ -344,17 +331,17 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
             {/* Clear GST Selection Logic: never show IGST and CGST together */}
             {quotation.taxType === 'IGST' ? (
               <div className="flex justify-between text-slate-700">
-                <span>Integrated GST (IGST):</span>
+                <span>Integrated GST (IGST 18%):</span>
                 <span className="font-mono font-semibold">{formatINR(quotation.igstAmount)}</span>
               </div>
             ) : (
               <>
                 <div className="flex justify-between text-slate-700">
-                  <span>Central GST (CGST):</span>
+                  <span>Central GST (CGST 9%):</span>
                   <span className="font-mono font-semibold">{formatINR(quotation.cgstAmount)}</span>
                 </div>
                 <div className="flex justify-between text-slate-700">
-                  <span>State GST (SGST):</span>
+                  <span>State GST (SGST 9%):</span>
                   <span className="font-mono font-semibold">{formatINR(quotation.sgstAmount)}</span>
                 </div>
               </>
@@ -372,9 +359,9 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
               </div>
             )}
 
-            <div className="flex justify-between text-slate-950 font-black text-sm border-t-2 border-slate-900 pt-2 bg-amber-50/80 -mx-3.5 -mb-3.5 p-3 rounded-b-lg">
+            <div className="flex justify-between text-[#191A18] font-black text-sm border-t-2 border-[#191A18] pt-2.5 bg-amber-50/90 -mx-3.5 -mb-3.5 p-3.5 rounded-b-lg border-b border-[#F3B93E]/40 font-outfit">
               <span className="uppercase tracking-wider">Grand Total (INR):</span>
-              <span className="font-mono text-base text-amber-900">{formatINR(quotation.grandTotal)}</span>
+              <span className="font-mono text-base text-[#a8740f]">{formatINR(quotation.grandTotal)}</span>
             </div>
           </div>
         </div>
@@ -384,7 +371,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs mb-6">
         {sections.showDeliveryInfo && quotation.delivery && (
           <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-1">
-            <span className="text-[10px] font-bold text-slate-800 uppercase tracking-wider block mb-1">
+            <span className="text-[10px] font-bold text-slate-800 uppercase tracking-wider block mb-1 font-outfit">
               Delivery & Logistics Schedule
             </span>
             <div className="text-slate-600">
@@ -404,7 +391,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
 
         {sections.showPaymentTerms && (
           <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-1">
-            <span className="text-[10px] font-bold text-slate-800 uppercase tracking-wider block mb-1">
+            <span className="text-[10px] font-bold text-slate-800 uppercase tracking-wider block mb-1 font-outfit">
               Payment & Warranty Terms
             </span>
             <div className="text-slate-600">
@@ -426,7 +413,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
       {/* 7. Terms & Conditions */}
       {sections.showTermsAndConditions && enabledTerms.length > 0 && (
         <div className="mb-6 border-t border-slate-200 pt-4">
-          <span className="text-[10px] font-bold text-slate-800 uppercase tracking-widest block mb-2">
+          <span className="text-[10px] font-bold text-slate-800 uppercase tracking-widest block mb-2 font-outfit">
             General Commercial Terms & Conditions:
           </span>
           <ol className="list-decimal pl-4 text-[10px] text-slate-600 space-y-1 leading-snug">
@@ -444,7 +431,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
         <div className="border-t border-slate-200 pt-6 mt-4 flex flex-col sm:flex-row justify-between items-end gap-6 text-xs">
           {/* Customer Acceptance Signoff */}
           <div className="w-full sm:w-1/2 border border-dashed border-slate-300 p-3 rounded-lg text-center">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-6">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-6 font-outfit">
               Client Acceptance & Work Authorization
             </span>
             <div className="border-t border-slate-300 pt-1 text-[10px] text-slate-500">
@@ -454,7 +441,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
 
           {/* Yantratech Solutions Signatory */}
           <div className="w-full sm:w-1/2 text-right">
-            <span className="text-[11px] font-bold text-slate-800 block">
+            <span className="text-[11px] font-bold text-slate-800 block font-outfit">
               For Yantratech Solutions
             </span>
             
@@ -465,7 +452,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
               </span>
             </div>
 
-            <div className="font-bold text-slate-900 text-xs">
+            <div className="font-bold text-slate-900 text-xs font-outfit">
               {quotation.signatoryName}
             </div>
             <div className="text-[11px] text-slate-600 font-medium">
@@ -481,7 +468,7 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
       {/* 9. Footer */}
       <div className="border-t border-slate-200 mt-6 pt-3 text-center text-[10px] text-slate-400">
         <p>{companySettings.footerText}</p>
-        <p className="mt-0.5">
+        <p className="mt-0.5 font-medium">
           {companySettings.website} | Pan-India Delivery | Genuine Industrial Solutions
         </p>
       </div>
