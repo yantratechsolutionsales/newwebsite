@@ -169,6 +169,8 @@ export const QuotationBuilder: React.FC<QuotationBuilderProps> = ({
   // Catalogue quick modal state
   const [isProductPickerOpen, setIsProductPickerOpen] = useState(false);
   const [catalogueSearch, setCatalogueSearch] = useState('');
+  const [catalogueCategoryFilter, setCatalogueCategoryFilter] = useState('ALL');
+  const [catalogueBrandFilter, setCatalogueBrandFilter] = useState('ALL');
 
   // 1. Customer Selection Handler
   const handleCustomerSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -280,7 +282,9 @@ export const QuotationBuilder: React.FC<QuotationBuilderProps> = ({
       brand: product.brand,
       model: product.model,
       description: product.shortDescription,
-      technicalSpecs: product.specs.map(s => `${s.label}: ${s.value}`).join(' | '),
+      technicalSpecs: product.specs && product.specs.length > 0
+        ? product.specs.map(s => `${s.label}: ${s.value}`).join(' | ')
+        : (product.detailedDescription || ''),
       quantity: 1,
       unit: product.unit,
       rate: product.standardPrice,
@@ -293,6 +297,7 @@ export const QuotationBuilder: React.FC<QuotationBuilderProps> = ({
       hsnSac: product.hsnSac,
       warranty: product.warranty,
       deliveryTime: product.leadTime,
+      datasheetRef: product.datasheetUrl || '',
     };
     setItems((prev) => [...prev, newItem]);
     setIsProductPickerOpen(false);
@@ -1002,69 +1007,141 @@ export const QuotationBuilder: React.FC<QuotationBuilderProps> = ({
       {/* Catalogue Quick Selection Modal */}
       {isProductPickerOpen && (
         <div className="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden max-h-[85vh] flex flex-col">
-            <div className="bg-slate-900 px-6 py-4 flex justify-between items-center text-white">
-              <h3 className="font-bold text-lg flex items-center">
-                <Package className="w-5 h-5 mr-2 text-amber-400" />
-                Select Product from Yantratech Catalogue
-              </h3>
+          <div className="bg-white rounded-2xl max-w-4xl w-full shadow-2xl border border-slate-200 overflow-hidden max-h-[88vh] flex flex-col">
+            <div className="bg-[#191A18] px-6 py-4 flex justify-between items-center text-white border-b border-amber-500/40">
+              <div>
+                <h3 className="font-bold text-lg flex items-center text-white font-outfit">
+                  <Package className="w-5 h-5 mr-2 text-[#F3B93E]" />
+                  Select from Industrial Product Catalogue ({catalogueProducts.length} items)
+                </h3>
+                <p className="text-xs text-slate-400">Search and insert instruments, meters, sensors, and technical solutions.</p>
+              </div>
               <button
                 onClick={() => setIsProductPickerOpen(false)}
-                className="text-slate-400 hover:text-white text-xl font-bold"
+                className="text-slate-400 hover:text-white text-2xl font-bold leading-none p-1"
               >
                 &times;
               </button>
             </div>
 
-            <div className="p-4 border-b border-slate-200 bg-slate-50">
-              <input
-                type="text"
-                placeholder="Search catalogue products by name, model, brand, or category..."
-                value={catalogueSearch}
-                onChange={(e) => setCatalogueSearch(e.target.value)}
-                className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none"
-              />
+            {/* Filter toolbar */}
+            <div className="p-4 border-b border-slate-200 bg-slate-50 grid grid-cols-1 md:grid-cols-12 gap-3">
+              <div className="md:col-span-6">
+                <input
+                  type="text"
+                  placeholder="Search by name, model, brand, SKU or specifications..."
+                  value={catalogueSearch}
+                  onChange={(e) => setCatalogueSearch(e.target.value)}
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none bg-white"
+                />
+              </div>
+
+              <div className="md:col-span-3">
+                <select
+                  value={catalogueCategoryFilter}
+                  onChange={(e) => setCatalogueCategoryFilter(e.target.value)}
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none bg-white"
+                >
+                  <option value="ALL">All Categories</option>
+                  {[...new Set(catalogueProducts.map(p => p.category))].filter(Boolean).sort().map(cat => (
+                    <option key={cat} value={cat}>{cat}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="md:col-span-3">
+                <select
+                  value={catalogueBrandFilter}
+                  onChange={(e) => setCatalogueBrandFilter(e.target.value)}
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:outline-none bg-white"
+                >
+                  <option value="ALL">All Brands</option>
+                  {[...new Set(catalogueProducts.map(p => p.brand))].filter(Boolean).sort().map(b => (
+                    <option key={b} value={b}>{b}</option>
+                  ))}
+                </select>
+              </div>
             </div>
 
-            <div className="p-4 overflow-y-auto divide-y divide-slate-100 flex-1">
+            <div className="p-4 overflow-y-auto divide-y divide-slate-100 flex-1 space-y-2">
               {catalogueProducts
-                .filter(
-                  (p) =>
+                .filter((p) => {
+                  const matchSearch = !catalogueSearch ||
                     p.name.toLowerCase().includes(catalogueSearch.toLowerCase()) ||
                     p.brand.toLowerCase().includes(catalogueSearch.toLowerCase()) ||
                     p.model.toLowerCase().includes(catalogueSearch.toLowerCase()) ||
-                    p.category.toLowerCase().includes(catalogueSearch.toLowerCase())
-                )
+                    p.category.toLowerCase().includes(catalogueSearch.toLowerCase()) ||
+                    (p.shortDescription && p.shortDescription.toLowerCase().includes(catalogueSearch.toLowerCase()));
+
+                  const matchCat = catalogueCategoryFilter === 'ALL' || p.category === catalogueCategoryFilter;
+                  const matchBrand = catalogueBrandFilter === 'ALL' || p.brand === catalogueBrandFilter;
+
+                  return matchSearch && matchCat && matchBrand;
+                })
+                .slice(0, 100) // render up to 100 at a time for instant 60fps interaction
                 .map((prod) => (
                   <div
                     key={prod.id}
                     onClick={() => handleAddCatalogueProduct(prod)}
-                    className="py-3 px-2 flex justify-between items-center hover:bg-amber-50/50 cursor-pointer rounded-lg transition-colors group"
+                    className="py-3 px-3 flex flex-col sm:flex-row justify-between items-start sm:items-center hover:bg-amber-50/50 cursor-pointer rounded-xl transition-all border border-transparent hover:border-amber-300 group gap-3"
                   >
-                    <div>
-                      <div className="font-bold text-slate-900 text-sm group-hover:text-amber-700">
-                        {prod.name}
-                      </div>
-                      <div className="text-xs text-slate-500 mt-0.5">
-                        Brand: <strong>{prod.brand}</strong> | Model: {prod.model} | Category: {prod.category}
-                      </div>
-                      <div className="text-[11px] text-slate-600 line-clamp-1 mt-0.5">
-                        {prod.shortDescription}
+                    <div className="flex items-start space-x-3.5">
+                      {prod.imageUrl ? (
+                        <img 
+                          src={prod.imageUrl} 
+                          alt={prod.name} 
+                          className="w-14 h-14 object-contain rounded-lg border border-slate-200 bg-white p-1 flex-shrink-0"
+                          onError={(e) => {
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
+                        />
+                      ) : (
+                        <div className="w-14 h-14 rounded-lg border border-slate-200 bg-slate-100 flex items-center justify-center text-slate-400 flex-shrink-0 font-bold text-xs">
+                          NO IMG
+                        </div>
+                      )}
+                      <div>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-bold text-slate-900 text-sm group-hover:text-amber-700 font-outfit">
+                            {prod.name}
+                          </span>
+                          {prod.datasheetUrl && (
+                            <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded border border-emerald-200">
+                              PDF Datasheet
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-xs text-slate-600 mt-0.5 flex items-center gap-2 flex-wrap">
+                          <span className="bg-slate-100 text-slate-800 font-semibold px-2 py-0.5 rounded text-[11px]">
+                            Brand: {prod.brand}
+                          </span>
+                          {prod.model && (
+                            <span className="font-mono text-slate-700 font-medium">
+                              Model: {prod.model}
+                            </span>
+                          )}
+                          <span className="text-slate-400 text-[11px]">• {prod.category}</span>
+                        </div>
+                        <div className="text-[11px] text-slate-500 line-clamp-1 mt-1 max-w-xl">
+                          {prod.shortDescription}
+                        </div>
                       </div>
                     </div>
 
-                    <div className="text-right pl-4 flex-shrink-0">
-                      <div className="font-mono font-bold text-slate-900 text-sm">
-                        {formatINR(prod.standardPrice)}
-                      </div>
-                      <div className="text-[11px] text-slate-500">
-                        GST: {prod.gstRate}% | HSN: {prod.hsnSac}
+                    <div className="text-right sm:pl-4 flex-shrink-0 flex sm:flex-col items-center sm:items-end justify-between w-full sm:w-auto mt-2 sm:mt-0 pt-2 sm:pt-0 border-t sm:border-0 border-slate-100">
+                      <div>
+                        <div className="font-mono font-bold text-slate-900 text-sm">
+                          {prod.standardPrice > 0 ? formatINR(prod.standardPrice) : 'Price on Enquiry'}
+                        </div>
+                        <div className="text-[10px] text-slate-500">
+                          GST: {prod.gstRate}% | HSN: {prod.hsnSac || '9030'}
+                        </div>
                       </div>
                       <button
                         type="button"
-                        className="mt-1 bg-amber-500 group-hover:bg-amber-400 text-slate-950 font-bold px-2.5 py-1 rounded text-[11px]"
+                        className="mt-1.5 bg-[#F3B93E] hover:bg-[#e0a426] text-[#191A18] font-bold px-3 py-1.5 rounded-lg text-xs shadow-sm transition-all"
                       >
-                        + Insert into Quotation
+                        + Insert Item
                       </button>
                     </div>
                   </div>

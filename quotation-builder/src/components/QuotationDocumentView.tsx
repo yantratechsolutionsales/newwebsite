@@ -238,6 +238,18 @@ export const QuotationDocumentView: React.FC<QuotationDocumentViewProps> = ({
                         Warranty: {item.warranty}
                       </div>
                     )}
+                    {item.datasheetRef && (
+                      <div className="text-[10px] mt-1 font-semibold">
+                        <a 
+                          href={item.datasheetRef} 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="hover:underline flex items-center gap-1 text-[#a8740f]"
+                        >
+                          📄 Technical Datasheet (PDF)
+                        </a>
+                      </div>
+                    )}
                   </td>
                   <td className="py-2 px-2 border border-slate-300 text-center font-mono text-slate-600 align-top">
                     {item.hsnSac || '—'}

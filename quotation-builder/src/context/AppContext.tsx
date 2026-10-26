@@ -60,8 +60,8 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 const STORAGE_KEYS = {
   SETTINGS: 'yts_settings_v1',
   SALES_MEMBERS: 'yts_sales_members_v1',
-  CATEGORIES: 'yts_categories_v1',
-  PRODUCTS: 'yts_products_v1',
+  CATEGORIES: 'yts_categories_v3',
+  PRODUCTS: 'yts_products_v3',
   CUSTOMERS: 'yts_customers_v1',
   TERMS: 'yts_terms_v1',
   QUOTATIONS: 'yts_quotations_v1',
@@ -80,13 +80,33 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   });
 
   const [categories, setCategories] = useState<ProductCategory[]>(() => {
-    const saved = localStorage.getItem(STORAGE_KEYS.CATEGORIES);
-    return saved ? JSON.parse(saved) : INITIAL_PRODUCT_CATEGORIES;
+    try {
+      const saved = localStorage.getItem(STORAGE_KEYS.CATEGORIES);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length >= INITIAL_PRODUCT_CATEGORIES.length) {
+          return parsed;
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return INITIAL_PRODUCT_CATEGORIES;
   });
 
   const [catalogueProducts, setCatalogueProducts] = useState<CatalogueProduct[]>(() => {
-    const saved = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
-    return saved ? JSON.parse(saved) : INITIAL_CATALOGUE_PRODUCTS;
+    try {
+      const saved = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length >= 500) {
+          return parsed;
+        }
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    return INITIAL_CATALOGUE_PRODUCTS;
   });
 
   const [customers, setCustomers] = useState<Customer[]>(() => {
