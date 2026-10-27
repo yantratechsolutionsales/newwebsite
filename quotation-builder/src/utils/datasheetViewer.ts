@@ -11,34 +11,24 @@ export function sanitizeProductName(name: string): string {
 /**
  * Directly downloads the datasheet with a clean, professional filename:
  * e.g. "Meco_153B_TRMS_Digital_Multimeter_Datasheet.pdf"
+ * Uses same-origin proxy to eliminate CORS errors and browser download blocking.
  */
 export async function downloadDatasheetPdf(productName: string, datasheetUrl: string) {
   if (!datasheetUrl) return;
 
   const fileName = `${sanitizeProductName(productName || 'Product')}_Datasheet.pdf`;
+  const proxyDownloadUrl = `/api/datasheet-download?url=${encodeURIComponent(datasheetUrl)}&name=${encodeURIComponent(fileName)}`;
 
   try {
-    const response = await fetch(datasheetUrl);
-    if (!response.ok) throw new Error('Network response not ok');
-    const blob = await response.blob();
-    const blobUrl = URL.createObjectURL(blob);
-    
     const link = document.createElement('a');
-    link.href = blobUrl;
-    link.download = fileName;
+    link.href = proxyDownloadUrl;
+    link.setAttribute('download', fileName);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(blobUrl);
-  } catch {
-    // If CORS prevents direct blob fetch, fallback to normal download link
-    const link = document.createElement('a');
-    link.href = datasheetUrl;
-    link.download = fileName;
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  } catch (err) {
+    console.error('Proxy download failed, fallback to direct tab:', err);
+    window.open(datasheetUrl, '_blank');
   }
 }
 
@@ -218,21 +208,14 @@ export function openCleanDatasheetWindow(productName: string, datasheetUrl: stri
     <iframe src="${datasheetUrl}" title="${escapedName} - Technical Datasheet"></iframe>
   </div>
   <script>
-    document.getElementById('downloadBtn').addEventListener('click', async () => {
-      try {
-        const res = await fetch('${datasheetUrl}');
-        const blob = await res.blob();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = '${downloadFileName}';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      } catch (err) {
-        window.open('${datasheetUrl}', '_blank');
-      }
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const proxyDownloadUrl = '/api/datasheet-download?url=' + encodeURIComponent('${datasheetUrl}') + '&name=' + encodeURIComponent('${downloadFileName}');
+      const a = document.createElement('a');
+      a.href = proxyDownloadUrl;
+      a.download = '${downloadFileName}';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     });
   <\/script>
 </body>

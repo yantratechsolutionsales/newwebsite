@@ -324,7 +324,7 @@ export const INITIAL_QUOTATIONS: Quotation[] = [
         hsnSac: '90303100',
         warranty: '3 Years Warranty',
         deliveryTime: 'Ex-stock 2-3 days',
-        datasheetRef: 'https://www.pravininstruments.com/download/Fluke-115.pdf'
+        datasheetRef: 'https://www.pravininstruments.com/download/Meco-153B-TRMS-6000-count-trms-autoranging-Digital-Multimeter.pdf'
       },
       {
         id: 'item-102',

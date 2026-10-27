@@ -64,7 +64,7 @@ const STORAGE_KEYS = {
   PRODUCTS: 'yts_products_v4',
   CUSTOMERS: 'yts_customers_v1',
   TERMS: 'yts_terms_v1',
-  QUOTATIONS: 'yts_quotations_v1',
+  QUOTATIONS: 'yts_quotations_v2',
 };
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

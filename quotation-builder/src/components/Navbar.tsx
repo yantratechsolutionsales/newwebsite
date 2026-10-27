@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab, onNew
   ];
 
   return (
-    <header className="bg-[#191A18] text-white border-b border-[#2a2c28] sticky top-0 z-50 shadow-md">
+    <header className="bg-[#191A18] text-white border-b border-[#2a2c28] sticky top-0 z-50 shadow-md no-print">
       {/* Top Banner / Corporate Contact bar matching Yantratech website */}
       <div className="bg-[#121311] px-4 py-1.5 text-xs text-slate-300 border-b border-[#252724] hidden sm:flex justify-between items-center">
         <div className="flex items-center space-x-6">

@@ -54,7 +54,8 @@ export const QuotationPreviewModal: React.FC<QuotationPreviewModalProps> = ({
       await exportQuotationToPdf('quotation-print-document', quotation.quotationNumber);
     } catch (err) {
       console.error('Failed to export PDF:', err);
-      alert('Error generating PDF document. Please try printing or refresh.');
+      // Fallback directly to native print/Save-as-PDF dialog so user is never blocked
+      printQuotation();
     } finally {
       setIsExporting(false);
     }
@@ -74,7 +75,7 @@ export const QuotationPreviewModal: React.FC<QuotationPreviewModalProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Floating Control Bar */}
-      <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-16 z-40">
+      <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-16 z-40 no-print">
         <div className="flex items-center space-x-3">
           <button
             onClick={onClose}
@@ -153,7 +154,9 @@ export const QuotationPreviewModal: React.FC<QuotationPreviewModalProps> = ({
 
       {/* Actual Rendered Document Container */}
       <div className="overflow-x-auto pb-12 flex justify-center">
-        <QuotationDocumentView quotation={quotation} companySettings={companySettings} />
+        <div className="bg-white shadow-2xl border border-slate-200/80 rounded-sm">
+          <QuotationDocumentView quotation={quotation} companySettings={companySettings} />
+        </div>
       </div>
     </div>
   );
